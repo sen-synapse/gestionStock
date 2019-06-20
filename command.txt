@@ -1,0 +1,1929 @@
+    1  mysql -u root -p
+    2  clear
+    3  php -v
+    4  clear
+    5  python
+    6  python3
+    7  clear
+    8  php
+    9  exit
+   10  php
+   11  exit
+   12  clear
+   13  cd /home/garmi/Téléchargements/
+   14  dir
+   15  sudo
+   16  clear
+   17  chmod 755 xampp-linux-x64-7.3.6-0-installer.run 
+   18  ls -l xampp-linux-x64-7.3.6-0-installer.run 
+   19  sudo ./xampp-linux-x64-7.3.6-0-installer.run 
+   20  exit
+   21  php
+   22  sudo /opt/lampp/lampp start
+   23  sudo apt install net-tools
+   24  sudo /opt/lampp/lampp stop
+   25  sudo apt install net-tools
+   26  clear
+   27  sudo apt-get install net-tools 
+   28  clear
+   29  sudo apt-get install net-tools 
+   30  sudo /opt/lampp/lampp start
+   31  mysql
+   32  php
+   33  clear
+   34  dir
+   35  clear
+   36  cd /opt/lampp/
+   37  dir
+   38  cd php
+   39  dir
+   40  cd ../
+   41  cd xampp
+   42  php
+   43  cd bin/
+   44  dir
+   45  php
+   46  php7
+   47  cd ..
+   48  start
+   49  sudo lampp start
+   50  cd ../..
+   51  sudo /opt/lampp/lampp start
+   52  sudo apt-get install flatpak
+   53  clear
+   54  sudo apt-get install gnome-software-plugin-flatpak 
+   55  clear
+   56  man cp
+   57  cp -rf /home/garmi/Bureau/GACJ/ /opt/lampp/htdocs/
+   58  sudo cp -rf /home/garmi/Bureau/GACJ/ /opt/lampp/htdocs/
+   59  exit
+   60  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpackrepo
+   61  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+   62  clear
+   63  sudo apt update
+   64  sudo apt install wget php-cli php-zip unzip
+   65  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   66  HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+   67  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   68  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   69  composer
+   70  cd /home/garmi/Bureau/
+   71  mkdir Projects
+   72  cd Projects/
+   73  composer --version
+   74  clear
+   75  composer global require laravel/installer
+   76  laravel new Blog
+   77  laravel
+   78  composer global require laravel/installer
+   79  composer create-project --prefer-dist laravel/laravel blog
+   80  dir
+   81  cd blog/
+   82  php artisan server.php 
+   83  php artisan serv
+   84  php artisan serve
+   85  clear
+   86  exit
+   87  phpstorm .
+   88  php artisan 
+   89  clear
+   90  sudo apt install wget php-cli php-zip unzip
+   91  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   92  php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   93  php composer-setup.php
+   94  php -r "unlink('composer-setup.php');"
+   95  dir
+   96  sudo apt-get remove --auto-remove composer
+   97  composer
+   98  sudo chown -R w3cert /home/w3cert/.composer/cache/repo/https---packagist.org
+   99  clear
+  100  sudo chown -R garmi /home/garmi/.composer/cache/repo/https---packagist.org
+  101  ls -la /home/garmi/.*
+  102  ls -a /home/garmi/.*
+  103  sudo -R garmi /home/garmi/.composer/cache/repo/https---repo.packagist.org/
+  104  sudo chown -R garmi /home/garmi/.composer/cache/repo/https---repo.packagist.org/
+  105  sudo chown -R garmi /home/garmi/.composer
+  106  sudo chown -R garmi /home/garmi/.composer/cache/files/
+  107  composer
+  108  cd /home/garmi/Bureau/Projects/
+  109  dir
+  110  rm -rf blog
+  111  dir
+  112  clear
+  113  composer global require laravel/installer
+  114  laravel
+  115  export PATH="$HOME/.composer/vendor/bin:$PATH"
+  116  laravel
+  117  clear
+  118  laravel new Blog
+  119  php --ini
+  120  sudo nano /etc/php/7.2/cli/php.ini
+  121  exit
+  122  sudo nano /etc/php/7.2/cli/php.ini
+  123  clear
+  124  sudo apt-get install php7.2-ctype
+  125  php -v
+  126  clear
+  127  php --ini
+  128  sudo chmod 755 garmi /opt/lampp/htdocs/GACJ/.idea/workspace.xml
+  129  sudo chmod 755 /opt/lampp/htdocs/GACJ/.idea/workspace.xml
+  130  sudo chmod 755 /opt/lampp/htdocs/GACJ/
+  131  sudo chmod 777 -R /opt/lampp/htdocs/GACJ/
+  132  /opt/lampp/lampp start
+  133  sudo /opt/lampp/lampp start
+  134  cd ~
+  135  chmod 755 /etc/php/7.2/cli/php.ini 
+  136  sudo chmod 755 /etc/php/7.2/cli/php.ini 
+  137  sudo chmod -R 755 /etc/php/7.2/cli/php.ini 
+  138  ls -l /etc/php/7.2/cli/
+  139  sudo nano /etc/php/7.2/cli/php.ini 
+  140  clear
+  141  laravel new /home/garmi/Bureau/Projects/Bl
+  142  clear
+  143  sudo /opt/lampp/lampp restart
+  144  laravel new /home/garmi/Bureau/Projects/Bl
+  145  cd /home/garmi/Bureau/
+  146  cd Projects/
+  147  dir
+  148  rm -rf ./*
+  149  dir
+  150  laravel new /home/garmi/Bureau/Projects/Bl
+  151  sudo apt-get install php-mbstring 
+  152  rm -rf ./*
+  153  laravel new /home/garmi/Bureau/Projects/Bl
+  154  clear
+  155  sudo apt-get install php-xml
+  156  rm -rf ./*
+  157  laravel new /home/garmi/Bureau/Projects/Bl
+  158  dir
+  159  rm -rf ./*
+  160  dir
+  161  sudo apt-get autoremove
+  162  laravel new blog
+  163  dir
+  164  cd blog/
+  165  dir
+  166  php artisan server.php 
+  167  php artisan serve 
+  168  clear
+  169  sudo nano /etc/php/7.2/cli/php.ini 
+  170  sudo /opt/lampp/lampp restart
+  171  cd ..
+  172  clear
+  173  laravel new Blog
+  174  clear
+  175  cd blog/
+  176  php artisan serve
+  177  clear
+  178  sudo lsusb
+  179  clear
+  180  cd ~
+  181  sudo apt-get install libpam-fprintd 
+  182  sudo apt-get install fprintd
+  183  sudo apt-get install fprint-demo
+  184  clear
+  185  sudo pam-auth-update
+  186  fprintd-enroll
+  187  fprintd-verify
+  188  clear
+  189  sudo apt-get update
+  190  su
+  191  sudo ls -la /opt/lampp/
+  192  clear
+  193  sudo apt-get install gnome-shell
+  194  sudo apt-get update 
+  195  sudo apt-get install gnome-tweak-tool 
+  196  sudo apt-get install chrome-gnome-shell 
+  197  sudo purge chrome-gnome-shell 
+  198  sudo pt-get purge chrome-gnome-shell 
+  199  sudo apt-get purge chrome-gnome-shell 
+  200  sudo apt-get install chrome-gnome-shell 
+  201  sudo apt-get update 
+  202  gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+  203  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots false
+  204  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots false
+  205  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink false
+  206  gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode DEFAULT
+  207  gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+  208  gsettings set org.gnome.shell.extensions.dash-to-dock dock-pozition BOTTOM
+  209  _______________________________________________________________________________________________
+  210  exit
+  211  sudo chmod +x install.sh 
+  212  ./install.sh 
+  213  cccccccc
+  214  cp SanFranciscoDisplay-Regular.otf ~/.local/share/fonts
+  215  cp San\ Francisco.ttf ~/.local/share/fonts
+  216  cd /home/garmi/Bureau/Projects/
+  217  dir
+  218  rm -rf ./*
+  219  laravel new Test1
+  220  sudo laravel new Test1
+  221  composer
+  222  composer global require laravel/installer
+  223  $HOME
+  224  ls $HOME
+  225  ls -a $HOME
+  226  export PATH="$HOME/.composer/vendor/bin:$PATH"
+  227  laravel
+  228  laravel new Test1
+  229  cd Test1/
+  230  php artisan serve
+  231  laravel
+  232  laravel --version
+  233  echo /home/$USER
+  234  echo /home/garmi/.bashrc 
+  235  sudo nano /home/garmi/.bashrc 
+  236  laravel --version
+  237  sudo nano /home/garmi/.bashrc 
+  238  source ~/.bashrc
+  239  laravel --version
+  240  exit
+  241  exit
+  242  lsb_release -a
+  243  /opt/lampp/lampp start
+  244  sudo gedit /etc/systemd/system/xampp.service
+  245  sudo systemctl enable xampp.service
+  246  sudo reboot 
+  247  phpstorm .
+  248  mv .env.example .env
+  249  composer install
+  250  php artisan key:generate
+  251  php artisan migrate
+  252  php artisan
+  253  php artisan 
+  254  php artisan make:migration
+  255  php artisan migrate
+  256  composer install
+  257  php artisan key:generate
+  258  php artisan migrate
+  259  sudo nano /etc/php/7.2/cli/php.ini
+  260  sudo apt-get install php-pdo_mysql
+  261  sudo nano /etc/php/7.2/cli/php.ini
+  262  /opt/lampp/lampp restart
+  263  sudo /opt/lampp/lampp restart
+  264  cd ..
+  265  laravel new CreditsOffices
+  266  cd CreditsOffices/
+  267  phpstorm .
+  268  cd ..
+  269  cd Test1/
+  270  phpstorm .
+  271  sudo nano /etc/php/7.2/cli/php.ini
+  272  history
+  273  sudo systemctl status xampp-service
+  274  sudo gedit /etc/systemd/system/xampp.service
+  275  sudo systemctl enable xampp.service
+  276  sudo systemctl status xampp-service
+  277  sudo systemctl status xampp.service
+  278  php -V
+  279  php --version
+  280  sudo apt-get install php7.2-pdo
+  281  sudo apt-get update
+  282  sudo apt-get install php7.2-pdo php7.2-mysql 
+  283  history
+  284  history >>/home/garmi/Bureau/history.txt
+  285  composer install
+  286  php artisan migrate
+  287  php composer.far install
+  288  composer install
+  289  php artisan migrate
+  290  php artisan serve
+  291  php artisan make:model Post -m
+  292  php artisan migrate
+  293  php artisan migrate -V
+  294  php artisan migrate
+  295  composer require krlove/eloquent-model-generator --dev
+  296  php artisan krlove:generate:model User
+  297  php artisan krlove:generate:model User --table-name=test
+  298  php artisan 
+  299  composer require "laracademy/model-generator"
+  300  composer remove "laracademy/model-generator"
+  301  composer --list
+  302  composer
+  303  clear
+  304  cls
+  305  clear
+  306  composer require krlove/eloquent-model-generator --dev
+  307  php artisan 
+  308  php artisan krlove:generate:model User --table-name=user
+  309  php artisan krlove:generate:model User --table-name=classe
+  310  php artisan krlove:generate:model User --table-name=classe -v
+  311  php artisan krlove:generate:model User --table-name=classe
+  312  php artisan krlove:generate:model User
+  313  php artisan krlove:generate:model User --table-name=classe
+  314  php artisan krlove:generate:model User --table-name=country
+  315  php artisan migrate
+  316  php artisan krlove:generate:model User --table-name=country
+  317  php artisan krlove:generate:model User
+  318  php artisan migrate
+  319  php artisan make:controller classeController
+  320  php artisan 
+  321  php artisan make:controller ClassesController
+  322  php artisan make:model Classe -m
+  323  laravel --version
+  324  php artisan migrate
+  325  php artisan krlove:generate:model User --table-name=user
+  326  php artisan krlove:generate:model User --table-name=classes
+  327  php artisan krlove:generate:model --table-name=classes
+  328  php artisan krlove:generate:model Classe --table-name=classes
+  329  php artisan serve
+  330  phpstorm .
+  331  subl .
+  332  php artisan krlove:generate:model Classe --table-name=classe --output-path=app\models
+  333  php artisan krlove:generate:model Classe --table-name=classes
+  334  php artisan krlove:generate:model Classe --table-name=classes --output-path=app\models
+  335  php artisan krlove:generate:model Classe --table-name=classes --output-path=app/models
+  336  php artisan krlove:generate:model Classe --table-name=classes --output-path=models
+  337  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=models
+  338  php artisan krlove:generate:model Rubrique --table-name=rubrique
+  339  php artisan krlove:generate:model Classe --table-name=classe
+  340  php artisan krlove:generate:model Classe --table-name=classe --output-path=Models
+  341  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=Models
+  342  php artisan krlove:generate:model Rubrique --table-name=rubrique --output-path=Models
+  343  brak .
+  344  brack .
+  345  brac .
+  346  bracket .
+  347  brackets .
+  348  php artisan serve
+  349  subl .
+  350  phpstorm .
+  351  exit
+  352  composer install
+  353  composer update
+  354  composer install
+  355  php artisan serve
+  356  composer --version
+  357  exit
+  358  code .
+  359  /opt/lampp/lampp start
+  360  sudo /opt/lampp/lampp start
+  361  cod .
+  362  code .
+  363  laravel new GSTKRC
+  364  cd GSTKRC/
+  365  code .
+  366  phpstorm .
+  367  cd /opt/lampp/htdocs/exit
+  368  exit
+  369  cp -rf /home/garmi/Bureau/Projects/CreditsOffices/ .
+  370  sudo cp -rf /home/garmi/Bureau/Projects/CreditsOffices/ .
+  371  sudo rm -rf /home/garmi/Bureau/Projects/CreditsOffices/
+  372  sudo cp -rf /home/garmi/Bureau/CreditsOffices/ .
+  373  cd CreditsOffices/
+  374  phpstorm .
+  375  dir
+  376  cd ..
+  377  rm -rf CreditsOffices/
+  378  sudo rm -rf CreditsOffices/
+  379  dir
+  380  sudo cp -rf /home/garmi/Bureau/CreditsOffices/ .
+  381  cd CreditsOffices/ | ls
+  382  cd CreditsOffices/ && ls
+  383  exit
+  384  laravel new CreditsOffices
+  385  composer
+  386  laravel
+  387  sudo laravel new CreditsOffices
+  388  exit
+  389  cd /opt/lampp/htdocs/CreditsOffices/ && phpstorm .
+  390  exit
+  391  php -S localhost:4000
+  392  code .
+  393  cd ~
+  394  sudo cp -rf /home/garmi/Bureau/CreditsOfficesBis/ /opt/lampp/htdocs/
+  395  sudo rm -rf /opt/lampp/htdocs/CreditsOffices && sudo mv -rf /home/garmi/Bureau/CreditsOffices /opt/lampp/htdocs/
+  396  sudo rm -rf /opt/lampp/htdocs/CreditsOffices && sudo mv  /home/garmi/Bureau/CreditsOffices /opt/lampp/htdocs/
+  397  php artisan krlove:generate:model User --table-name=user
+  398  php artisan krlove:generate:model Classe --table-name=classe
+  399  php artisan krlove:generate:model Classe --table-name=classe --output-path=Models
+  400  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=Models
+  401  php artisan krlove:generate:model Rubrique --table-name=rubrique --output-path=Models
+  402  php artisan krlove:generate:model LigneBilan --table-name=lignebilan Entreprise --table-name=entreprise --output-path=Models
+  403  php artisan krlove:generate:model LigneBilan --table-name=lignebilan; Entreprise --table-name=entreprise --output-path=Models
+  404  php artisan krlove:generate:model LigneBilan --table-name=lignebilan --output-path=Models
+  405  php artisan krlove:generate:model Entreprise --table-name=entreprise --output-path=Models
+  406  php artisan krlove:generate:model Entreprise --table-name=entreprises --output-path=Models
+  407  php artisan
+  408  php artisan make:controller BilanController
+  409  php artisan 
+  410  composer require krlove/eloquent-model-generator --dev
+  411  php artisan 
+  412  php artisan serve
+  413  sudo apt-get install youtube-dl
+  414  youtube-dl
+  415  sudo youtube-dl https://youtu.be/yIs_Y5adAYU
+  416  sudo youtube-dl -U
+  417  sudo youtube-dl -F https://youtu.be/yIs_Y5adAYU
+  418  youtube-dl --extract-audio --audio-format mp3 https://youtu.be/15jGxhXhaI4
+  419  apt-get update
+  420  sudo apt-get update
+  421  sudo youtube-dl -U
+  422  exit
+  423  phpstorm .
+  424  exit
+  425  cd ../CreditsOffices/ && phpstorm .
+  426  cd ../CreditsOffices/
+  427  phpstorm .
+  428  cd ../
+  429  cd ../CreditsOffices/
+  430  phpstorm .
+  431  cd ..
+  432  cd Projects/ && sudo mkdir DepotGit
+  433  dir
+  434  cd DepotGit/
+  435  git init
+  436  sudo apt-get update
+  437  sudo apt-get install git
+  438  git --version
+  439  git config --global user.name "Aladji NIANG"
+  440  git config --global user.email "aladjiniang92@gmail.com"
+  441  nano ~/.gitconfig 
+  442  git init
+  443  sudo git init
+  444  git clone https://github.com/adama04/CreditsOffices.git
+  445  sudo git clone https://github.com/adama04/CreditsOffices.git
+  446  dir
+  447  sudo cp -rf ../../CreditsOffices/* ./CreditsOffices/
+  448  sudo cp -rf ../CreditsOffices/* ./CreditsOffices/
+  449  git status
+  450  cd CreditsOffices/
+  451  git status 
+  452  git add --all
+  453  sudo git add --all
+  454  sudo git commit -m "Upload first version"
+  455  sudo git status 
+  456  git push -u origin master 
+  457  sudo git push -u origin master 
+  458  exit
+  459  phpstorm .
+  460  exit
+  461  cd /home/garmi/Bureau/Projects/
+  462  laravel new CreditsOffices
+  463  cd CreditsOffices/
+  464  php artisan serve
+  465  exit
+  466  laravel
+  467  laravel list
+  468  exit
+  469  exit
+  470  code .
+  471  cd ../
+  472  cd CreditsOffices/
+  473  ls -a
+  474  cd ../../
+  475  cd Projects/DepotGit/
+  476  ls
+  477  cd CreditsOffices/
+  478  ls
+  479  git branche NiangBranche
+  480  git branch NiangBranche
+  481  sudo git branch NiangBranche
+  482  git checkout NiangBranche 
+  483  sudo git checkout NiangBranche 
+  484  git branch 
+  485  git status
+  486  git diff
+  487  git pull origin master 
+  488  sudo git pull origin master 
+  489  git status
+  490  ls
+  491  git diff
+  492  composer require "almasaeed2010/adminlte=~2.4"
+  493  subl .
+  494  phpstorm .
+  495  youtube-dl https://youtu.be/ZTHO5QZNLmY
+  496  youtube-dl -U
+  497  php artisan 
+  498  php artisan route:list --method=GET --method=POST
+  499  php artisan route:list 
+  500  php artisan serve
+  501  composer require "almasaeed2010/adminlte=~2.4"
+  502  php artisan 
+  503  composer require "almasaeed2010/adminlte=~2.4"
+  504  bower install admin-lte
+  505  phpstorm .
+  506  ifconfig
+  507  ifconfig /all
+  508  ifconfig
+  509  ifconfig /all
+  510  ifconfig / all
+  511  netstat
+  512  ifconfig 
+  513  route
+  514  ip -a
+  515  ip a
+  516  ip
+  517  ifconfig -a
+  518  code .
+  519  ifconfig
+  520  ping google.com
+  521  service appach2 status
+  522  cd ~
+  523  service lampp status
+  524  sudo nano /etc/network/interfaces
+  525  cd /opt/lampp/
+  526  /opt/lampp/lampp status
+  527  /opt/lampp/lampp restart
+  528  sudo /opt/lampp/lampp restart
+  529  sudo /opt/lampp/lampp status
+  530  ping 192.168.1.40
+  531  cat /etc/init.d
+  532  ls /etc/init.d
+  533  cd /opt/lampp/apache2/
+  534  ls
+  535  ls conf
+  536  nano conf/httpd.conf 
+  537  sudo nano conf/httpd.conf 
+  538  sudo /opt/lampp/lampp restart
+  539  ifconfig 
+  540  sudo nano conf/httpd.conf 
+  541  sudo /opt/lampp/lampp restart
+  542  sudo /opt/lampp/lampp stop
+  543  sudo apt update
+  544  cd ~
+  545  sudo apt install apache2
+  546  service apache2 status
+  547  service apache2 start 
+  548  systemctl status apache2.service 
+  549  sudo apt install apache2
+  550  service apache2 start 
+  551  systemctl status apache2.service 
+  552  sudo apt purge apache2
+  553  sudo apt install apache2
+  554  sudo /opt/lampp/lampp restart
+  555  systemctl status apache2.service 
+  556  service apache2 start 
+  557  sudo apt purge apache2
+  558  systemctl status apache2.service 
+  559  sudo ufw app list
+  560  sudo apt install apache2
+  561  sudo ufw app list
+  562  sudo ufw status
+  563  sudo /opt/lampp/lampp stop
+  564  sudo /opt/lampp/lampp start
+  565  sudo /opt/lampp/lampp stop
+  566  sudo cp -rf /opt/lampp/logs/httpd.pid /home/garmi/Bureau/
+  567  sudo rm -rf /opt/lampp/logs/httpd.pid
+  568  sudo cp -rf /opt/lampp/var/proftpd.p
+  569  sudo cp -rf /opt/lampp/var/pro
+  570  sudo rm -rf /opt/lampp/var/proftpd
+  571  sudo /opt/lampp/lampp start
+  572  sudo /opt/lampp/lampp restart
+  573  sudo cp -rf /home/garmi/Bureau/httpd.pid /opt/lampp/logs/
+  574  sudo cp -rf /home/garmi/Bureau/proftpd/ /opt/lampp/var/
+  575  sudo /opt/lampp/lampp restart
+  576  sudo /opt/lampp/lampp stop
+  577  sudo /opt/lampp/lampp start
+  578  sudo cp -rf /opt/lampp/var/proftpd.pid /home/garmi/Bureau/ 
+  579  sudo cp -rf /opt/lampp/logs/httpd.pid /home/garmi/Bureau/ 
+  580  sudo rm -rf /opt/lampp/logs/httpd.pid  
+  581  sudo rm -rf /opt/lampp/var/proftpd.pid  
+  582  sudo /opt/lampp/lampp restart
+  583  sudo /opt/lampp/lampp stop
+  584  sudo /opt/lampp/lampp status
+  585  sudo /opt/lampp/lampp start
+  586  sudo /etc/init.d/apache2 stop
+  587  sudo /opt/lampp/lampp start
+  588  sudo /opt/lampp/lampp stop
+  589  sudo apt-get install apache2
+  590  sudo ufw app list
+  591  sudo ufw allow 'Apache'
+  592  sudo ufw status
+  593  sudo systemctl status apache2
+  594  sudo systemctl start apache2
+  595  sudo apt-get purge apache2 && sudo apt-get autoremove 
+  596  service 
+  597  service --status-all
+  598  sudo apt-get install apache2
+  599  sudo /opt/lampp/lampp start
+  600  sudo /opt/lampp/lampp stop
+  601  sudo /opt/lampp/lampp start
+  602  sudo apt-get install apache2
+  603  sudo /opt/lampp/lampp restart
+  604  sudo cp -rf  /home/garmi/Bureau/httpd.pid  /opt/lampp/logs/ 
+  605  sudo cp -rf  /home/garmi/Bureau/httpd.pid /opt/lampp/logs/
+  606  sudo /opt/lampp/lampp restart
+  607  sudo /opt/lampp/lampp status
+  608  cd /opt/lampp/
+  609  ls
+  610  sudo ./uninstall
+  611  ls
+  612  cd ../
+  613  ls
+  614  cd lampp/
+  615  dir htdocs/
+  616  sudo apt update
+  617  sudo apt-get install apache2
+  618  php
+  619  php --version
+  620  cd ~
+  621  mysql -uroot -p
+  622  sudo apt-get install apache2
+  623  sudo apt-get install php
+  624  sudo apt purge php
+  625  sudo apt purge apache2
+  626  sudo reboot
+  627  php -S localhost:4000 --host= 0.0.0.0
+  628  php -S localhost:8000
+  629  php -s localhost:4000
+  630  php -s localhost:8000
+  631  php -S localhost:4000
+  632  php --version
+  633  apache2 
+  634  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  635  sudo apt-get autoremove
+  636  sudo rm -rf /etc/apache2
+  637  udo service apache2 stop
+  638  sudo service apache2 stop
+  639  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  640  sudo apt-get autoremove 
+  641  whereis apache2
+  642  whereis php
+  643  whereis php.ini
+  644  whereis mysql
+  645  apache2
+  646  sudo apt-get install apache2
+  647  ifconfig 
+  648  ping 192.168.1.40
+  649  sudo apt-get install mysql-server
+  650  sudo mysql_secure_installation 
+  651  mysql -u root -p
+  652  sudo mysql_secure_installation 
+  653  mysql -u root -p
+  654  sudo mysql -u root -p
+  655  whereis php
+  656  whereis libapache2-mod-php
+  657  sudo nano /var/www/html/info.php
+  658  sudo systemctl restart apache2
+  659  ifconfig 
+  660  sudo apt-get install php
+  661  sudo apt-get install php libapache2-mod-php
+  662  sudo systemctl restart apache2
+  663  sudo systemctl status apache2
+  664  sudo nano /var/www/html/info.php
+  665  sudo systemctl restart apache2
+  666  sudo nano /var/www/html/info.php
+  667  sudo systemctl restart apache2
+  668  sudo apt purge php libapache2-mod-php
+  669  ls /usr/bin/dpkg
+  670  ls /usr/bin/
+  671  php --version
+  672  whereis php
+  673  sudo apt install php libapache2-mod-php
+  674  sudo systemctl restart apache2
+  675  ls /home/garmi/Téléchargements/
+  676  exit
+  677  code .
+  678  sudo /home/garmi/Téléchargements/xampp-linux-x64-7.3.6-0-installer.run 
+  679  systemctl status apache2
+  680  systemctl stop apache2
+  681  systemctl status apache2
+  682  sudo mysql -uroot -p
+  683  systemctl status mysql.service 
+  684  systemctl stop mysql.service 
+  685  sudo mysql -uroot -p
+  686  exit
+  687  sudo reboot
+  688  whereis php
+  689  dir /opt/lampp/
+  690  /opt/lampp/lampp start
+  691  sudo /opt/lampp/lampp start
+  692  sudo apt purge php libapache2-mod-php
+  693  sudo /opt/lampp/lampp stop
+  694  sudo /opt/lampp/lampp status
+  695  sudo /home/garmi/Téléchargements/xampp-linux-x64-7.3.6-0-installer.run 
+  696  sudo ls /opt/lampp/
+  697  sudo  /opt/lampp/uninstall
+  698  sudo ls /opt/lampp/
+  699  cp -rf /opt/lampp/htdocs/CreditsOffices /home/garmi/Bureau/Copy/
+  700  cp -rf /opt/lampp/htdocs/GACJ/ /home/garmi/Bureau/Copy/
+  701  cp -rf /opt/lampp/htdocs/CreditsOfficesBis/ /home/garmi/Bureau/Copy/
+  702  ls /opt/lampp/
+  703  sudo rm -rf /opt/lampp/
+  704  ls /opt/
+  705  sudo service apache2 status
+  706  sudo service apache2 stop
+  707  sudo service apache2 status
+  708  $ sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  709  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  710  sudo apt-get autoremove
+  711  whereis apache2
+  712  php --version
+  713  whereis apache2
+  714  sudo rm -rf /usr/sbin/apache2 /usr/lib/apache2/ /etc/apache2/ /usr/share/apache2/ /usr/share/man/man8/apache2.8.gz 
+  715  whereis apache2
+  716  php --version
+  717  whereis php
+  718  sudo reboot
+  719  ls
+  720  cd Bureau/
+  721  ls
+  722  sudo rm -rf nitro_pro12_ba_x64.msi  proftpd/
+  723  sudo rm -rf pdfelement-pro-win-fr_full5004.exe google-earth-pro-stable_current_amd64.deb 
+  724  refresh
+  725  sudo xrefresh
+  726  matrix
+  727  mairix
+  728  sudo cmatrix
+  729  laravel
+  730  chmod 755 /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  731  sudo chmod 755 /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  732  sudo chmod /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  733  sud /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  734  sudo /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  735  whereis mysql
+  736  cd /opt/lampp/
+  737  ls
+  738  sudo ./uninstall
+  739  cd ..
+  740  ls
+  741  rm -rf lampp/
+  742  sudo rm -rf lampp/
+  743  sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+  744  sudo apt-get autoremove -y
+  745  udo apt-get autoclean
+  746  sudo apt-get autoclean
+  747  whereis mysql
+  748  sudo rm -rf /etc/mysql
+  749  sudo find / -iname 'mysql*' -exec rm -rf {} \;
+  750  sudo mysql -uroot -p
+  751  sudo /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  752  sudo cp -rf /home/garmi/Bureau/Copy/CreditsOffices /opt/lampp/htdocs/
+  753  ifconfig
+  754  exit
+  755  sudo reboot
+  756  cd Bureau/
+  757  cd Projects/
+  758  ls
+  759  ls G-STK_RC/
+  760  cd G-STK_RC/
+  761  phpstorm .
+  762  cd ..
+  763  laravel new Gest-Stok
+  764  cd Gest-Stok/
+  765  php artisan serve
+  766  whereis php
+  767  ls /usr/bin/php7.2/
+  768  sudo nano /opt/lampp/apache2/conf/httpd.conf 
+  769  whereis php.ini
+  770  ls /usr/bin/
+  771  sudo nano /usr/bin/php
+  772  php artisan serve
+  773  sudo nano /etc/php/7.2/cli/php.ini 
+  774  php artisan serve
+  775  sudo nano /usr/lib/php/20170718/pdo_mysql.so 
+  776  sudo apt-get update 
+  777  sudo apt-get install php7.2-pdo
+  778  sudo apt-get install php7.2-pdo php7.2-mysql
+  779  sudo apt-get install php-mbstring
+  780  sudo apt-get install php-xml
+  781  sudo reboot
+  782  browser
+  783  sudo apt install libsilo-bin
+  784  cd public/
+  785  bower install admin-lte
+  786  sudo apt purge libsilo-bin
+  787  sudo apt-get autoremove 
+  788  bower install admin-lte
+  789  sudo apt-get install bower
+  790  cd ..
+  791  php artisan make:controller AdminController -m
+  792  php artisan serve
+  793  subl .
+  794  code .
+  795  sudo code .
+  796  sudo subl .
+  797  exit
+  798  sudo mkdir /opt/lampp/htdocs/GSS
+  799  sudo cp -rf Bilan\&CompteResultats/GSS-master/* /opt/lampp/htdocs/GSS/
+  800  exit
+  801  phpstorm .
+  802  exit
+  803  php artisan serve
+  804  exit
+  805  sudo code .
+  806  code .
+  807  phpstorm .
+  808  exit
+  809  subl .
+  810  phpstorm .
+  811  php artisan serve
+  812  composer install
+  813  php artisan serve
+  814  sudo phpstorm .
+  815  php artisan generate:key
+  816  php artisan
+  817  php artisan key:generate
+  818  php artisan migrate
+  819  php artisan
+  820  php artisan migrate
+  821  composer install
+  822  php artisan serve
+  823  composer update
+  824  php --ini
+  825  cd /etc/php/7.2/cli
+  826  ls
+  827  sudo nano php.ini
+  828  /opt/lampp/apache2/ restart
+  829  /opt/lampp/lampp restart
+  830  sudo /opt/lampp/lampp restart
+  831  php artisan serve
+  832  composer update
+  833  sudo nano php.ini
+  834  sudo /opt/lampp/lampp restart
+  835  php artisan serve
+  836  whereis pdo_mysql.so 
+  837  whereis /usr/lib/php/20170718/* 
+  838  php artisan serve
+  839  restart
+  840  exit
+  841  php artisan serve
+  842  phpstorm .
+  843  exit
+  844  exit
+  845  sudo nano /usr/lib/php/20170718/pdo_mysql.so 
+  846  sudo cp -rf /usr/lib/php/20170718/pdo_mysql.so /usr/lib/php/20170718/pdo_mysql.so.so
+  847  cd Bureau/
+  848  ls
+  849  sudo rm -rf GACJ/ /opt/lampp/htdocs/
+  850  ls
+  851  sudo mv -rf Copy/GACJ/ /opt/lampp/htdocs/
+  852  cd Projects/
+  853  ls
+  854  laravel new MyApp
+  855  sudo /opt/lampp/uninstall
+  856  cd ..
+  857  ls
+  858  sudo ./xampp-linux-x64-7.3.6-1-installer.run 
+  859  history
+  860  ls /opt/lampp/*
+  861  sudo /opt/lampp/uninstall
+  862  sudo autoremove
+  863  sudo apt-get autoremove 
+  864  sudo apt-get update 
+  865  sudo rm -rf /opt/lampp/
+  866  sudo service apache2 stop
+  867  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  868  sudo apt-get autoremove
+  869  whereis apache2 
+  870  sudo rm -rf /etc/apache2 
+  871  sudo reboot
+  872  sudo Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  873  php artisan make:auth
+  874  php artisan migrate
+  875  php artisan 
+  876  php artisan migrate
+  877  composer install
+  878  exit
+  879  composer install
+  880  php artisan serve
+  881  composer install
+  882  php artisan migrate
+  883  sudo apt-get install php7.2-pdo
+  884  php artisan migrate
+  885  php artisan serve
+  886  exit
+  887  composer install
+  888  php artisan migrate
+  889  php artisan make:migration create_fournisseurs_table
+  890  php artisan make:migration create_gammes_table create_articles_table
+  891  php artisan make:migration create_articles_table
+  892  php artisan make:migration create_bordereauFournisseurs_table
+  893  php artisan make:migration create_bordereauLivraison_table
+  894  php artisan make:migration create_categories_table
+  895  php artisan make:migration create_gammes_table
+  896  php artisan make:migration create_ligneArticlerecus_table
+  897  php artisan make:migration create_ligneGammes_table
+  898  php artisan make:migration create_ligneVentes_table
+  899  php artisan make:migration create_sousCategories_table
+  900  php artisan migrate
+  901  php artisan migrate:refresh
+  902  php artisan make:migration create_clients_table
+  903  php artisan migrate
+  904  php artisan migrate:refresh
+  905  php artisan migrate
+  906  php artisan migrate:refresh
+  907  php artisan migrate
+  908  php artisan 
+  909  php artisan migrate:reset
+  910  php artisan migrate
+  911  exit
+  912  php artisan migrate
+  913  php artisan migrate:refresh
+  914  php artisan migrate
+  915  exit
+  916  php artisan serve
+  917  php artisan migrate
+  918  php artisan migrate:refresh
+  919  php artisan migrate:reset
+  920  php artisan migrate
+  921  php artisan migrate:reset
+  922  php artisan migrate
+  923  php artisan make:migration alter_articles_table
+  924  php artisan migrate
+  925  php artisan make:migration alter_bordereauFournisseurs_table
+  926  php artisan make:migration alter_bordereauLivraisons_table
+  927  php artisan make:migration alter_ligneArticlerecus_table
+  928  php artisan make:migration alter_ligneGammes_table
+  929  php artisan make:migration alter_ligneVentes_table
+  930  php artisan make:migration alter_sousCategories_table
+  931  php artisan make:migration alter_clients_table
+  932  php artisan migrate
+  933  php artisan
+  934  php artisan migrate:rollback
+  935  php artisan migrate
+  936  php artisan migrate:refresh
+  937  php artisan migrate:reset
+  938  php artisan migrate:rollback
+  939  php artisan migrate
+  940  php artisan make:migration alter_bordereauLivraisons_table
+  941  php artisan make:migration alter_bordereaulivraisons_table
+  942  exit
+  943  php artisan make:migration alter_bordereauLivraison_table
+  944  php artisan migrate
+  945  php artisan migrate:rollback
+  946  php artisan make:migration create_bordereauLivraisons_table
+  947  php artisan migrate
+  948  php artisan 
+  949  composer require krlove/eloquent-model-generator --dev
+  950  php artisan 
+  951  php artisan krlove:generate:model Fournisseur --table-name=fournisseurs --output-path=Models
+  952  php artisan krlove:generate:model Article --table-name=articles --output-path=Models --namespace=App\Models
+  953  sudo cp -rf LaravelAdminLte/ /home/garmi/Bureau/Projects/
+  954  exit
+  955  sudo phpstorm .
+  956  exit
+  957  php artisan migrate
+  958  history >> command.txt
+    1  mysql -u root -p
+    2  clear
+    3  php -v
+    4  clear
+    5  python
+    6  python3
+    7  clear
+    8  php
+    9  exit
+   10  php
+   11  exit
+   12  clear
+   13  cd /home/garmi/Téléchargements/
+   14  dir
+   15  sudo
+   16  clear
+   17  chmod 755 xampp-linux-x64-7.3.6-0-installer.run 
+   18  ls -l xampp-linux-x64-7.3.6-0-installer.run 
+   19  sudo ./xampp-linux-x64-7.3.6-0-installer.run 
+   20  exit
+   21  php
+   22  sudo /opt/lampp/lampp start
+   23  sudo apt install net-tools
+   24  sudo /opt/lampp/lampp stop
+   25  sudo apt install net-tools
+   26  clear
+   27  sudo apt-get install net-tools 
+   28  clear
+   29  sudo apt-get install net-tools 
+   30  sudo /opt/lampp/lampp start
+   31  mysql
+   32  php
+   33  clear
+   34  dir
+   35  clear
+   36  cd /opt/lampp/
+   37  dir
+   38  cd php
+   39  dir
+   40  cd ../
+   41  cd xampp
+   42  php
+   43  cd bin/
+   44  dir
+   45  php
+   46  php7
+   47  cd ..
+   48  start
+   49  sudo lampp start
+   50  cd ../..
+   51  sudo /opt/lampp/lampp start
+   52  sudo apt-get install flatpak
+   53  clear
+   54  sudo apt-get install gnome-software-plugin-flatpak 
+   55  clear
+   56  man cp
+   57  cp -rf /home/garmi/Bureau/GACJ/ /opt/lampp/htdocs/
+   58  sudo cp -rf /home/garmi/Bureau/GACJ/ /opt/lampp/htdocs/
+   59  exit
+   60  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpackrepo
+   61  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+   62  clear
+   63  sudo apt update
+   64  sudo apt install wget php-cli php-zip unzip
+   65  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   66  HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+   67  php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   68  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   69  composer
+   70  cd /home/garmi/Bureau/
+   71  mkdir Projects
+   72  cd Projects/
+   73  composer --version
+   74  clear
+   75  composer global require laravel/installer
+   76  laravel new Blog
+   77  laravel
+   78  composer global require laravel/installer
+   79  composer create-project --prefer-dist laravel/laravel blog
+   80  dir
+   81  cd blog/
+   82  php artisan server.php 
+   83  php artisan serv
+   84  php artisan serve
+   85  clear
+   86  exit
+   87  phpstorm .
+   88  php artisan 
+   89  clear
+   90  sudo apt install wget php-cli php-zip unzip
+   91  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   92  php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   93  php composer-setup.php
+   94  php -r "unlink('composer-setup.php');"
+   95  dir
+   96  sudo apt-get remove --auto-remove composer
+   97  composer
+   98  sudo chown -R w3cert /home/w3cert/.composer/cache/repo/https---packagist.org
+   99  clear
+  100  sudo chown -R garmi /home/garmi/.composer/cache/repo/https---packagist.org
+  101  ls -la /home/garmi/.*
+  102  ls -a /home/garmi/.*
+  103  sudo -R garmi /home/garmi/.composer/cache/repo/https---repo.packagist.org/
+  104  sudo chown -R garmi /home/garmi/.composer/cache/repo/https---repo.packagist.org/
+  105  sudo chown -R garmi /home/garmi/.composer
+  106  sudo chown -R garmi /home/garmi/.composer/cache/files/
+  107  composer
+  108  cd /home/garmi/Bureau/Projects/
+  109  dir
+  110  rm -rf blog
+  111  dir
+  112  clear
+  113  composer global require laravel/installer
+  114  laravel
+  115  export PATH="$HOME/.composer/vendor/bin:$PATH"
+  116  laravel
+  117  clear
+  118  laravel new Blog
+  119  php --ini
+  120  sudo nano /etc/php/7.2/cli/php.ini
+  121  exit
+  122  sudo nano /etc/php/7.2/cli/php.ini
+  123  clear
+  124  sudo apt-get install php7.2-ctype
+  125  php -v
+  126  clear
+  127  php --ini
+  128  sudo chmod 755 garmi /opt/lampp/htdocs/GACJ/.idea/workspace.xml
+  129  sudo chmod 755 /opt/lampp/htdocs/GACJ/.idea/workspace.xml
+  130  sudo chmod 755 /opt/lampp/htdocs/GACJ/
+  131  sudo chmod 777 -R /opt/lampp/htdocs/GACJ/
+  132  /opt/lampp/lampp start
+  133  sudo /opt/lampp/lampp start
+  134  cd ~
+  135  chmod 755 /etc/php/7.2/cli/php.ini 
+  136  sudo chmod 755 /etc/php/7.2/cli/php.ini 
+  137  sudo chmod -R 755 /etc/php/7.2/cli/php.ini 
+  138  ls -l /etc/php/7.2/cli/
+  139  sudo nano /etc/php/7.2/cli/php.ini 
+  140  clear
+  141  laravel new /home/garmi/Bureau/Projects/Bl
+  142  clear
+  143  sudo /opt/lampp/lampp restart
+  144  laravel new /home/garmi/Bureau/Projects/Bl
+  145  cd /home/garmi/Bureau/
+  146  cd Projects/
+  147  dir
+  148  rm -rf ./*
+  149  dir
+  150  laravel new /home/garmi/Bureau/Projects/Bl
+  151  sudo apt-get install php-mbstring 
+  152  rm -rf ./*
+  153  laravel new /home/garmi/Bureau/Projects/Bl
+  154  clear
+  155  sudo apt-get install php-xml
+  156  rm -rf ./*
+  157  laravel new /home/garmi/Bureau/Projects/Bl
+  158  dir
+  159  rm -rf ./*
+  160  dir
+  161  sudo apt-get autoremove
+  162  laravel new blog
+  163  dir
+  164  cd blog/
+  165  dir
+  166  php artisan server.php 
+  167  php artisan serve 
+  168  clear
+  169  sudo nano /etc/php/7.2/cli/php.ini 
+  170  sudo /opt/lampp/lampp restart
+  171  cd ..
+  172  clear
+  173  laravel new Blog
+  174  clear
+  175  cd blog/
+  176  php artisan serve
+  177  clear
+  178  sudo lsusb
+  179  clear
+  180  cd ~
+  181  sudo apt-get install libpam-fprintd 
+  182  sudo apt-get install fprintd
+  183  sudo apt-get install fprint-demo
+  184  clear
+  185  sudo pam-auth-update
+  186  fprintd-enroll
+  187  fprintd-verify
+  188  clear
+  189  sudo apt-get update
+  190  su
+  191  sudo ls -la /opt/lampp/
+  192  clear
+  193  sudo apt-get install gnome-shell
+  194  sudo apt-get update 
+  195  sudo apt-get install gnome-tweak-tool 
+  196  sudo apt-get install chrome-gnome-shell 
+  197  sudo purge chrome-gnome-shell 
+  198  sudo pt-get purge chrome-gnome-shell 
+  199  sudo apt-get purge chrome-gnome-shell 
+  200  sudo apt-get install chrome-gnome-shell 
+  201  sudo apt-get update 
+  202  gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+  203  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots false
+  204  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-customize-running-dots false
+  205  gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink false
+  206  gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode DEFAULT
+  207  gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+  208  gsettings set org.gnome.shell.extensions.dash-to-dock dock-pozition BOTTOM
+  209  _______________________________________________________________________________________________
+  210  exit
+  211  sudo chmod +x install.sh 
+  212  ./install.sh 
+  213  cccccccc
+  214  cp SanFranciscoDisplay-Regular.otf ~/.local/share/fonts
+  215  cp San\ Francisco.ttf ~/.local/share/fonts
+  216  cd /home/garmi/Bureau/Projects/
+  217  dir
+  218  rm -rf ./*
+  219  laravel new Test1
+  220  sudo laravel new Test1
+  221  composer
+  222  composer global require laravel/installer
+  223  $HOME
+  224  ls $HOME
+  225  ls -a $HOME
+  226  export PATH="$HOME/.composer/vendor/bin:$PATH"
+  227  laravel
+  228  laravel new Test1
+  229  cd Test1/
+  230  php artisan serve
+  231  laravel
+  232  laravel --version
+  233  echo /home/$USER
+  234  echo /home/garmi/.bashrc 
+  235  sudo nano /home/garmi/.bashrc 
+  236  laravel --version
+  237  sudo nano /home/garmi/.bashrc 
+  238  source ~/.bashrc
+  239  laravel --version
+  240  exit
+  241  exit
+  242  lsb_release -a
+  243  /opt/lampp/lampp start
+  244  sudo gedit /etc/systemd/system/xampp.service
+  245  sudo systemctl enable xampp.service
+  246  sudo reboot 
+  247  phpstorm .
+  248  mv .env.example .env
+  249  composer install
+  250  php artisan key:generate
+  251  php artisan migrate
+  252  php artisan
+  253  php artisan 
+  254  php artisan make:migration
+  255  php artisan migrate
+  256  composer install
+  257  php artisan key:generate
+  258  php artisan migrate
+  259  sudo nano /etc/php/7.2/cli/php.ini
+  260  sudo apt-get install php-pdo_mysql
+  261  sudo nano /etc/php/7.2/cli/php.ini
+  262  /opt/lampp/lampp restart
+  263  sudo /opt/lampp/lampp restart
+  264  cd ..
+  265  laravel new CreditsOffices
+  266  cd CreditsOffices/
+  267  phpstorm .
+  268  cd ..
+  269  cd Test1/
+  270  phpstorm .
+  271  sudo nano /etc/php/7.2/cli/php.ini
+  272  history
+  273  sudo systemctl status xampp-service
+  274  sudo gedit /etc/systemd/system/xampp.service
+  275  sudo systemctl enable xampp.service
+  276  sudo systemctl status xampp-service
+  277  sudo systemctl status xampp.service
+  278  php -V
+  279  php --version
+  280  sudo apt-get install php7.2-pdo
+  281  sudo apt-get update
+  282  sudo apt-get install php7.2-pdo php7.2-mysql 
+  283  history
+  284  history >>/home/garmi/Bureau/history.txt
+  285  composer install
+  286  php artisan migrate
+  287  php composer.far install
+  288  composer install
+  289  php artisan migrate
+  290  php artisan serve
+  291  php artisan make:model Post -m
+  292  php artisan migrate
+  293  php artisan migrate -V
+  294  php artisan migrate
+  295  composer require krlove/eloquent-model-generator --dev
+  296  php artisan krlove:generate:model User
+  297  php artisan krlove:generate:model User --table-name=test
+  298  php artisan 
+  299  composer require "laracademy/model-generator"
+  300  composer remove "laracademy/model-generator"
+  301  composer --list
+  302  composer
+  303  clear
+  304  cls
+  305  clear
+  306  composer require krlove/eloquent-model-generator --dev
+  307  php artisan 
+  308  php artisan krlove:generate:model User --table-name=user
+  309  php artisan krlove:generate:model User --table-name=classe
+  310  php artisan krlove:generate:model User --table-name=classe -v
+  311  php artisan krlove:generate:model User --table-name=classe
+  312  php artisan krlove:generate:model User
+  313  php artisan krlove:generate:model User --table-name=classe
+  314  php artisan krlove:generate:model User --table-name=country
+  315  php artisan migrate
+  316  php artisan krlove:generate:model User --table-name=country
+  317  php artisan krlove:generate:model User
+  318  php artisan migrate
+  319  php artisan make:controller classeController
+  320  php artisan 
+  321  php artisan make:controller ClassesController
+  322  php artisan make:model Classe -m
+  323  laravel --version
+  324  php artisan migrate
+  325  php artisan krlove:generate:model User --table-name=user
+  326  php artisan krlove:generate:model User --table-name=classes
+  327  php artisan krlove:generate:model --table-name=classes
+  328  php artisan krlove:generate:model Classe --table-name=classes
+  329  php artisan serve
+  330  phpstorm .
+  331  subl .
+  332  php artisan krlove:generate:model Classe --table-name=classe --output-path=app\models
+  333  php artisan krlove:generate:model Classe --table-name=classes
+  334  php artisan krlove:generate:model Classe --table-name=classes --output-path=app\models
+  335  php artisan krlove:generate:model Classe --table-name=classes --output-path=app/models
+  336  php artisan krlove:generate:model Classe --table-name=classes --output-path=models
+  337  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=models
+  338  php artisan krlove:generate:model Rubrique --table-name=rubrique
+  339  php artisan krlove:generate:model Classe --table-name=classe
+  340  php artisan krlove:generate:model Classe --table-name=classe --output-path=Models
+  341  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=Models
+  342  php artisan krlove:generate:model Rubrique --table-name=rubrique --output-path=Models
+  343  brak .
+  344  brack .
+  345  brac .
+  346  bracket .
+  347  brackets .
+  348  php artisan serve
+  349  subl .
+  350  phpstorm .
+  351  exit
+  352  composer install
+  353  composer update
+  354  composer install
+  355  php artisan serve
+  356  composer --version
+  357  exit
+  358  code .
+  359  /opt/lampp/lampp start
+  360  sudo /opt/lampp/lampp start
+  361  cod .
+  362  code .
+  363  laravel new GSTKRC
+  364  cd GSTKRC/
+  365  code .
+  366  phpstorm .
+  367  cd /opt/lampp/htdocs/exit
+  368  exit
+  369  cp -rf /home/garmi/Bureau/Projects/CreditsOffices/ .
+  370  sudo cp -rf /home/garmi/Bureau/Projects/CreditsOffices/ .
+  371  sudo rm -rf /home/garmi/Bureau/Projects/CreditsOffices/
+  372  sudo cp -rf /home/garmi/Bureau/CreditsOffices/ .
+  373  cd CreditsOffices/
+  374  phpstorm .
+  375  dir
+  376  cd ..
+  377  rm -rf CreditsOffices/
+  378  sudo rm -rf CreditsOffices/
+  379  dir
+  380  sudo cp -rf /home/garmi/Bureau/CreditsOffices/ .
+  381  cd CreditsOffices/ | ls
+  382  cd CreditsOffices/ && ls
+  383  exit
+  384  laravel new CreditsOffices
+  385  composer
+  386  laravel
+  387  sudo laravel new CreditsOffices
+  388  exit
+  389  cd /opt/lampp/htdocs/CreditsOffices/ && phpstorm .
+  390  exit
+  391  php -S localhost:4000
+  392  code .
+  393  cd ~
+  394  sudo cp -rf /home/garmi/Bureau/CreditsOfficesBis/ /opt/lampp/htdocs/
+  395  sudo rm -rf /opt/lampp/htdocs/CreditsOffices && sudo mv -rf /home/garmi/Bureau/CreditsOffices /opt/lampp/htdocs/
+  396  sudo rm -rf /opt/lampp/htdocs/CreditsOffices && sudo mv  /home/garmi/Bureau/CreditsOffices /opt/lampp/htdocs/
+  397  php artisan krlove:generate:model User --table-name=user
+  398  php artisan krlove:generate:model Classe --table-name=classe
+  399  php artisan krlove:generate:model Classe --table-name=classe --output-path=Models
+  400  php artisan krlove:generate:model SousClasse --table-name=sousclasse --output-path=Models
+  401  php artisan krlove:generate:model Rubrique --table-name=rubrique --output-path=Models
+  402  php artisan krlove:generate:model LigneBilan --table-name=lignebilan Entreprise --table-name=entreprise --output-path=Models
+  403  php artisan krlove:generate:model LigneBilan --table-name=lignebilan; Entreprise --table-name=entreprise --output-path=Models
+  404  php artisan krlove:generate:model LigneBilan --table-name=lignebilan --output-path=Models
+  405  php artisan krlove:generate:model Entreprise --table-name=entreprise --output-path=Models
+  406  php artisan krlove:generate:model Entreprise --table-name=entreprises --output-path=Models
+  407  php artisan
+  408  php artisan make:controller BilanController
+  409  php artisan 
+  410  composer require krlove/eloquent-model-generator --dev
+  411  php artisan 
+  412  php artisan serve
+  413  sudo apt-get install youtube-dl
+  414  youtube-dl
+  415  sudo youtube-dl https://youtu.be/yIs_Y5adAYU
+  416  sudo youtube-dl -U
+  417  sudo youtube-dl -F https://youtu.be/yIs_Y5adAYU
+  418  youtube-dl --extract-audio --audio-format mp3 https://youtu.be/15jGxhXhaI4
+  419  apt-get update
+  420  sudo apt-get update
+  421  sudo youtube-dl -U
+  422  exit
+  423  phpstorm .
+  424  exit
+  425  cd ../CreditsOffices/ && phpstorm .
+  426  cd ../CreditsOffices/
+  427  phpstorm .
+  428  cd ../
+  429  cd ../CreditsOffices/
+  430  phpstorm .
+  431  cd ..
+  432  cd Projects/ && sudo mkdir DepotGit
+  433  dir
+  434  cd DepotGit/
+  435  git init
+  436  sudo apt-get update
+  437  sudo apt-get install git
+  438  git --version
+  439  git config --global user.name "Aladji NIANG"
+  440  git config --global user.email "aladjiniang92@gmail.com"
+  441  nano ~/.gitconfig 
+  442  git init
+  443  sudo git init
+  444  git clone https://github.com/adama04/CreditsOffices.git
+  445  sudo git clone https://github.com/adama04/CreditsOffices.git
+  446  dir
+  447  sudo cp -rf ../../CreditsOffices/* ./CreditsOffices/
+  448  sudo cp -rf ../CreditsOffices/* ./CreditsOffices/
+  449  git status
+  450  cd CreditsOffices/
+  451  git status 
+  452  git add --all
+  453  sudo git add --all
+  454  sudo git commit -m "Upload first version"
+  455  sudo git status 
+  456  git push -u origin master 
+  457  sudo git push -u origin master 
+  458  exit
+  459  phpstorm .
+  460  exit
+  461  cd /home/garmi/Bureau/Projects/
+  462  laravel new CreditsOffices
+  463  cd CreditsOffices/
+  464  php artisan serve
+  465  exit
+  466  laravel
+  467  laravel list
+  468  exit
+  469  exit
+  470  code .
+  471  cd ../
+  472  cd CreditsOffices/
+  473  ls -a
+  474  cd ../../
+  475  cd Projects/DepotGit/
+  476  ls
+  477  cd CreditsOffices/
+  478  ls
+  479  git branche NiangBranche
+  480  git branch NiangBranche
+  481  sudo git branch NiangBranche
+  482  git checkout NiangBranche 
+  483  sudo git checkout NiangBranche 
+  484  git branch 
+  485  git status
+  486  git diff
+  487  git pull origin master 
+  488  sudo git pull origin master 
+  489  git status
+  490  ls
+  491  git diff
+  492  composer require "almasaeed2010/adminlte=~2.4"
+  493  subl .
+  494  phpstorm .
+  495  youtube-dl https://youtu.be/ZTHO5QZNLmY
+  496  youtube-dl -U
+  497  php artisan 
+  498  php artisan route:list --method=GET --method=POST
+  499  php artisan route:list 
+  500  php artisan serve
+  501  composer require "almasaeed2010/adminlte=~2.4"
+  502  php artisan 
+  503  composer require "almasaeed2010/adminlte=~2.4"
+  504  bower install admin-lte
+  505  phpstorm .
+  506  ifconfig
+  507  ifconfig /all
+  508  ifconfig
+  509  ifconfig /all
+  510  ifconfig / all
+  511  netstat
+  512  ifconfig 
+  513  route
+  514  ip -a
+  515  ip a
+  516  ip
+  517  ifconfig -a
+  518  code .
+  519  ifconfig
+  520  ping google.com
+  521  service appach2 status
+  522  cd ~
+  523  service lampp status
+  524  sudo nano /etc/network/interfaces
+  525  cd /opt/lampp/
+  526  /opt/lampp/lampp status
+  527  /opt/lampp/lampp restart
+  528  sudo /opt/lampp/lampp restart
+  529  sudo /opt/lampp/lampp status
+  530  ping 192.168.1.40
+  531  cat /etc/init.d
+  532  ls /etc/init.d
+  533  cd /opt/lampp/apache2/
+  534  ls
+  535  ls conf
+  536  nano conf/httpd.conf 
+  537  sudo nano conf/httpd.conf 
+  538  sudo /opt/lampp/lampp restart
+  539  ifconfig 
+  540  sudo nano conf/httpd.conf 
+  541  sudo /opt/lampp/lampp restart
+  542  sudo /opt/lampp/lampp stop
+  543  sudo apt update
+  544  cd ~
+  545  sudo apt install apache2
+  546  service apache2 status
+  547  service apache2 start 
+  548  systemctl status apache2.service 
+  549  sudo apt install apache2
+  550  service apache2 start 
+  551  systemctl status apache2.service 
+  552  sudo apt purge apache2
+  553  sudo apt install apache2
+  554  sudo /opt/lampp/lampp restart
+  555  systemctl status apache2.service 
+  556  service apache2 start 
+  557  sudo apt purge apache2
+  558  systemctl status apache2.service 
+  559  sudo ufw app list
+  560  sudo apt install apache2
+  561  sudo ufw app list
+  562  sudo ufw status
+  563  sudo /opt/lampp/lampp stop
+  564  sudo /opt/lampp/lampp start
+  565  sudo /opt/lampp/lampp stop
+  566  sudo cp -rf /opt/lampp/logs/httpd.pid /home/garmi/Bureau/
+  567  sudo rm -rf /opt/lampp/logs/httpd.pid
+  568  sudo cp -rf /opt/lampp/var/proftpd.p
+  569  sudo cp -rf /opt/lampp/var/pro
+  570  sudo rm -rf /opt/lampp/var/proftpd
+  571  sudo /opt/lampp/lampp start
+  572  sudo /opt/lampp/lampp restart
+  573  sudo cp -rf /home/garmi/Bureau/httpd.pid /opt/lampp/logs/
+  574  sudo cp -rf /home/garmi/Bureau/proftpd/ /opt/lampp/var/
+  575  sudo /opt/lampp/lampp restart
+  576  sudo /opt/lampp/lampp stop
+  577  sudo /opt/lampp/lampp start
+  578  sudo cp -rf /opt/lampp/var/proftpd.pid /home/garmi/Bureau/ 
+  579  sudo cp -rf /opt/lampp/logs/httpd.pid /home/garmi/Bureau/ 
+  580  sudo rm -rf /opt/lampp/logs/httpd.pid  
+  581  sudo rm -rf /opt/lampp/var/proftpd.pid  
+  582  sudo /opt/lampp/lampp restart
+  583  sudo /opt/lampp/lampp stop
+  584  sudo /opt/lampp/lampp status
+  585  sudo /opt/lampp/lampp start
+  586  sudo /etc/init.d/apache2 stop
+  587  sudo /opt/lampp/lampp start
+  588  sudo /opt/lampp/lampp stop
+  589  sudo apt-get install apache2
+  590  sudo ufw app list
+  591  sudo ufw allow 'Apache'
+  592  sudo ufw status
+  593  sudo systemctl status apache2
+  594  sudo systemctl start apache2
+  595  sudo apt-get purge apache2 && sudo apt-get autoremove 
+  596  service 
+  597  service --status-all
+  598  sudo apt-get install apache2
+  599  sudo /opt/lampp/lampp start
+  600  sudo /opt/lampp/lampp stop
+  601  sudo /opt/lampp/lampp start
+  602  sudo apt-get install apache2
+  603  sudo /opt/lampp/lampp restart
+  604  sudo cp -rf  /home/garmi/Bureau/httpd.pid  /opt/lampp/logs/ 
+  605  sudo cp -rf  /home/garmi/Bureau/httpd.pid /opt/lampp/logs/
+  606  sudo /opt/lampp/lampp restart
+  607  sudo /opt/lampp/lampp status
+  608  cd /opt/lampp/
+  609  ls
+  610  sudo ./uninstall
+  611  ls
+  612  cd ../
+  613  ls
+  614  cd lampp/
+  615  dir htdocs/
+  616  sudo apt update
+  617  sudo apt-get install apache2
+  618  php
+  619  php --version
+  620  cd ~
+  621  mysql -uroot -p
+  622  sudo apt-get install apache2
+  623  sudo apt-get install php
+  624  sudo apt purge php
+  625  sudo apt purge apache2
+  626  sudo reboot
+  627  php -S localhost:4000 --host= 0.0.0.0
+  628  php -S localhost:8000
+  629  php -s localhost:4000
+  630  php -s localhost:8000
+  631  php -S localhost:4000
+  632  php --version
+  633  apache2 
+  634  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  635  sudo apt-get autoremove
+  636  sudo rm -rf /etc/apache2
+  637  udo service apache2 stop
+  638  sudo service apache2 stop
+  639  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  640  sudo apt-get autoremove 
+  641  whereis apache2
+  642  whereis php
+  643  whereis php.ini
+  644  whereis mysql
+  645  apache2
+  646  sudo apt-get install apache2
+  647  ifconfig 
+  648  ping 192.168.1.40
+  649  sudo apt-get install mysql-server
+  650  sudo mysql_secure_installation 
+  651  mysql -u root -p
+  652  sudo mysql_secure_installation 
+  653  mysql -u root -p
+  654  sudo mysql -u root -p
+  655  whereis php
+  656  whereis libapache2-mod-php
+  657  sudo nano /var/www/html/info.php
+  658  sudo systemctl restart apache2
+  659  ifconfig 
+  660  sudo apt-get install php
+  661  sudo apt-get install php libapache2-mod-php
+  662  sudo systemctl restart apache2
+  663  sudo systemctl status apache2
+  664  sudo nano /var/www/html/info.php
+  665  sudo systemctl restart apache2
+  666  sudo nano /var/www/html/info.php
+  667  sudo systemctl restart apache2
+  668  sudo apt purge php libapache2-mod-php
+  669  ls /usr/bin/dpkg
+  670  ls /usr/bin/
+  671  php --version
+  672  whereis php
+  673  sudo apt install php libapache2-mod-php
+  674  sudo systemctl restart apache2
+  675  ls /home/garmi/Téléchargements/
+  676  exit
+  677  code .
+  678  sudo /home/garmi/Téléchargements/xampp-linux-x64-7.3.6-0-installer.run 
+  679  systemctl status apache2
+  680  systemctl stop apache2
+  681  systemctl status apache2
+  682  sudo mysql -uroot -p
+  683  systemctl status mysql.service 
+  684  systemctl stop mysql.service 
+  685  sudo mysql -uroot -p
+  686  exit
+  687  sudo reboot
+  688  whereis php
+  689  dir /opt/lampp/
+  690  /opt/lampp/lampp start
+  691  sudo /opt/lampp/lampp start
+  692  sudo apt purge php libapache2-mod-php
+  693  sudo /opt/lampp/lampp stop
+  694  sudo /opt/lampp/lampp status
+  695  sudo /home/garmi/Téléchargements/xampp-linux-x64-7.3.6-0-installer.run 
+  696  sudo ls /opt/lampp/
+  697  sudo  /opt/lampp/uninstall
+  698  sudo ls /opt/lampp/
+  699  cp -rf /opt/lampp/htdocs/CreditsOffices /home/garmi/Bureau/Copy/
+  700  cp -rf /opt/lampp/htdocs/GACJ/ /home/garmi/Bureau/Copy/
+  701  cp -rf /opt/lampp/htdocs/CreditsOfficesBis/ /home/garmi/Bureau/Copy/
+  702  ls /opt/lampp/
+  703  sudo rm -rf /opt/lampp/
+  704  ls /opt/
+  705  sudo service apache2 status
+  706  sudo service apache2 stop
+  707  sudo service apache2 status
+  708  $ sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  709  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  710  sudo apt-get autoremove
+  711  whereis apache2
+  712  php --version
+  713  whereis apache2
+  714  sudo rm -rf /usr/sbin/apache2 /usr/lib/apache2/ /etc/apache2/ /usr/share/apache2/ /usr/share/man/man8/apache2.8.gz 
+  715  whereis apache2
+  716  php --version
+  717  whereis php
+  718  sudo reboot
+  719  ls
+  720  cd Bureau/
+  721  ls
+  722  sudo rm -rf nitro_pro12_ba_x64.msi  proftpd/
+  723  sudo rm -rf pdfelement-pro-win-fr_full5004.exe google-earth-pro-stable_current_amd64.deb 
+  724  refresh
+  725  sudo xrefresh
+  726  matrix
+  727  mairix
+  728  sudo cmatrix
+  729  laravel
+  730  chmod 755 /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  731  sudo chmod 755 /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  732  sudo chmod /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  733  sud /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  734  sudo /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  735  whereis mysql
+  736  cd /opt/lampp/
+  737  ls
+  738  sudo ./uninstall
+  739  cd ..
+  740  ls
+  741  rm -rf lampp/
+  742  sudo rm -rf lampp/
+  743  sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
+  744  sudo apt-get autoremove -y
+  745  udo apt-get autoclean
+  746  sudo apt-get autoclean
+  747  whereis mysql
+  748  sudo rm -rf /etc/mysql
+  749  sudo find / -iname 'mysql*' -exec rm -rf {} \;
+  750  sudo mysql -uroot -p
+  751  sudo /home/garmi/Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  752  sudo cp -rf /home/garmi/Bureau/Copy/CreditsOffices /opt/lampp/htdocs/
+  753  ifconfig
+  754  exit
+  755  sudo reboot
+  756  cd Bureau/
+  757  cd Projects/
+  758  ls
+  759  ls G-STK_RC/
+  760  cd G-STK_RC/
+  761  phpstorm .
+  762  cd ..
+  763  laravel new Gest-Stok
+  764  cd Gest-Stok/
+  765  php artisan serve
+  766  whereis php
+  767  ls /usr/bin/php7.2/
+  768  sudo nano /opt/lampp/apache2/conf/httpd.conf 
+  769  whereis php.ini
+  770  ls /usr/bin/
+  771  sudo nano /usr/bin/php
+  772  php artisan serve
+  773  sudo nano /etc/php/7.2/cli/php.ini 
+  774  php artisan serve
+  775  sudo nano /usr/lib/php/20170718/pdo_mysql.so 
+  776  sudo apt-get update 
+  777  sudo apt-get install php7.2-pdo
+  778  sudo apt-get install php7.2-pdo php7.2-mysql
+  779  sudo apt-get install php-mbstring
+  780  sudo apt-get install php-xml
+  781  sudo reboot
+  782  browser
+  783  sudo apt install libsilo-bin
+  784  cd public/
+  785  bower install admin-lte
+  786  sudo apt purge libsilo-bin
+  787  sudo apt-get autoremove 
+  788  bower install admin-lte
+  789  sudo apt-get install bower
+  790  cd ..
+  791  php artisan make:controller AdminController -m
+  792  php artisan serve
+  793  subl .
+  794  code .
+  795  sudo code .
+  796  sudo subl .
+  797  exit
+  798  sudo mkdir /opt/lampp/htdocs/GSS
+  799  sudo cp -rf Bilan\&CompteResultats/GSS-master/* /opt/lampp/htdocs/GSS/
+  800  exit
+  801  phpstorm .
+  802  exit
+  803  php artisan serve
+  804  exit
+  805  sudo code .
+  806  code .
+  807  phpstorm .
+  808  exit
+  809  subl .
+  810  phpstorm .
+  811  php artisan serve
+  812  composer install
+  813  php artisan serve
+  814  sudo phpstorm .
+  815  php artisan generate:key
+  816  php artisan
+  817  php artisan key:generate
+  818  php artisan migrate
+  819  php artisan
+  820  php artisan migrate
+  821  composer install
+  822  php artisan serve
+  823  composer update
+  824  php --ini
+  825  cd /etc/php/7.2/cli
+  826  ls
+  827  sudo nano php.ini
+  828  /opt/lampp/apache2/ restart
+  829  /opt/lampp/lampp restart
+  830  sudo /opt/lampp/lampp restart
+  831  php artisan serve
+  832  composer update
+  833  sudo nano php.ini
+  834  sudo /opt/lampp/lampp restart
+  835  php artisan serve
+  836  whereis pdo_mysql.so 
+  837  whereis /usr/lib/php/20170718/* 
+  838  php artisan serve
+  839  restart
+  840  exit
+  841  php artisan serve
+  842  phpstorm .
+  843  exit
+  844  exit
+  845  sudo nano /usr/lib/php/20170718/pdo_mysql.so 
+  846  sudo cp -rf /usr/lib/php/20170718/pdo_mysql.so /usr/lib/php/20170718/pdo_mysql.so.so
+  847  cd Bureau/
+  848  ls
+  849  sudo rm -rf GACJ/ /opt/lampp/htdocs/
+  850  ls
+  851  sudo mv -rf Copy/GACJ/ /opt/lampp/htdocs/
+  852  cd Projects/
+  853  ls
+  854  laravel new MyApp
+  855  sudo /opt/lampp/uninstall
+  856  cd ..
+  857  ls
+  858  sudo ./xampp-linux-x64-7.3.6-1-installer.run 
+  859  history
+  860  ls /opt/lampp/*
+  861  sudo /opt/lampp/uninstall
+  862  sudo autoremove
+  863  sudo apt-get autoremove 
+  864  sudo apt-get update 
+  865  sudo rm -rf /opt/lampp/
+  866  sudo service apache2 stop
+  867  sudo apt-get purge apache2 apache2-utils apache2.2-bin apache2-common
+  868  sudo apt-get autoremove
+  869  whereis apache2 
+  870  sudo rm -rf /etc/apache2 
+  871  sudo reboot
+  872  sudo Bureau/xampp-linux-x64-7.3.6-1-installer.run 
+  873  php artisan make:auth
+  874  php artisan migrate
+  875  php artisan 
+  876  php artisan migrate
+  877  composer install
+  878  exit
+  879  composer install
+  880  php artisan serve
+  881  composer install
+  882  php artisan migrate
+  883  sudo apt-get install php7.2-pdo
+  884  php artisan migrate
+  885  php artisan serve
+  886  exit
+  887  composer install
+  888  php artisan migrate
+  889  php artisan make:migration create_fournisseurs_table
+  890  php artisan make:migration create_gammes_table create_articles_table
+  891  php artisan make:migration create_articles_table
+  892  php artisan make:migration create_bordereauFournisseurs_table
+  893  php artisan make:migration create_bordereauLivraison_table
+  894  php artisan make:migration create_categories_table
+  895  php artisan make:migration create_gammes_table
+  896  php artisan make:migration create_ligneArticlerecus_table
+  897  php artisan make:migration create_ligneGammes_table
+  898  php artisan make:migration create_ligneVentes_table
+  899  php artisan make:migration create_sousCategories_table
+  900  php artisan migrate
+  901  php artisan migrate:refresh
+  902  php artisan make:migration create_clients_table
+  903  php artisan migrate
+  904  php artisan migrate:refresh
+  905  php artisan migrate
+  906  php artisan migrate:refresh
+  907  php artisan migrate
+  908  php artisan 
+  909  php artisan migrate:reset
+  910  php artisan migrate
+  911  exit
+  912  php artisan migrate
+  913  php artisan migrate:refresh
+  914  php artisan migrate
+  915  exit
+  916  php artisan serve
+  917  php artisan migrate
+  918  php artisan migrate:refresh
+  919  php artisan migrate:reset
+  920  php artisan migrate
+  921  php artisan migrate:reset
+  922  php artisan migrate
+  923  php artisan make:migration alter_articles_table
+  924  php artisan migrate
+  925  php artisan make:migration alter_bordereauFournisseurs_table
+  926  php artisan make:migration alter_bordereauLivraisons_table
+  927  php artisan make:migration alter_ligneArticlerecus_table
+  928  php artisan make:migration alter_ligneGammes_table
+  929  php artisan make:migration alter_ligneVentes_table
+  930  php artisan make:migration alter_sousCategories_table
+  931  php artisan make:migration alter_clients_table
+  932  php artisan migrate
+  933  php artisan
+  934  php artisan migrate:rollback
+  935  php artisan migrate
+  936  php artisan migrate:refresh
+  937  php artisan migrate:reset
+  938  php artisan migrate:rollback
+  939  php artisan migrate
+  940  php artisan make:migration alter_bordereauLivraisons_table
+  941  php artisan make:migration alter_bordereaulivraisons_table
+  942  exit
+  943  php artisan make:migration alter_bordereauLivraison_table
+  944  php artisan migrate
+  945  php artisan migrate:rollback
+  946  php artisan make:migration create_bordereauLivraisons_table
+  947  php artisan migrate
+  948  php artisan 
+  949  composer require krlove/eloquent-model-generator --dev
+  950  php artisan 
+  951  php artisan krlove:generate:model Fournisseur --table-name=fournisseurs --output-path=Models
+  952  php artisan krlove:generate:model Article --table-name=articles --output-path=Models --namespace=App\Models
+  953  sudo cp -rf LaravelAdminLte/ /home/garmi/Bureau/Projects/
+  954  exit
+  955  sudo phpstorm .
+  956  exit
+  957  composer install
+  958  php artisan serve
+  959  php artisan
+  960  git status
+  961  git add --all
+  962  git status
+  963  git commit -m "initial commit"
+  964  git status
+  965  php artisan make:controller \Admin\FournisseursController
+  966  php artisan krlove:generate:model Articles --table-name=articles --output-path=Models --namespace=Models
+  967  php artisan krlove:generate:model Articles --table-name=articles --output-path=Models --namespace=App.Models
+  968  php artisan krlove:generate:model Articles --table-name=articles --output-path=Models --namespace=App/Models
+  969  php artisan krlove:generate:model Articles --table-name=articles --output-path=Models --namespace=App\Models
+  970  php artisan krlove:generate:model Articles --table-name=articles --output-path=Models --namespace=App\\Models
+  971  history >> command.txt
