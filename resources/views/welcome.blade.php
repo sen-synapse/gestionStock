@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Rassoul Céramique Système d'Information</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -68,15 +68,14 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    RASSOUL CERAMIQUE SYSTEME D'INFORMATION
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route('admin.home') }}" >GESTION DE STOCK (RC-GS)</a>
+                    <a href="{{ route('admingf.homegf') }}">GESTION DE LA FACTURATION (RC-GF)</a>
+                    <a href="{{ route('admingp.homegp') }}">GESTION DE LA PAIE (RC-GP)</a>
+                    <a href="{{ route('admingef.homegef') }}">GESTION DES ETAT FINANCIERS (RC-GEF)</a>
                 </div>
             </div>
         </div>

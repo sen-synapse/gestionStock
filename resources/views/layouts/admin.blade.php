@@ -99,7 +99,7 @@
               ">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
-                Dashboard
+                Acceuil
               </p>
             </a>
             
