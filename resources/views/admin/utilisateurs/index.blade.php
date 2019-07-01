@@ -7,7 +7,7 @@
       <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
-          <li class="breadcrumb-item active"><b>Fournisseurs</b></li>
+          <li class="breadcrumb-item active"><b>utilisateurs</b></li>
         </ol>
       </div><!-- /.col -->
     </div><!-- /.row -->
@@ -17,65 +17,60 @@
 <section class="content">
   <div class="container-fluid">
   	<p>
-  		<a href="{{ route('admin.fournisseurs.create') }}" class="btn btn-primary">Ajouter un Fournisseur</a>
+  		<a href="{{ route('admin.utilisateurs.create') }}" class="btn btn-primary">Ajouter un utilisateur</a>
   	</p>
 
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2>LISTE DES FOURNISSEURS </h2>
+        <h2>LISTE DES UTILISATEURS </h2>
       </div>
 
       <div class="card-body">
         <table class="table table-striped">
-      		<tr>
-      			<th>Raison Social</th>
-      			<th>Email</th>
-      			<th>Telephone</th>
-      			<th>Adresse</th>
-      			<th>Action</th>
-      		</tr>
-
-          @if($fournisseurs->count() > 0)
-          @foreach($fournisseurs as $c)
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Login</th>
+            <th>Persmission</th>
+            <th>Action</th>
+          </tr>
+          @foreach($utilisateurs as $c)
             <tr>
-              <td>{{ $c->raisonsocial }}</td>
+              <td>{{ $c->name}}</td>
+              <td>{{ $c->prenom }}</td>
               <td>{{ $c->email }}</td>
-              <td>{{ $c->telephone }}</td>
-              <td>{{ $c->adresse }}</td>
+              <td> Niveau {{ $c->niveau }}</td>
               <td>
                         <a href="#" class="show-modal btn btn-info btn-sm">
                             <i class="fa fa-eye"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
+                        <a href="{{ route('admin.utilisateurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
                            data-rs="{{$c->raisonsocial }}" data-mail="{{$c->email}}"
                            data-tel="{{$c->telephone}}" data-addr="{{$c->adresse}}"
                            data-res="{{$c->responsable}}" data-br="{{$c->bureautel}}"
                            data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
                             <i class="fa fa-pencil"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                         </a>
-                    <form action="{{ route('admin.fournisseurs.destroy',$c->id) }}" method="post">
-                      @method('DELETE')
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </form>
+
+                          <form action="{{ route('admin.utilisateurs.destroy',$c->id) }}" method="post">
+                            @method('DELETE')
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                          </form>
+
               </td>
             </tr>
           @endforeach
-          @else
-          <tr>
-            <th colspan="5" class="text-center"> Aucun Fournisseur Enregistré !</th>
-          </tr>
-          @endif
-
-      	</table>
+        </table>
       </div>
     </div>
 
   </div>
 </section>
-       {{--$fournisseurs->links()--}}
+       {{--$utilisateurs->links()--}}
     {{-- Modal Form Show POST --}}
     <div id="showmodalF" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -120,7 +115,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
-    // Show function Fournisseur
+    // Show function utilisateur
     $(document).on('click', '.show-modal', function() {
         $('#showmodalF').modal('show');
         $('#rs').text($(this).data('rs'));
@@ -131,7 +126,7 @@
         $('#_br').text($(this).data('br'));
         $('#_fax').text($(this).data('fax'));
         $('#_comp').text($(this).data('comp'));
-        $('.modal-title').text('Details Fournisseur');
+        $('.modal-title').text('Details utilisateur');
     });
 </script>
 @endsection

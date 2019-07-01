@@ -26,6 +26,8 @@
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -90,9 +92,9 @@
                with font-awesome or any other icon font library -->
           <?php
             $segment = Request::segment(2);
-          ?>     
+          ?>
           <li class="nav-item">
-            <a href="{{ route('admin.home') }}" class="nav-link 
+            <a href="{{ route('admin.home') }}" class="nav-link
               @if(!$segment)
               active
               @endif
@@ -102,7 +104,7 @@
                 Acceuil
               </p>
             </a>
-            
+
           </li>
 
           <li class="nav-item">
@@ -173,6 +175,18 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('admin.utilisateurs.index') }}" class="nav-link
+              @if($segment=='utilisateurs')
+                    active
+              @endif">
+              <i class="nav-icon fa fa-address-card"></i>
+              <p>
+                UTILISATEURS
+              </p>
+            </a>
+          </li>
+
           <li class="nav-header">Action</li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
@@ -187,9 +201,11 @@
                                     </form>
 
 
-           
+
           </li>
-          
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -202,7 +218,7 @@
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <footer class="main-footer" style="height:auto;">
     <strong>Copyright &copy; 2019 <a href="#">G-STOCK RASSOUL CERAMIQUE</a>.</strong>
     Tout Droits R&eacute;s&eacute;v&eacute;s.
     <div class="float-right d-none d-sm-inline-block">
@@ -218,6 +234,19 @@
 </div>
 <!-- ./wrapper -->
 
+  <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+  <script src="{{ asset('js/toastr.min.js') }}"></script>
+
+  <script type="text/javascript">
+    @if(Session::has('success'))
+      toastr.success(" {{Session::get('success')}} ")
+    @endif
+
+    @if(Session::has('info'))
+      toastr.info(" {{Session::get('info')}} ")
+    @endif
+  </script>
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->

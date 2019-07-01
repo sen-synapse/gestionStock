@@ -3,11 +3,8 @@
 
 <div class="content-header">
   <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1 class="m-0 text-dark">Ajouter Bordereau</h1>
-      </div><!-- /.col -->
-      <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
           <li class="breadcrumb-item active">Nouveau Bordereau</li>
@@ -19,48 +16,66 @@
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-    <form method="post" action="{{ route('admin.bordereaufournisseurs.store') }}" enctype="multipart/form-data">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div class="card card-default">
+      <div class="card-header text-center">
+        <h2>AJOUTER UN BORDEREAU</h2>
+      </div>
+
+      <div class="card-body">
+        <form method="post" action="{{ route('admin.bordereaufournisseurs.store') }}" enctype="multipart/form-data">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-md-3">Fournisseurs : </label>
-          <div class="col-md-6">
-            <select name="fournisseur_id" class="form-control">
-              <option value="">Choisir le Fournisseur </option>
-              @foreach($fournisseurs as $c)
-                <option value="{{ $c->id }}">{{ $c->raisonsocial }}</option>
-              @endforeach
-            </select>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-3">Fournisseurs : </label>
+              <div class="col-md-6">
+                <select name="fournisseur_id" class="form-control">
+                  @foreach($fournisseurs as $c)
+                    <option value="{{ $c->id }}" @if(old('fournisseur_id') == $c->id) selected @endif>{{ $c->raisonsocial }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="clearfix"></div>
+            </div>
           </div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-md-3">Date : </label>
-          <div class="col-md-6"><input type="date" name="date" class="form-control"></div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-3">Date : </label>
+              <div class="col-md-6"><input type="date" name="date" class="form-control {{ $errors->has('date') ? 'is-invalid' : ''}}" value="{{ old('date')}}">
+                @if($errors->has('date'))
+                  <div class="text-center text-danger">
+                    {{ $errors->first('date')}}
+                  </div>
+                @endif
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
 
-      <div class="form-group">
-        <div class="row">
-          <label class="col-md-3">Fichier : </label>
-          <div class="col-md-6"><input type="file" name="fichier" class="form-control"></div>
-          <div class="clearfix"></div>
-        </div>
-      </div>
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-3">Fichier : </label>
+              <div class="col-md-6"><input type="file" name="fichier" class="form-control {{ $errors->has('fichier') ? 'is-invalid' : ''}}" value="old('fichier')">
+                @if($errors->has('fichier'))
+                  <div class="text-center text-danger">
+                    Veuillez-choisir un fichier PDF
+                  </div>
+                @endif
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
 
 
-      <div class="form-group">
-        <input type="submit" class="btn btn-info" value="Save">
+          <div class="form-group text-center">
+            <input type="submit" class="btn btn-info" value="AJOUTER">
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
+
   </div>
-</section>  
-
-
+</section>
 @endsection

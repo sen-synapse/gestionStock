@@ -29,6 +29,7 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
 	Route::resource('/news', 'NewsController');
 	Route::resource('/fournisseurs', 'FournisseursController');
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
+  Route::resource('/utilisateurs', 'UtilisateursController');
 });
 
 /*Route de la gestion de la facturation RC-GF*/

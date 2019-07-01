@@ -6,10 +6,14 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Fournisseur;
-
+use Session;
 class FournisseursController extends Controller
 {
 
+    public function __construct()
+    {
+      $this->middleware('utilisateur.niveau', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -40,6 +44,18 @@ class FournisseursController extends Controller
      */
     public function store(Request $request, Fournisseur $fournisseur)
     {
+
+      $this->validate($request, [
+        'raisonsocial' => 'required',
+        'email' => 'required|email',
+        'telephone' => 'required|integer',
+        'adresse' => 'required|string',
+        'responsable' => 'required',
+        'bureautel' => 'required|integer',
+        'fax' => 'required|integer',
+        'numcomptebank' => 'required|integer',
+
+      ]);
         $fournisseur->raisonsocial = $request->raisonsocial;
         $fournisseur->email = $request->email;
         $fournisseur->telephone = $request->telephone;
@@ -49,6 +65,8 @@ class FournisseursController extends Controller
         $fournisseur->fax = $request->fax;
         $fournisseur->numcomptebank = $request->numcomptebank;
         $fournisseur->save();
+
+        Session::flash('success', 'Fournisseur ajouté avec succé !');
         return redirect()->route('admin.fournisseurs.index');
     }
 
@@ -73,7 +91,6 @@ class FournisseursController extends Controller
     {
         $arr['fournisseurs'] = $fournisseur;
         return view('admin.fournisseurs.edit')->with($arr);
-
     }
 
     /**
@@ -85,6 +102,19 @@ class FournisseursController extends Controller
      */
     public function update(Request $request, Fournisseur $fournisseur)
     {
+
+        $this->validate($request, [
+          'raisonsocial' => 'required',
+          'email' => 'required|email',
+          'telephone' => 'required|integer',
+          'adresse' => 'required|string',
+          'responsable' => 'required',
+          'bureautel' => 'required',
+          'fax' => 'required|integer',
+          'numcomptebank' => 'required|integer'
+        ]);
+
+
         $fournisseur->raisonsocial = $request->raisonsocial;
         $fournisseur->email = $request->email;
         $fournisseur->telephone = $request->telephone;
@@ -94,6 +124,7 @@ class FournisseursController extends Controller
         $fournisseur->fax = $request->fax;
         $fournisseur->numcomptebank = $request->numcomptebank;
         $fournisseur->save();
+        Session::flash('success', 'Fournisseur modifié avec succè !');
         return redirect()->route('admin.fournisseurs.index');
     }
 
