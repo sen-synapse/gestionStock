@@ -79,6 +79,9 @@ class FournisseursController extends Controller
     public function show($id)
     {
         //
+        $fournisseur = Fournisseur::find($id);
+
+        return view('');
     }
 
     /**
@@ -89,7 +92,7 @@ class FournisseursController extends Controller
      */
     public function edit(Fournisseur $fournisseur)
     {
-        $arr['fournisseurs'] = $fournisseur;
+        $arr['fournisseur'] = $fournisseur;
         return view('admin.fournisseurs.edit')->with($arr);
     }
 
@@ -137,6 +140,7 @@ class FournisseursController extends Controller
     public function destroy($id)
     {
         Fournisseur::destroy($id);
+        Session::flash('success', 'Fournisseur supprimé avec succé !');
         return redirect()->route('admin.fournisseurs.index');
     }
 

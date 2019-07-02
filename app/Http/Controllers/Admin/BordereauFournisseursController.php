@@ -57,6 +57,12 @@ class BordereauFournisseursController extends Controller
         'date' => 'required'
       ]);
 
+      $fichier = $request->fichier;
+
+      $fichier_new = time().$fichier->getClientOriginalName();
+
+      $fichier->move('uploads\bordereaufournisseurs', $fichier_new);
+      /*
       if($request->fichier->getClientOriginalName()){
           $ext =  $request->fichier->getClientOriginalExtension();
           $file = "bordereau".date('YmdHis').'.'.$ext;
@@ -65,13 +71,34 @@ class BordereauFournisseursController extends Controller
       else
       {
           $file = '';
-      }
+      } */
+
+
       $bordereaufournisseurs->idfourniss = $request->fournisseur_id;
-      $bordereaufournisseurs->fichier = $file;
+      $bordereaufournisseurs->fichier = $fichier_new;
       $bordereaufournisseurs->datebrd = $request->date;
       $bordereaufournisseurs->save();
       Session::flash('success', 'Bordereau ajouté avec succé !');
       return redirect()->route('admin.bordereaufournisseurs.index');
     }
 
+
+    public function show($id)
+    {
+      $bordereaufournisseur = BordereauFournisseur::find($id);
+
+      $fichier = '/uploads/bordereaufournisseurs/'. $bordereaufournisseur->fichier;
+      return redirect($fichier);
+    }
+
+    public function destroy($id)
+    {
+        $bordereaufournisseur = BordereauFournisseur::find($id);
+
+        $bordereaufournisseur->delete();
+
+        Session::flash('success', 'Bordereau supprimé avec succé !');
+
+        return redirect()->route('admin.bordereaufournisseurs.index');
+    }
 }

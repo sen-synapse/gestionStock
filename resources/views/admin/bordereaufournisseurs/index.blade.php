@@ -42,19 +42,20 @@
                 <tr>
                   <td> {{ $fournisseur->raisonsocial}}</td>
                   <td>{{ $n->datebrd }}</td>
-                  <td><a href="#">{{ $n->fichier }}</a></td>
+                  <td>{{ $n->fichier }}</td>
 
                   <td>
-                            <a href="#" class="show-modal btn btn-info btn-sm">
-                                <i class="fa fa-eye"></i>
-                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="#" class="btn btn-warning btn-sm" data-id="{{$n->id}}">
-                                <i class="fa fa-pencil"></i>
-                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                     <form action="#" method="post">
+                        <a href="{{route('admin.bordereaufournisseurs.show', ['id' => $n->id])}}" target="_blank" class="show-modal btn btn-info btn-sm">
+                            <i class="fa fa-eye"></i>
+                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <a href="#" class="btn btn-warning btn-sm" data-id="{{$n->id}}">
+                            <i class="fa fa-pencil"></i>
+                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                     <form action="{{ route('admin.bordereaufournisseurs.destroy',$n->id) }}" method="post">
                       @method('DELETE')
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </form>
@@ -71,8 +72,7 @@
     </div>
 
     {{ $bordereaufournisseurs->render() }}
-  </div>
-</section>
 
+</section>
 
 @endsection

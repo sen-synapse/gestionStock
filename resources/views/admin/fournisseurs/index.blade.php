@@ -21,7 +21,7 @@
   	</p>
 
     <div class="card card-default">
-      <div class="card-header text-center">
+      <div class="card-header val-center">
         <h2>LISTE DES FOURNISSEURS </h2>
       </div>
 
@@ -43,7 +43,11 @@
               <td>{{ $c->telephone }}</td>
               <td>{{ $c->adresse }}</td>
               <td>
-                        <a href="#" class="show-modal btn btn-info btn-sm">
+                        <a href="#" class="show-modal btn btn-info btn-sm"
+                           data-rs="{{$c->raisonsocial}}" data-mail="{{$c->email}}"
+                           data-tel="{{$c->telephone}}" data-addr="{{$c->adresse}}"
+                           data-res="{{$c->responsable}}" data-br="{{$c->bureautel}}"
+                           data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
                             <i class="fa fa-eye"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
@@ -65,7 +69,7 @@
           @endforeach
           @else
           <tr>
-            <th colspan="5" class="text-center"> Aucun Fournisseur Enregistré !</th>
+            <th colspan="5" class="val-center"> Aucun Fournisseur Enregistré !</th>
           </tr>
           @endif
 
@@ -81,34 +85,42 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" style="align-content: center; color: #2a88bd;"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="">RAISON SOCIAL :</label> <b id="rs"/>
+                        <label for="">RAISON SOCIAL :</label>
+                        <input type="val" class="form-control" id="rs" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">EMAIL :</label> <b id="mail"/>
+                        <label for="">EMAIL :</label>
+                        <input type="val" class="form-control" id="mail" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">TELEPHONE :</label> <b id="tel"/>
+                        <label for="">TELEPHONE :</label>
+                        <input type="val" class="form-control" id="tel" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">ADRESSE :</label>  <b id="addr"/>
+                        <label for="">ADRESSE :</label>
+                        <input type="val" class="form-control" id="addr" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">NOMRESPONSABLE :</label>   <b id="resp"/>
+                        <label for="">NOMRESPONSABLE :</label>
+                        <input type="val" class="form-control" id="resp" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">BUREAUTEL :</label> <b id="br"/>
+                        <label for="">BUREAUTEL :</label>
+                        <input type="val" class="form-control" id="br" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">FAX :</label>  <b id="fax"/>
+                        <label for="">FAX :</label>
+                        <input type="val" class="form-control" id="fax" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">NUMCOMPTEBANK :</label>   <b id="comp"/>
+                        <label for="">NUMCOMPTEBANK :</label>
+                        <input type="val" class="form-control" id="comp" disabled>
                     </div>
                 </div>
             </div>
@@ -123,14 +135,14 @@
     // Show function Fournisseur
     $(document).on('click', '.show-modal', function() {
         $('#showmodalF').modal('show');
-        $('#rs').text($(this).data('rs'));
-        $('#_mail').text($(this).data('mail'));
-        $('#_tel').text($(this).data('tel'));
-        $('#_addr').text($(this).data('addr'));
-        $('#_resp').text($(this).data('res'));
-        $('#_br').text($(this).data('br'));
-        $('#_fax').text($(this).data('fax'));
-        $('#_comp').text($(this).data('comp'));
+        $('#rs').val($(this).data('rs'));
+        $('#mail').val($(this).data('mail'));
+        $('#tel').val($(this).data('tel'));
+        $('#addr').val($(this).data('addr'));
+        $('#resp').val($(this).data('res'));
+        $('#br').val($(this).data('br'));
+        $('#fax').val($(this).data('fax'));
+        $('#comp').val($(this).data('comp'));
         $('.modal-title').text('Details Fournisseur');
     });
 </script>

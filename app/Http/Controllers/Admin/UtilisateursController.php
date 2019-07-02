@@ -113,7 +113,8 @@ class UtilisateursController extends Controller
          */
         public function destroy($id)
         {
-            utilisateur::destroy($id);
+            User::destroy($id);
+              Session::flash('success', 'Utilisateur supprimé avec succé !');
             return redirect()->route('admin.utilisateurs.index');
         }
 }
