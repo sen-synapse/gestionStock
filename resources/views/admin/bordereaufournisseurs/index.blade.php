@@ -45,7 +45,8 @@
                   <td>{{ $n->fichier }}</td>
 
                   <td>
-                        <a href="{{route('admin.bordereaufournisseurs.show', ['id' => $n->id])}}" target="_blank" class="show-modal btn btn-info btn-sm">
+                        <a href="#" class="show-modal btn btn-info btn-sm"
+                            data-fichier="{{$n->fichier}}">
                             <i class="fa fa-eye"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -72,7 +73,36 @@
     </div>
 
     {{ $bordereaufournisseurs->render() }}
+    <div id="showmodalF" class="modal fade" role="dialog">
+        <div class="modal-dialog" >
+            <div class="modal-content" style="width: 150%;">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="align-content: center; color: #2a88bd;"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style=" height: 80vh;">
 
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/pdfobject.min.js') }}"> </script>
+
+<script>
+
+    // Show function Fournisseur
+    $(document).on('click', '.show-modal', function() {
+        $('#showmodalF').modal('show');
+
+        var fichier = '{{ asset('uploads/bordereaufournisseurs/')}} ' + '/' + $(this).data('fichier');
+
+        PDFObject.embed(fichier, '.modal-body');
+        $('.modal-title').text('Bordereau Fournisseur');
+    });
+</script>
 @endsection
