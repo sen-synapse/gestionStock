@@ -25,9 +25,38 @@ Route::get('/about', 'TestController@about')->name('about');
 Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->group(function(){
 
 	Route::get('/', 'HomeController@index')->name('home');
+
 	Route::resource('/categories', 'CategoriesController');
-	Route::resource('/news', 'NewsController');
+  Route::post('{id}/categories', [
+    'uses' => 'CategoriesController@modifier',
+    'as' => 'categories.modifier'
+  ]);
+
+  Route::resource('/souscategories', 'SousCategoriesController');
+  Route::post('/{id}/sousCategorie', [
+    'uses' => 'SousCategoriesController@update',
+    'as' => 'souscategories.update'
+  ]);
+
+	Route::resource('/articles', 'ArticleController');
+  Route::post('/{id}/articles', [
+    'uses' => 'ArticleController@update',
+    'as' => 'articles.update'
+  ]);
+
 	Route::resource('/fournisseurs', 'FournisseursController');
+
+  Route::resource('/articlerecus', 'ArticleRecusController');
+  Route::post('/{id}/articlerecus', [
+    'uses' => 'ArticleRecusController@update',
+    'as' => 'articlerecus.update'
+  ]);
+
+  Route::get('{id}/articlerecus', [
+    'uses' => 'ArticleRecusController@ajouter',
+    'as' => 'articlerecus.ajouter'
+  ]);
+
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
   Route::resource('/utilisateurs', 'UtilisateursController');
 });

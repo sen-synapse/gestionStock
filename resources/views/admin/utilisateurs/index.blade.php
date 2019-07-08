@@ -17,7 +17,7 @@
 <section class="content">
   <div class="container-fluid">
   	<p>
-  		<a href="{{ route('admin.utilisateurs.create') }}" class="btn btn-primary">Ajouter un utilisateur</a>
+  		<a href="{{ route('admin.utilisateurs.create') }}" class="btn btn-primary">NOUVEAU UTILISATEUR</a>
   	</p>
 
     <div class="card card-default">

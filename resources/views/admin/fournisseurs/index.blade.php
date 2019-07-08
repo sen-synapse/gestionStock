@@ -17,7 +17,7 @@
 <section class="content">
   <div class="container-fluid">
   	<p>
-  		<a href="{{ route('admin.fournisseurs.create') }}" class="btn btn-primary">Ajouter un Fournisseur</a>
+  		<a href="{{ route('admin.fournisseurs.create') }}" class="btn btn-primary">NOUVEAU FOURNISSEUR</a>
   	</p>
 
     <div class="card card-default">
@@ -50,11 +50,7 @@
                            data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
                             <i class="fa fa-eye"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
-                           data-rs="{{$c->raisonsocial }}" data-mail="{{$c->email}}"
-                           data-tel="{{$c->telephone}}" data-addr="{{$c->adresse}}"
-                           data-res="{{$c->responsable}}" data-br="{{$c->bureautel}}"
-                           data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
+                        <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm">
                             <i class="fa fa-pencil"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
@@ -69,7 +65,7 @@
           @endforeach
           @else
           <tr>
-            <th colspan="5" class="val-center"> Aucun Fournisseur Enregistré !</th>
+            <th colspan="5" class="text-center"> Aucun Fournisseur Enregistré !</th>
           </tr>
           @endif
 
@@ -126,8 +122,6 @@
             </div>
         </div>
     </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>

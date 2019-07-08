@@ -13,12 +13,12 @@ class CreateLigneArticlerecusTable extends Migration
      */
     public function up()
     {
-        Schema::create('ligne_articlerecus', function (Blueprint $table) {
+        Schema::create('ligne_article_recuses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idbrdfourniss')->unsigned()->index();
             $table->integer('idarticle')->unsigned()->index();
             $table->integer('iduser')->unsigned()->index();
-            $table->bigInteger('quantite');
+            $table->bigInteger('qte');
             $table->string('couleur');
             $table->timestamps();
             $table->foreign('idbrdfourniss')->references('id')->on('bordereau_fournisseurs')->onDelete('cascade');

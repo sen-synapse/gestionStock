@@ -32,8 +32,8 @@ class BordereauFournisseur extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ligneArticlerecuses()
+    public function ligneArticlerecus()
     {
-        return $this->hasMany('App\Models\LigneArticlerecus', 'idbrdfourniss');
+        return $this->hasMany('App\Models\LigneArticleRecus', 'idbrdfourniss');
     }
 }

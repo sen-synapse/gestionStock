@@ -18,7 +18,7 @@
 <section class="content">
   <div class="container-fluid">
   	<p>
-  		<a href="{{ route('admin.bordereaufournisseurs.create') }}" class="btn btn-primary">Nouveau Bordereau</a>
+  		<a href="{{ route('admin.bordereaufournisseurs.create') }}" class="btn btn-primary">NOUVEAU BORDEREAU</a>
   	</p>
 
     <div class="card card-default">
@@ -45,6 +45,10 @@
                   <td>{{ $n->fichier }}</td>
 
                   <td>
+                        <a href="{{ route('admin.articlerecus.ajouter', ['id' => $n->id] )}}" class="btn btn-success btn-sm">
+                            <i class="fa fa-plus"></i>
+                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
                         <a href="#" class="show-modal btn btn-info btn-sm"
                             data-fichier="{{$n->fichier}}">
                             <i class="fa fa-eye"></i>

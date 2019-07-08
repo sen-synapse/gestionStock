@@ -4,7 +4,8 @@
 
   use Illuminate\Http\Request;
   use App\Http\Controllers\Controller;
-  use App\Category;
+  use App\Models\Categorie;
+  use Session;
 
 class CategoriesController extends Controller
 {
@@ -16,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $arr['categories'] = Category::all();
+        $arr['categories'] = Categorie::all();
         return view('admin.categories.index')->with($arr);
 
     }
@@ -37,11 +38,19 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Category $category)
+    public function store(Request $request, Categorie $categorie)
     {
-        $category->title = $request->title;
-        $category->save();
-        return redirect()->route('admin.categories.index');
+      $this->validate($request,[
+        'codecategorie' => 'required',
+        'categorie' => 'required'
+        ]);
+
+      $categorie->codeCategorie = $request->codecategorie;
+      $categorie->categorie = $request->categorie;
+      $categorie->save();
+
+      Session::flash('success', 'Categorie ajouté avec succé !');
+      return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -61,9 +70,10 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        $arr['category'] = $category;
+        $categorie = Categorie::find($id);
+        $arr['categorie'] = $categorie;
         return view('admin.categories.edit')->with($arr);
 
     }
@@ -75,11 +85,21 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function modifier(Request $request, $id)
     {
-        $category->title = $request->title;
-        $category->save();
-        return redirect()->route('admin.categories.index');
+
+      $this->validate($request,[
+        'codecategorie' => 'required',
+        'categorie' => 'required'
+        ]);
+
+      $categorie = Categorie::find($id);
+      $categorie->codeCategorie = $request->codecategorie;
+      $categorie->categorie = $request->categorie;
+      $categorie->save();
+
+      Session::flash('success', 'Categorie modifié avec succé !');
+      return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -90,7 +110,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
+        $categorie = Categorie::find($id);
+        $categorie->delete();
+
+        Session::flash('success', 'Categorie supprimé avec succé !');
         return redirect()->route('admin.categories.index');
     }
 }

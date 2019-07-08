@@ -131,8 +131,8 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link
-              @if($segment=='article')
+            <a href="{{ route('admin.articles.index')}}" class="nav-link
+              @if($segment=='articles')
                     active
               @endif">
               <i class="nav-icon fa fa-first-order"></i>
@@ -141,6 +141,20 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.articlerecus.index')}}" class="nav-link
+              @if($segment=='articlesrecus')
+                    active
+              @endif">
+              <i class="nav-icon fa fa-first-order"></i>
+              <p>
+                ARTICLES RECUS
+              </p>
+            </a>
+          </li>
+
+
         <li class="nav-item">
             <a href="#" class="nav-link
               @if($segment=='gamme')
@@ -163,6 +177,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="{{ route('admin.categories.index') }}" class="nav-link
               @if($segment=='categories')
@@ -171,6 +186,18 @@
               <i class="nav-icon fa fa-th"></i>
               <p>
                 CATEGORIES
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.souscategories.index') }}" class="nav-link
+              @if($segment=='souscategories')
+                    active
+              @endif">
+              <i class="nav-icon fa fa-th"></i>
+              <p>
+                SOUS CATEGORIES
               </p>
             </a>
           </li>
