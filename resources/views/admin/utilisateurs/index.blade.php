@@ -34,36 +34,43 @@
             <th>Persmission</th>
             <th>Action</th>
           </tr>
-          @foreach($utilisateurs as $c)
+          @if($utilisateurs->count() > 1)
+            @foreach($utilisateurs as $c)
+              @if($c->id != 1)
+                <tr>
+                  <td>{{ $c->name}}</td>
+                  <td>{{ $c->prenom }}</td>
+                  <td>{{ $c->email }}</td>
+                  <td> Niveau {{ $c->niveau }}</td>
+                  <td>
+                    <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$c->id}}"
+                       data-nom="{{$c->name }}" data-prenom="{{$c->prenom}}"
+                       data-login="{{$c->email}}" data-niveau="{{$c->niveau}}">
+                        <i class="fa fa-eye"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('admin.utilisateurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
+                       data-nom="{{$c->name }}" data-prenom="{{$c->prenoml}}"
+                       data-email="{{$c->email}}" data-niveau="{{$c->niveau}}">
+                        <i class="fa fa-pencil"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i>
+                    </a>
+
+                    <form action="{{ route('admin.utilisateurs.destroy',$c->id) }}" method="post">
+                      @method('DELETE')
+                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
+                  </td>
+                </tr>
+              @endif
+            @endforeach
+          @else
             <tr>
-              <td>{{ $c->name}}</td>
-              <td>{{ $c->prenom }}</td>
-              <td>{{ $c->email }}</td>
-              <td> Niveau {{ $c->niveau }}</td>
-              <td>
-                        <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$c->id}}"
-                           data-nom="{{$c->name }}" data-prenom="{{$c->prenom}}"
-                           data-login="{{$c->email}}" data-niveau="{{$c->niveau}}">
-                            <i class="fa fa-eye"></i>
-                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{{ route('admin.utilisateurs.edit',$c->id) }}" class="btn btn-warning btn-sm" data-id="{{$c->id}}"
-                           data-nom="{{$c->name }}" data-prenom="{{$c->prenoml}}"
-                           data-email="{{$c->email}}" data-niveau="{{$c->niveau}}">
-                            <i class="fa fa-pencil"></i>
-                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash"></i>
-                        </a>
-
-                          <form action="{{ route('admin.utilisateurs.destroy',$c->id) }}" method="post">
-                            @method('DELETE')
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          </form>
-
-              </td>
+              <td colspan="5" class="text-center"> Aucun utilisateur !</td>
             </tr>
-          @endforeach
+          @endif
         </table>
       </div>
     </div>
@@ -109,8 +116,6 @@
             </div>
         </div>
     </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>

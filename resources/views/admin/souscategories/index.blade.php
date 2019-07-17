@@ -46,9 +46,9 @@
                 @endforeach
                 <td>
 
-                  <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$sc->id}}"
-                     data-code="{{$sc->codesouscat}}" data-sc="{{$sc->souscategorie}}"
-                     data-categorie="{{$c->categorie}}">
+                  <a href="#" class="show-modal btn btn-info btn-sm"
+                    data-id="{{$sc->id}}" data-code="{{$sc->codesouscat}}" data-sc="{{$sc->souscategorie}}"
+                    data-categorie="{{$c->categorie}}">
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
 

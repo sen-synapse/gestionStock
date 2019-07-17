@@ -1,0 +1,108 @@
+@extends('layouts.admin')
+@section('content')
+
+<div class="content-header">
+  <div class="container-fluid">
+
+
+    <div class="row">
+      <div class="col-sm-12">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
+          <li class="breadcrumb-item active">Modifier utilisateur</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+    <!-- /.content-header -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="card card-default">
+      <div class="card-header text-center">
+       <h2>MODIFICATION UTILISATEUR</h2>
+      </div>
+
+      <div class="card-body">
+        <form method="post" action="{{ route('admin.utilisateurs.update' , $u->id) }}">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-3">Nom : </label>
+              <div class="col-md-6"><input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ $u->name }}">
+                @if($errors->has('name'))
+                <div class="text-center text-danger">
+                  {{ $errors->first('name') }}
+                </div>
+                @endif
+              </div>
+
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="col-md-3">Prenom : </label>
+              <div class="col-md-6"><input type="text" name="prenom" class="form-control {{ $errors->has('prenom') ? ' is-invalid' : '' }}" value="{{ $u->prenom }}">
+                @if($errors->has('prenom'))
+                <div class="text-center text-danger">
+                  {{ $errors->first('prenom') }}
+                </div>
+                @endif
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+                <label class="col-md-3">Login : </label>
+                <div class="col-md-6"><input type="text" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ $u->email }}">
+                  @if($errors->has('email'))
+                  <div class="text-center text-danger">
+                    {{ $errors->first('email') }}
+                  </div>
+                  @endif
+                </div>
+                <div class="clearfix"></div>
+              </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="row">
+                <label class="col-md-3">Mot de Passe : </label>
+                <div class="col-md-6">
+                  <input type="password" name="password" class="form-control" value="{{ old('password')}}">
+
+                  <div class="text-center text-info">
+                    Champs Mot de Passe, à remplir si seulement vous voulez le changer.
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+          </div>
+
+          <div class="form-group">
+           <div class="row">
+              <label class="col-md-3">Perimission : </label>
+              <div class="col-md-6">
+                <select class="form-control {{ $errors->has('niveau') ? 'is-invalid' : '' }}" name="niveau">
+                  <option value="">Veuillez choisir le niveau de l'utilisateur</option>
+                  <option value="1" @if($u->niveau == 1) selected @endif>Niveau 1</option>
+                  <option value="2" @if($u->niveau == 2) selected @endif>Niveau 2</option>
+                </select>
+              </div>
+           </div>
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" class="btn btn-info" value="MODIFIER">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+@endsection

@@ -33,21 +33,27 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom" style="height: 8vh;">
     <!-- Left navbar links -->
+
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
+        <!--
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+        -->
     </ul>
 
+
     <!-- SEARCH FORM -->
+    <!--
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -58,10 +64,11 @@
         </div>
       </div>
     </form>
-
+    -->
     <!-- Right navbar links -->
 
   </nav>
+
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -137,14 +144,14 @@
               @endif">
               <i class="nav-icon fa fa-first-order"></i>
               <p>
-                ARTICLES
+                NOUVEAU ARTICLE
               </p>
             </a>
           </li>
 
           <li class="nav-item">
             <a href="{{ route('admin.articlerecus.index')}}" class="nav-link
-              @if($segment=='articlesrecus')
+              @if($segment=='articlerecus')
                     active
               @endif">
               <i class="nav-icon fa fa-first-order"></i>
@@ -153,7 +160,6 @@
               </p>
             </a>
           </li>
-
 
         <li class="nav-item">
             <a href="#" class="nav-link
@@ -166,6 +172,7 @@
               </p>
             </a>
           </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link
               @if($segment=='client')
@@ -202,14 +209,28 @@
             </a>
           </li>
 
+          @if(Auth::user()->niveau == 2)
+            <li class="nav-item">
+              <a href="{{ route('admin.utilisateurs.index') }}" class="nav-link
+                @if($segment=='utilisateurs')
+                      active
+                @endif">
+                <i class="nav-icon fa fa-address-card"></i>
+                <p>
+                  UTILISATEURS
+                </p>
+              </a>
+            </li>
+          @endif
+
           <li class="nav-item">
-            <a href="{{ route('admin.utilisateurs.index') }}" class="nav-link
-              @if($segment=='utilisateurs')
+            <a href="{{ route('admin.profil.index') }}" class="nav-link
+              @if($segment=='profil')
                     active
               @endif">
-              <i class="nav-icon fa fa-address-card"></i>
+              <i class="nav-icon fa fa-user"></i>
               <p>
-                UTILISATEURS
+                MON PROFIL
               </p>
             </a>
           </li>
@@ -220,7 +241,7 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                                      <i class="nav-icon fa fa-circle-o text-danger"></i>
-                                        {{ __('Logout') }}
+                                        {{ __('Deconnexion') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

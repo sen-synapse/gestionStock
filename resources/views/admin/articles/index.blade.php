@@ -24,6 +24,13 @@
       <div class="card-header text-center">
         <h2 class="text-center">LISTE DES ARTICLES </h2>
       </div>
+      <form class="row text-center col-sm-10 " action="{{ route('admin.articles.recherche') }}" method="get">
+
+        <input type="text" class="typehead form-control col-sm-8 offset-sm-2" placeholder="recherccher un article " name="recherche" value="">
+
+        <input type="submit" class="btn btn-primary" value="Recherche">
+
+      </form>
 
       <div class="card-body">
         <table class="table table-striped">
@@ -50,7 +57,6 @@
                 <td>{{ $at->unitearticle}}</td>
                 <td>{{ $at->dimension}}</td>
                 <td>
-
                   <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$sc->id}}"
                      data-code="{{$at->codearticle}}" data-sc="{{$sc->souscategorie}}"
                      data-article="{{ $at->article }}" data-unite="{{ $at->unitearticle}}"

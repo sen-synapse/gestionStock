@@ -10,6 +10,10 @@ use Session;
 
 class SousCategoriesController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('utilisateur.niveau', ['except' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
+    }
     /**
      * Display a listing of the resource.
      *

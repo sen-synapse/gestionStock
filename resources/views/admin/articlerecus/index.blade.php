@@ -21,13 +21,14 @@
       <div class="card-header text-center">
         <h2 class="text-center">LISTE DES ARTICLES RECUS </h2>
       </div>
-
       <div class="card-body">
         <table class="table table-striped">
           <tr>
             <th>Bordereau Fournisseur</th>
             <th>Article</th>
             <th>Utilisateurs</th>
+            <th>Quantite</th>
+            <th>Couleur</th>
             <th>Action</th>
           </tr>
           @if($articlerecus->count() > 0)
@@ -36,7 +37,7 @@
               <tr>
                 @foreach($brd as $b)
                   @if($atr->idbrdfourniss == $b->id)
-                    <td>{{ $b->fichier}}</td>
+                    <td>{{ (App\Models\BordereauFournisseur::find($b->idfourniss)->Fournisseur)->fax . ' - '. (App\Models\BordereauFournisseur::find($b->idfourniss))->datebrd }}</td>
                   @endif
                 @endforeach
 
@@ -51,6 +52,9 @@
                     <td>{{ $u->email }}</td>
                   @endif
                 @endforeach
+
+                <td> {{ $atr->qte}}</td>
+                <td> {{ $atr->couleur }}</td>
                 <td>
 
                   <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$atr->id}}" data-brd="{{ $b->fichier }}"

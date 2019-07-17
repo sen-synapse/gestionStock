@@ -22,13 +22,13 @@
 
     <div class="card card-default">
       <div class="card-header val-center">
-        <h2>LISTE DES FOURNISSEURS </h2>
+        <h2 class="text-center">LISTE DES FOURNISSEURS </h2>
       </div>
 
       <div class="card-body">
         <table class="table table-striped">
       		<tr>
-      			<th>Raison Social</th>
+      			<th>Code</th>
       			<th>Email</th>
       			<th>Telephone</th>
       			<th>Adresse</th>
@@ -38,28 +38,28 @@
           @if($fournisseurs->count() > 0)
           @foreach($fournisseurs as $c)
             <tr>
-              <td>{{ $c->raisonsocial }}</td>
+              <td>{{ $c->fax }}</td>
               <td>{{ $c->email }}</td>
               <td>{{ $c->telephone }}</td>
               <td>{{ $c->adresse }}</td>
               <td>
-                        <a href="#" class="show-modal btn btn-info btn-sm"
-                           data-rs="{{$c->raisonsocial}}" data-mail="{{$c->email}}"
-                           data-tel="{{$c->telephone}}" data-addr="{{$c->adresse}}"
-                           data-res="{{$c->responsable}}" data-br="{{$c->bureautel}}"
-                           data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
-                            <i class="fa fa-eye"></i>
-                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm">
-                            <i class="fa fa-pencil"></i>
-                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    <form action="{{ route('admin.fournisseurs.destroy',$c->id) }}" method="post">
-                      @method('DELETE')
-                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    </form>
+                  <a href="#" class="show-modal btn btn-info btn-sm"
+                     data-rs="{{$c->raisonsocial}}" data-mail="{{$c->email}}"
+                     data-tel="{{$c->telephone}}" data-addr="{{$c->adresse}}"
+                     data-res="{{$c->responsable}}" data-br="{{$c->bureautel}}"
+                     data-fax="{{$c->fax}}" data-comp="{{$c->numcomptebank}}">
+                      <i class="fa fa-eye"></i>
+                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="{{ route('admin.fournisseurs.edit',$c->id) }}" class="btn btn-warning btn-sm">
+                      <i class="fa fa-pencil"></i>
+                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                  </a>
+                  <form action="{{ route('admin.fournisseurs.destroy',$c->id) }}" method="post">
+                    @method('DELETE')
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              </form>
               </td>
             </tr>
           @endforeach
@@ -103,7 +103,7 @@
                         <input type="val" class="form-control" id="addr" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">NOMRESPONSABLE :</label>
+                        <label for="">NOM RESPONSABLE :</label>
                         <input type="val" class="form-control" id="resp" disabled>
                     </div>
                     <div class="form-group">
@@ -111,7 +111,7 @@
                         <input type="val" class="form-control" id="br" disabled>
                     </div>
                     <div class="form-group">
-                        <label for="">FAX :</label>
+                        <label for="">CODE :</label>
                         <input type="val" class="form-control" id="fax" disabled>
                     </div>
                     <div class="form-group">

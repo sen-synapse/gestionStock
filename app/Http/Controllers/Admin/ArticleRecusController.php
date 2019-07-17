@@ -12,6 +12,10 @@ use Session;
 
 class ArticleRecusController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('utilisateur.niveau', ['except' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +30,25 @@ class ArticleRecusController extends Controller
         $users = User::all();
 
         return view('admin.articlerecus.index')->with('articlerecus', $articlerecus)->with('brd', $brd)->with('users', $users)->with('articles', $articles);
+    }
+
+
+    public function recherche(Request $request)
+    {
+        $q = $request->recherche;
+
+        $articles = LigneArticleRecus::where('article', 'LIKE' ,'%'.$q.'%')->get();
+
+        $brd = BordereauFournisseur::all();
+        $articles  = Article::all();
+        $users = User::all();
+
+        return view('admin.articlerecus.index')
+              ->with('articlerecus', $articlerecus)
+              ->with('brd', $brd)
+              ->with('users', $users)
+              ->with('articles', $articles);
+
     }
 
     /**
@@ -47,9 +70,10 @@ class ArticleRecusController extends Controller
 
         if($articles->count() == 0)
         {
-          Session::flash('success', 'Veuillez ajouter d\'abord des articles !');
+          Session::flash('info', 'Veuillez ajouter d\'abord des articles !');
           return redirect()->back();
         }
+        
         return view('admin.articlerecus.create')->with('brd', $brd)->with('articles', $articles);
     }
 
@@ -62,6 +86,17 @@ class ArticleRecusController extends Controller
     public function store(Request $request)
     {
         //
+        $artrecus = LigneArticleRecus::all();
+
+        foreach($artrecus as $n)
+        {
+          if($n->idbrdfourniss == $request->idbrd && $n->idarticle == $request->idarticle)
+          {
+            Session::flash('info', 'Cet article est deja ajouté. Veuillez choisir un autre !');
+            return redirect()->back();
+          }
+        }
+
         $this->validate($request, [
           'qte' => 'required|integer',
           'couleur' => 'required'

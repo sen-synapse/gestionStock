@@ -12,7 +12,7 @@ class FournisseursController extends Controller
 
     public function __construct()
     {
-      $this->middleware('utilisateur.niveau', ['except' => ['index', 'show']]);
+      $this->middleware('utilisateur.niveau', ['except' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
     }
     /**
      * Display a listing of the resource.
@@ -47,12 +47,12 @@ class FournisseursController extends Controller
 
       $this->validate($request, [
         'raisonsocial' => 'required',
-        'email' => 'required|email',
+        'email' => 'required|email|unique:fournisseurs',
         'telephone' => 'required|integer',
         'adresse' => 'required|string',
         'responsable' => 'required',
         'bureautel' => 'required|integer',
-        'fax' => 'required|integer',
+        'code' => 'required|integer',
         'numcomptebank' => 'required|integer',
 
       ]);
@@ -62,7 +62,7 @@ class FournisseursController extends Controller
         $fournisseur->adresse = $request->adresse;
         $fournisseur->responsable = $request->responsable;
         $fournisseur->bureautel = $request->bureautel;
-        $fournisseur->fax = $request->fax;
+        $fournisseur->fax = $request->code;
         $fournisseur->numcomptebank = $request->numcomptebank;
         $fournisseur->save();
 
@@ -113,7 +113,7 @@ class FournisseursController extends Controller
           'adresse' => 'required|string',
           'responsable' => 'required',
           'bureautel' => 'required',
-          'fax' => 'required|integer',
+          'code' => 'required|integer',
           'numcomptebank' => 'required|integer'
         ]);
 
@@ -124,7 +124,7 @@ class FournisseursController extends Controller
         $fournisseur->adresse = $request->adresse;
         $fournisseur->responsable = $request->responsable;
         $fournisseur->bureautel = $request->bureautel;
-        $fournisseur->fax = $request->fax;
+        $fournisseur->fax = $request->code;
         $fournisseur->numcomptebank = $request->numcomptebank;
         $fournisseur->save();
         Session::flash('success', 'Fournisseur modifié avec succè !');

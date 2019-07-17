@@ -72,7 +72,7 @@
 
           <div class="form-group">
            <div class="row">
-              <label class="col-md-3">Nombre Article : </label>
+              <label class="col-md-3">Unite : </label>
               <div class="col-md-6"><input type="text" name="unitearticle" class="form-control {{ $errors->has('unitearticle') ? 'is-invalid' : ''}}" value="{{ old('unitearticle')}}">
                 @if($errors->has('unitearticle'))
                   <div class="text-center text-danger">

@@ -10,6 +10,11 @@ use Session;
 
 class ArticleController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('utilisateur.niveau', ['except' => ['create', 'store', 'index', 'show', 'edit', 'update']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +26,16 @@ class ArticleController extends Controller
         $souscategories = SousCategories::all();
         $articles = Article::all();
 
+        return view('admin.articles.index')->with('souscategories', $souscategories)->with('articles', $articles);
+    }
+
+    public function recherche(Request $request)
+    {
+        $q = $request->recherche;
+
+        $articles = Article::where('article', 'LIKE' ,'%'.$q.'%')->get();
+
+        $souscategories = SousCategories::all();
         return view('admin.articles.index')->with('souscategories', $souscategories)->with('articles', $articles);
     }
 
@@ -55,7 +70,7 @@ class ArticleController extends Controller
           'article' => 'required',
           'codearticle' => 'required',
           'unitearticle' => 'required|integer',
-          'dimension' => 'required|integer'
+          'dimension' => 'required'
         ]);
 
         $article = new Article;
@@ -112,7 +127,7 @@ class ArticleController extends Controller
           'article' => 'required',
           'codearticle' => 'required',
           'unitearticle' => 'required|integer',
-          'dimension' => 'required|integer'
+          'dimension' => 'required'
         ]);
 
         $article = Article::find($id);
@@ -140,8 +155,10 @@ class ArticleController extends Controller
         //
         $article = Article::find($id);
         $article->delete();
-        
+
         Session::flash('success', 'Article supprimé avec succè !');
         return redirect()->back();
     }
+
+
 }

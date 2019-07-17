@@ -105,11 +105,12 @@
           <div class="form-group">
 
           <div class="row">
-              <label class="col-md-3">Fax : </label>
-              <div class="col-md-6"><input type="text" name="fax" class="form-control {{$errors->has('fax') ? 'is-invalid' : ''}}" value="{{ $fournisseur->fax }}">
-                @if($errors->has('fax'))
+              <label class="col-md-3">Code : </label>
+              <div class="col-md-6">
+                <input type="text" name="code" class="form-control {{$errors->has('code') ? 'is-invalid' : ''}}" value="{{ old('code')}}">
+                @if($errors->has('code'))
                   <div class="text-center text-danger">
-                    {{ $errors->first('fax')}}
+                    {{ $errors->first('code')}}
                   </div>
                 @endif
               </div>

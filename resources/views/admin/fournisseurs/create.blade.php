@@ -55,7 +55,7 @@
               <div class="col-md-6"><input type="tel" name="telephone" class="form-control {{ $errors->has('telephone') ? 'is-invalid' : ''}}" value="{{ old('telephone')}}">
                 @if($errors->has('telephone'))
                   <div class="text-center text-danger">
-                    {{ $errors->first('telephone') }}
+                    Veuillez saisir un numéro de téléphone
                   </div>
                 @endif
               </div>
@@ -94,7 +94,7 @@
               <div class="col-md-6"><input type="tel" name="bureautel" class="form-control {{ $errors->has('bureautel') ? 'is-invalid' : ''}}" value="{{ old('bureautel')}}">
                 @if($errors->has('bureautel'))
                   <div class="text-center text-danger">
-                    {{ $errors->first('bureautel')}}
+                    Veuillez saisir un numéro de téléphone
                   </div>
                 @endif
               </div>
@@ -104,11 +104,12 @@
           <div class="form-group">
 
           <div class="row">
-              <label class="col-md-3">Fax : </label>
-              <div class="col-md-6"><input type="text" name="fax" class="form-control {{$errors->has('fax') ? 'is-invalid' : ''}}" value="{{ old('fax')}}">
-                @if($errors->has('fax'))
+              <label class="col-md-3">CODE : </label>
+              <div class="col-md-6">
+                <input type="text" name="code" class="form-control {{$errors->has('code') ? 'is-invalid' : ''}}" value="{{ old('code')}}">
+                @if($errors->has('code'))
                   <div class="text-center text-danger">
-                    {{ $errors->first('fax')}}
+                    {{ $errors->first('code')}}
                   </div>
                 @endif
               </div>
@@ -122,7 +123,7 @@
               <div class="col-md-6"><input type="text" name="numcomptebank" class="form-control {{ $errors->has('numcomptebank') ? 'is-invalid' : ''}}" value="{{ old('numcomptebank')}}">
                 @if($errors->has('numcomptebank'))
                   <div class="text-center text-danger">
-                    {{ $errors->first('numcomptebank') }}
+                    Veuillez saisir un numéro de compte
                   </div>
                 @endif
               </div>

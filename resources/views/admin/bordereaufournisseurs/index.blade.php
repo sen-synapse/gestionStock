@@ -70,7 +70,7 @@
             @endforeach
           @endforeach
           @else
-          <tr><th colspan="3" class="text-center">Aucun Bordereau Enregistr&eacute; !</th></tr>
+          <tr><th colspan="4" class="text-center">Aucun Bordereau Enregistr&eacute; !</th></tr>
           @endif
         </table>
       </div>

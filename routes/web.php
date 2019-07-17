@@ -39,6 +39,10 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
   ]);
 
 	Route::resource('/articles', 'ArticleController');
+  Route::get('/recherche', [
+    'uses' => 'ArticleController@recherche',
+    'as' => 'articles.recherche'
+  ]);
   Route::post('/{id}/articles', [
     'uses' => 'ArticleController@update',
     'as' => 'articles.update'
@@ -58,7 +62,19 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
   ]);
 
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
+
   Route::resource('/utilisateurs', 'UtilisateursController');
+  Route::post('/{id}/utilisateurs', [
+    'uses' => 'UtilisateursController@update',
+    'as' => 'utilisateurs.update'
+  ]);
+
+  Route::resource('profil', 'ProfilController');
+  Route::post('{id}/profil', [
+    'uses' => 'ProfilController@update',
+    'as' => 'profil.update'
+  ]);
+
 });
 
 /*Route de la gestion de la facturation RC-GF*/

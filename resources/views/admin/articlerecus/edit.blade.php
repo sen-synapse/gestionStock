@@ -18,7 +18,7 @@
   <div class="container-fluid">
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2>AJOUTER UN ARTICLE RECUS</h2>
+        <h2>MODIFER UN ARTICLE RECUS</h2>
       </div>
       <div class="card-body">
         <form method="post" action="{{ route('admin.articlerecus.update', $articlerecus->id) }}">
@@ -32,7 +32,11 @@
 
                 <select class="form-control" name="idarticle">
                   @foreach($articles as $article)
-                    <option value="{{ $article->id}}">{{ $article->article }}</option>
+                    <option value="{{ $article->id}}"
+                      @if($article->id == $articlerecus->idarticle)
+                        selected
+                      @endif
+                      >{{ $article->article }}</option>
                   @endforeach
                 </select>
 
@@ -45,7 +49,7 @@
           <div class="form-group">
            <div class="row">
               <label class="col-md-3">Quantité : </label>
-              <div class="col-md-6"><input type="text" name="qte" class="form-control {{ $errors->has('qte') ? 'is-invalid' : ''}}" value="{{ old('qte')}}">
+              <div class="col-md-6"><input type="text" name="qte" class="form-control {{ $errors->has('qte') ? 'is-invalid' : ''}}" value="{{ $articlerecus->qte}}">
                 @if($errors->has('qte'))
                   <div class="text-center text-danger">
                     {{ $errors->first('qte')}}
@@ -59,7 +63,7 @@
           <div class="form-group">
             <div class="row">
               <label class="col-md-3">Couleur : </label>
-              <div class="col-md-6"><input type="text" name="couleur" class="form-control {{ $errors->has('couleur') ? 'is-invalid' : ''}}" value="{{ old('couleur')}}">
+              <div class="col-md-6"><input type="text" name="couleur" class="form-control {{ $errors->has('couleur') ? 'is-invalid' : ''}}" value="{{ $articlerecus->couleur }}">
                 @if($errors->has('couleur'))
                   <div class="text-center text-danger">
                     {{ $errors->first('couleur')}}
