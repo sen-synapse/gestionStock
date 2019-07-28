@@ -63,6 +63,14 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
 
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
 
+
+  Route::get('/autocomplete',[
+   'uses' => 'BordereauFournisseurController@autocomplete',
+   'as' => 'bordereaufournisseurs.autocomplete'
+  ]);
+
+
+
   Route::resource('/utilisateurs', 'UtilisateursController');
   Route::post('/{id}/utilisateurs', [
     'uses' => 'UtilisateursController@update',
