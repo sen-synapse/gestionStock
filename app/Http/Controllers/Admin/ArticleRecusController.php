@@ -113,8 +113,19 @@ class ArticleRecusController extends Controller
 
         Session::flash('success', 'Article Reçu ajouté avec succè !');
 
-        return redirect()->route('admin.articlerecus.index');
+        $brd =  BordereauFournisseur::find($request->idbrd);
+        $articlerecus = LigneArticleRecus::all();
+      
+        $fourniss = BordereauFournisseur::find($brd->idfourniss);
+        $articles = Article::all();
+        $users = User::all();
 
+        return view('admin.articlerecus.bordartrecu')
+                ->with('brd', $brd)
+                ->with('fourniss', $fourniss)
+                ->with('articles', $articles)
+                ->with('users', $users)
+                ->with('articlerecus', $articlerecus);
     }
 
     /**

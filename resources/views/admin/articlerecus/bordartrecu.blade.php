@@ -16,15 +16,17 @@
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-
+    <p>
+  	    <a href="{{ route('admin.articlerecus.ajouter', ['id' => $brd->id] )}}" class="btn btn-success"><i class="fa fa-plus"></i> AJOUTER UN AUTRE ARTICLE RECU </a>
+  	</p>
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2 class="text-center">LISTE DES ARTICLES RECUS </h2>
+        <h2 class="text-center">LISTE DES ARTICLES RECUS</h2>
       </div>
       <div class="card-body">
+        <h5 class="text-center">DU CODE FOURNISSEUR {{ (App\Models\BordereauFournisseur::find($brd->idfourniss)->Fournisseur)->fax }} DU {{ $brd->datebrd }} </h5>
         <table class="table table-striped">
           <tr>
-            <th>Bordereau Fournisseur</th>
             <th>Article</th>
             <th>Utilisateurs</th>
             <th>Quantite</th>
@@ -34,50 +36,47 @@
           @if($articlerecus->count() > 0)
 
             @foreach($articlerecus as $atr)
-              @foreach($articlerecus as $atr1)
               <tr>
-                @foreach($brd as $b)
-                  @if($atr->idbrdfourniss == $b->id)
-                    <td>{{ (App\Models\BordereauFournisseur::find($b->idfourniss)->Fournisseur)->fax . ' - '. (App\Models\BordereauFournisseur::find($b->idfourniss))->datebrd }}</td>
-                  @endif
-                @endforeach
 
-                @foreach($articles as $at)
-                  @if($atr->idarticle == $at->id)
-                    <td>{{ $at->article }}</td>
-                  @endif
-                @endforeach
+                @if($atr->idbrdfourniss == $brd->id)
+                    @foreach($articles as $at)
+                    @if($atr->idarticle == $at->id)
+                        <td>{{ $at->article }}</td>
+                        <?php break; ?>
+                    @endif
+                    @endforeach
 
-                @foreach($users as $u)
-                  @if($atr->iduser == $u->id)
-                    <td>{{ $u->email }}</td>
-                  @endif
-                @endforeach
+                    @foreach($users as $u)
+                    @if($atr->iduser == $u->id)
+                        <td>{{ $u->email }}</td>
+                        <?php break; ?>
+                    @endif
+                    @endforeach
 
-                <td> {{ $atr->qte}}</td>
-                <td> {{ $atr->couleur }}</td>
-                <td>
+                    <td> {{ $atr->qte}}</td>
+                    <td> {{ $atr->couleur }}</td>
+                    <td>
 
-                  <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$atr->id}}" data-brd="{{ $b->fichier }}"
-                     data-article="{{$at->article}}" data-user="{{$u->email}}"
-                     data-qte="{{ $atr->qte }}" data-couleur="{{ $atr->couleur}}">
-                      <i class="fa fa-eye"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$atr->id}}" data-brd="{{ $brd->fichier }}"
+                        data-article="{{$at->article}}" data-user="{{$u->email}}"
+                        data-qte="{{ $atr->qte }}" data-couleur="{{ $atr->couleur}}">
+                        <i class="fa fa-eye"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}">
-                      <i class="fa fa-pencil"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}">
+                        <i class="fa fa-pencil"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
-                      <i class="fa fa-trash"></i>
-                  </a>
-                 <form action="{{ route('admin.articlerecus.destroy',$atr->id) }}" method="post">
-                  @method('DELETE')
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <form action="{{ route('admin.articles.destroy',$at->id) }}" method="post">
+                    @method('DELETE')
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @endif
                 </form>
                 </td>
               </tr>
-              @endforeach
             @endforeach
           @else
             <tr>
