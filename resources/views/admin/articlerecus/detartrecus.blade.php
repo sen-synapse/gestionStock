@@ -19,22 +19,30 @@
 
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2 class="text-center">ARTICLES RECUS PAR LA SOMME DES QUANTITES</h2>
+        <h2 class="text-center">ARTICLES RECUS EN FONCTION DE L'ARTICLE ET LA COULEUR</h2>
       </div>
       <div class="card-body">
         <table class="table table-striped">
           <tr>
+            <th>Bordereau Fournisseur</th>
             <th>Article</th>
             <th>Utilisateurs</th>
-            <th>Somme des quantités</th>
+            <th>Quantité</th>
             <th>Couleur</th>
             <th>Action</th>
           </tr>
-          @if(sizeof($articlerecus) > 0)
+          @if($articlerecus->count() > 0)
 
             @foreach($articlerecus as $atr)
                 
               <tr>
+              @foreach($brd as $b)
+                  @if($b->id == $atr->idbrdfourniss)
+                    <td>{{ (App\Models\BordereauFournisseur::find($b->idfourniss)->Fournisseur)->fax }} -
+                    {{ $b->datebrd }}</td>
+                  @endif
+                @endforeach
+
                 @foreach($articles as $at)
                   @if($atr->idarticle == $at->id)
                     <td>{{ $at->article }}</td>
@@ -51,11 +59,23 @@
                 <td> {{ $atr->couleur }}</td>
                 <td>
 
-                  <a href="{{ route('admin.articlerecus.details', [ 'art' => $atr->idarticle, 'couleur' => $atr->couleur ] ) }}"
-                  class="btn btn-info btn-sm">
+                  <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$atr->id}}"
+                     data-article="{{$at->article}}" data-user="{{$u->email}}"
+                     data-qte="{{ $atr->qte }}" data-couleur="{{ $atr->couleur}}">
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
+                  <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}">
+                      <i class="fa fa-pencil"></i>
+                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                      <i class="fa fa-trash"></i>
+                  </a>
+                 <form action="{{ route('admin.articlerecus.destroy',$atr->id) }}" method="post">
+                  @method('DELETE')
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
                 </td>
               </tr>
             @endforeach

@@ -24,14 +24,62 @@ class ArticleRecusController extends Controller
     public function index()
     {
         //
-        $articlerecus = LigneArticleRecus::all();
+        $i = 0;
+        $j = 0;
+        $k = 0;
+        $somme = 0; 
+
+        $tab1 = LigneArticleRecus::all();
+        $tab2 = $tab1; 
+        $tab3 = array(); 
+        $result = true;
+
+        while($i < $tab1->count())
+        {
+          $somme = $tab1[$i]->qte; 
+          $j = $i + 1; 
+          while($j < $tab2->count())
+          {
+            if($tab1[$i]->idarticle == $tab2[$j]->idarticle && $tab1[$i]->couleur == $tab2[$j]->couleur)
+            {
+              $somme += $tab2[$j]->qte;
+            }
+            $j++;
+          }
+          
+          foreach($tab3 as $t)
+          {
+            if($t->idarticle == $tab1[$i]->idarticle && $t->couleur == $tab1[$i]->couleur)
+            {
+              $result = false;
+              $i++;
+            }
+          }
+
+          if($result) 
+          {
+            $tab3[$k] = $tab1[$i]; 
+            $tab3[$k]->qte = $somme;
+            $k++;
+            $i++;
+          } 
+          
+          $result = true; 
+          
+          $k = sizeof($tab3);
+        }
+
+        
         $brd = BordereauFournisseur::all();
         $articles  = Article::all();
         $users = User::all();
 
-        return view('admin.articlerecus.index')->with('articlerecus', $articlerecus)->with('brd', $brd)->with('users', $users)->with('articles', $articles);
+        return view('admin.articlerecus.index')
+              ->with('articlerecus', $tab3)
+              ->with('brd', $brd)
+              ->with('users', $users)
+              ->with('articles', $articles);
     }
-
 
     public function recherche(Request $request)
     {
@@ -75,6 +123,22 @@ class ArticleRecusController extends Controller
         }
         
         return view('admin.articlerecus.create')->with('brd', $brd)->with('articles', $articles);
+    } 
+
+    public function details($art, $couleur)
+    {
+      $art = LigneArticleRecus::where('idarticle', '=' , ''.$art.'')->where('couleur', '=' , ''.$couleur.'')->get();
+
+      $brd = BordereauFournisseur::all();
+      $articles  = Article::all();
+      $users = User::all();
+
+      return view('admin.articlerecus.detartrecus')
+            ->with('articlerecus', $art)
+            ->with('brd', $brd)
+            ->with('users', $users)
+            ->with('articles', $articles);
+      
     }
 
     /**

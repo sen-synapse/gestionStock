@@ -61,6 +61,11 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     'as' => 'articlerecus.ajouter'
   ]);
 
+  Route::get('/{art}/{couleur}/detailsarticlerecus', [
+    'uses' => 'ArticleRecusController@details',
+    'as' => 'articlerecus.details'
+  ]);
+   
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
 
 

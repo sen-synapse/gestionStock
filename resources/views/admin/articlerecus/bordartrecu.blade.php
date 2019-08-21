@@ -29,7 +29,7 @@
           <tr>
             <th>Article</th>
             <th>Utilisateurs</th>
-            <th>Quantite</th>
+            <th>Quantité</th>
             <th>Couleur</th>
             <th>Action</th>
           </tr>
