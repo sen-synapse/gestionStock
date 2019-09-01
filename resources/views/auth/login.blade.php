@@ -1,76 +1,104 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div style="height: 10vh;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('fonts/iconic/css/material-design-iconic-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body>
 
-          </div>
-            <div class="card">
-                <div class="card-header text-center">{{ __('Veuillez-vous authentifier !') }}</div>
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100">
+				
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+					<span class="login100-form-title p-b-34 p-t-27">
+						Authentification  
+					</span>
+                  
+					<div class="wrap-input100 validate-input">
+						<input id="email" class="input100" type="text" name="email" placeholder="Pseudo" value="{{ old('email')}}">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    </div> 
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Login') }}</label>
+                    @if ($errors->has('email'))
+                        <span class="">
+                            <strong class="text-danger">{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
 
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+					<div class="wrap-input100 validate-input">
+						<input id="password" class="input100" type="password" name="password" placeholder="Mot de passe">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+                    @if ($errors->has('password'))
+                        <span class="">
+                            <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                  
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Se connecter 
+						</button>
+					</div>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+				</form>
+			</div>
+		</div>
+	</div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+	<div id="dropDownSelect1"></div>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{asset('vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('js/main.js')}}"></script>
 
-                        <!--
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                      -->
+</body>
+</html>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4 col-lg-12">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Se connecter !') }}
-                                </button>
-
-                                <!--
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                                -->
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

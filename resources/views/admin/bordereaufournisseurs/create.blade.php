@@ -29,7 +29,12 @@
             <div class="row">
               <label class="col-md-3">Fournisseurs : </label>
               <div class="col-md-6">
-                <input type="text" name="raisonsocial" value="" id="raisonsocial" class="form-control">
+                <select class="form-control" name="idsoucat">
+                  @foreach(App\Models\Fournisseur::all() as $f)
+                    <option value="{{$f->id}}">{{ $f->email }}</option>
+                  @endforeach
+                  </select>
+            
               </div>
               <div id="list"></div>
               <div class="clearfix"></div>

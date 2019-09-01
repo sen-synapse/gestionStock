@@ -143,5 +143,4 @@ class FournisseursController extends Controller
         Session::flash('success', 'Fournisseur supprimé avec succé !');
         return redirect()->route('admin.fournisseurs.index');
     }
-
 }

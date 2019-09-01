@@ -1,24 +1,11 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
-          <li class="breadcrumb-item active">Ajouter un article reçus </li>
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
     <div class="card card-default">
-      <div class="card-header text-center">
-        <h2>AJOUTER UN ARTICLE RECUS</h2>
+      <div class="card-header text-center"  style="background: #87CB16;">
+        <h4 class="modal-title" style="text-align: center; color: #fff;  padding: 20px;">AJOUTER UN ARTICLE RECUS</h4>
       </div>
       <div class="card-body">
         <form method="post" action="{{ route('admin.articlerecus.store') }}">
@@ -50,7 +37,6 @@
 
           </div>
 
-
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
@@ -78,7 +64,7 @@
           <div class="form-group">
             <div class="row">
               <label class="col-md-3">Couleur : </label>
-              <div class="col-md-6"><input type="text" name="couleur" class="form-control {{ $errors->has('couleur') ? 'is-invalid' : ''}}" value="{{ old('couleur')}}">
+              <div class="col-md-6"><input type="text" name="couleur" class="form-control {{ $errors->has('couleur') ? 'has-error' : ''}}" value="{{ old('couleur')}}">
                 @if($errors->has('couleur'))
                   <div class="text-center text-danger">
                     {{ $errors->first('couleur')}}
@@ -90,7 +76,7 @@
           </div>
 
           <div class="form-group text-center">
-            <input type="submit" class="btn btn-info" value="AJOUTER">
+            <input type="submit" class="btn btn-sucess" value="AJOUTER" style="background: #87CB16; color: #fff; box-shadow: 0px 0px 15px #95A5A6;">
           </div>
         </form>
       </div>

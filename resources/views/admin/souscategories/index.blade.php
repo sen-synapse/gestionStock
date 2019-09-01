@@ -1,30 +1,30 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row ">
-      <div class="col-sm-12">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
-          <li class="breadcrumb-item active">Sous Categories</li>
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
+<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-  	<p>
-  		<a href="{{ route('admin.souscategories.create') }}" class="btn btn-primary">NOUVEAU SOUS CATEGORIE</a>
-  	</p>
-
+ 
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2 class="text-center">LISTE DES SOUS CATEGORIES </h2>
+      <h3 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">SOUS CATEGORIES </h3>
       </div>
+      <div class="row">
+          <div class="col-md-4 col-sm-3">
+          <a href="#" 
+                class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU SOUS CATEGORIE</a>
+          </div>
 
+          <div class="col-md-7 col-sm-6">
+              <form action="">
+              <input type="text" name="fournisseur" class="form-control" placeholder="Recherche tout fournisseur"
+                style="border-top: none;border-left: none;border-right: none;">
+              <br>
+              <input type="submit" class="btn btn-danger" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff; float: right;" value="Rechercher">
+            </form>
+          </div>
+      </div> 
+      <br>
       <div class="card-body">
         <table class="table table-striped">
           <tr>
@@ -46,17 +46,19 @@
                 @endforeach
                 <td>
 
-                  <a href="#" class="show-modal btn btn-info btn-sm"
+                  <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
                     data-id="{{$sc->id}}" data-code="{{$sc->codesouscat}}" data-sc="{{$sc->souscategorie}}"
                     data-categorie="{{$c->categorie}}">
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="{{ route('admin.souscategories.edit', $sc->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}">
+                  <a href="{{ route('admin.souscategories.edit', $sc->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}"
+                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
                       <i class="fa fa-pencil"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"
+                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
                       <i class="fa fa-trash"></i>
                   </a>
                  <form action="{{ route('admin.souscategories.destroy',$sc->id) }}" method="post">
@@ -83,9 +85,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" style="align-content: center; color: #2a88bd;"></h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
+                <button type="button" class="close" data-dismiss="modal" style="color: #fff; fonct-size: 30px;">&times;</button>
+                <h4 class="modal-title" style="align-content: center; color: #fff;"></h4>
+              </div>
             <div class="modal-body">
 
                 <div class="form-group">
@@ -109,9 +111,80 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<div id="showmodalAdd" class="modal fade" role="dialog" tabindex="-1" >
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header" style="background: #1D62F0;">
+                  <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
+                  <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
+                </div>
+                <div class="modal-body"> 
+                <form method="post" action="{{ route('admin.souscategories.store') }}">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+          <div class="form-group">
+           <div class="row">
+              <label class="col-md-3">Code : </label>
+              <div class="col-md-6">
+                <input type="text" name="codesouscat" class="form-control {{ $errors->has('codesouscat') ? 'is-invalid' : ''}}" value="{{ old('codesouscat')}}">
+                @if($errors->has('codesouscat'))
+                  <div class="text-center text-danger">
+                    {{ $errors->first('codesouscat') }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="clearfix"></div>
+           </div>
+          </div>
+
+          <div class="form-group">
+           <div class="row">
+              <label class="col-md-3">Sous categorie : </label>
+              <div class="col-md-6"><input type="text" name="souscategorie" class="form-control {{ $errors->has('souscategorie') ? 'is-invalid' : ''}}" value="{{ old('souscategorie')}}">
+                @if($errors->has('souscategorie'))
+                  <div class="text-center text-danger">
+                    {{ $errors->first('souscategorie')}}
+                  </div>
+                @endif
+              </div>
+              <div class="clearfix"></div>
+           </div>
+          </div>
+
+          <div class="form-group">
+           <div class="row">
+              <label class="col-md-3">Catégorie : </label>
+              <div class="col-md-6">
+                <select class="form-control" name="idcategorie">
+                  @foreach($categories as $c)
+                  <option value="{{$c->id}}">{{ $c->categorie }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="clearfix"></div>
+           </div>
+          </div>
+
+          <div class="form-group  text-center">
+            <input type="submit" class="btn btn-primary" value="AJOUTER" style="background: #1D62F0; color: #fff; box-shadow: 0px 0px 15px #95A5A6;">
+          </div>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if($errors->count())
+        <script>
+          $(document).ready(function() {
+            $('#showmodalAdd').modal('show');
+            $('.modal-title').text('Echec de l\'ajout Fournisseur !');
+            $('.modal-header').css('background', '#FF4A55');
+          });
+        
+        </script> 
+      @endif
 <script>
 // Show function Fournisseur
 $(document).on('click', '.show-modal', function() {
@@ -121,6 +194,13 @@ $(document).on('click', '.show-modal', function() {
     $('#sc').val($(this).data('sc'));
     $('#categorie').val($(this).data('categorie'));
     $('.modal-title').text('Details Sous Catégorie');
-});
+    $('.modal-header').css('background', '#1DC7EA');
+}); 
+
+$(document).on('click', '.show-modal-add', function() {
+        $('#showmodalAdd').modal('show');
+        $('.modal-title').text('Ajouter Fournisseur');
+        $('.modal-header').css('background', '#1D62F0');
+    }); 
 </script>
 @endsection

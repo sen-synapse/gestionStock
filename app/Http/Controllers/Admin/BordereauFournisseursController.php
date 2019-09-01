@@ -55,16 +55,17 @@ class BordereauFournisseursController extends Controller
     public function store(Request $request, BordereauFournisseur $bordereaufournisseurs)
     {
       
-      $fourniss = Fournisseur::where('raisonsocial', 'LIKE', '%'.$request->raisonsocial.'%')->get();
+    /*  $fourniss = Fournisseur::where('raisonsocial', 'LIKE', '%'.$request->email.'%')->get();
         
       if(!isset($fourniss[0]->id))
       {
         Session::flash('info', 'Ce fournisseur n\'existe pas !');
         return redirect()->back();
       }
-     
+     */
+
       $this->validate($request, [
-        'raisonsocial' => 'required',
+        'email' => 'required',
         'fichier' => 'required',
         'date' => 'required'
       ]);
@@ -86,7 +87,7 @@ class BordereauFournisseursController extends Controller
       } */
 
 
-      $bordereaufournisseurs->idfourniss = $fourniss[0]->id;
+      $bordereaufournisseurs->idfourniss = $request->email;
       $bordereaufournisseurs->fichier = $fichier_new;
       $bordereaufournisseurs->datebrd = $request->date;
       $bordereaufournisseurs->save();

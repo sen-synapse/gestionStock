@@ -1,25 +1,12 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row ">
-      <div class="col-sm-12">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
-          <li class="breadcrumb-item active">Sous Categories</li>
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
-    <!-- /.content-header -->
+<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
 <section class="content">
   <div class="container-fluid">
 
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2 class="text-center">ARTICLES RECUS PAR LA SOMME DES QUANTITES</h2>
+        <h4 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">ARTICLES RECUS EN FONCTION ARTICLE ET QUANTITE</h4>
       </div>
       <div class="card-body">
         <table class="table table-striped">
@@ -52,6 +39,7 @@
                 <td>
 
                   <a href="{{ route('admin.articlerecus.details', [ 'art' => $atr->idarticle, 'couleur' => $atr->couleur ] ) }}"
+                  style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
                   class="btn btn-info btn-sm">
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -73,7 +61,7 @@
 </section>
 {{-- Modal Form Show POST --}}
 <div id="showmodalF" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" style="align-content: center; color: #2a88bd;"></h4>

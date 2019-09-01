@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\LigneArticleRecus;
 use App\User;
 use Session;
+use DB; 
 
 class ArticleRecusController extends Controller
 {
@@ -23,7 +24,7 @@ class ArticleRecusController extends Controller
      */
     public function index()
     {
-        //
+        /*
         $i = 0;
         $j = 0;
         $k = 0;
@@ -68,14 +69,18 @@ class ArticleRecusController extends Controller
           
           $k = sizeof($tab3);
         }
+ */
+        $articlerecus = DB::table('ligne_article_recuses')
+            ->select('idbrdfourniss', 'idarticle', 'iduser' , DB::raw('SUM(qte) as qte'), 'couleur')
+            ->groupBy('idarticle', 'couleur')
+            ->get();
 
-        
         $brd = BordereauFournisseur::all();
         $articles  = Article::all();
         $users = User::all();
 
         return view('admin.articlerecus.index')
-              ->with('articlerecus', $tab3)
+              ->with('articlerecus',  $articlerecus)
               ->with('brd', $brd)
               ->with('users', $users)
               ->with('articles', $articles);

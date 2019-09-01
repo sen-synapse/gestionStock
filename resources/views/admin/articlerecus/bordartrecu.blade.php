@@ -1,30 +1,22 @@
 @extends('layouts.admin')
 @section('content')
-
-<div class="content-header">
-  <div class="container-fluid">
-    <div class="row ">
-      <div class="col-sm-12">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href=" {{ route('admin.home') }}">Acceuil</a></li>
-          <li class="breadcrumb-item active">Sous Categories</li>
-        </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
-</div>
+<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-    <p>
-  	    <a href="{{ route('admin.articlerecus.ajouter', ['id' => $brd->id] )}}" class="btn btn-success"><i class="fa fa-plus"></i> AJOUTER UN AUTRE ARTICLE RECU </a>
-  	</p>
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2 class="text-center">LISTE DES ARTICLES RECUS</h2>
-      </div>
+      <h3 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">LISTE DES ARTICLES RECUS</h3>
+      </div> 
+      <div class="row">
+          <div class="col-md-4 col-sm-3">
+          <a href="{{ route('admin.articlerecus.ajouter', ['id' => $brd->id] )}}" 
+                class="show-modal-add btn btn-sm btn-success" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #87CB16; color: #fff;"><i class="fa fa-plus"></i>AJOUTER UN AUTRE ARTICLE RECU</a>
+          </div>
+  	  </div> 
+      <br>
       <div class="card-body">
-        <h5 class="text-center">DU CODE FOURNISSEUR {{ (App\Models\BordereauFournisseur::find($brd->idfourniss)->Fournisseur)->fax }} DU {{ $brd->datebrd }} </h5>
+        <h5 class="text-center">DU FOURNISSEUR  DU {{ $brd->datebrd }} </h5>
         <table class="table table-striped">
           <tr>
             <th>Article</th>
@@ -57,17 +49,20 @@
                     <td> {{ $atr->couleur }}</td>
                     <td>
 
-                    <a href="#" class="show-modal btn btn-info btn-sm" data-id="{{$atr->id}}" data-brd="{{ $brd->fichier }}"
+                    <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;" 
+                        data-id="{{$atr->id}}" data-brd="{{ $brd->fichier }}"
                         data-article="{{$at->article}}" data-user="{{$u->email}}"
                         data-qte="{{ $atr->qte }}" data-couleur="{{ $atr->couleur}}">
                         <i class="fa fa-eye"></i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}">
+                    <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;" 
+                       class="btn btn-warning btn-sm" data-id="{{$atr->id}}">
                         <i class="fa fa-pencil"></i>
                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
+                    <a href="javascript:void(0)" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;" 
+                       onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm">
                         <i class="fa fa-trash"></i>
                     </a>
                     <form action="{{ route('admin.articles.destroy',$at->id) }}" method="post">
