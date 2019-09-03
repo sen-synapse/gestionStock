@@ -14,15 +14,6 @@
           <a href="#" 
                 class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU SOUS CATEGORIE</a>
           </div>
-
-          <div class="col-md-7 col-sm-6">
-              <form action="">
-              <input type="text" name="fournisseur" class="form-control" placeholder="Recherche tout fournisseur"
-                style="border-top: none;border-left: none;border-right: none;">
-              <br>
-              <input type="submit" class="btn btn-danger" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff; float: right;" value="Rechercher">
-            </form>
-          </div>
       </div> 
       <br>
       <div class="card-body">

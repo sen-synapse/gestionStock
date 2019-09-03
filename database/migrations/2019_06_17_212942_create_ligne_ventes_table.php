@@ -17,6 +17,7 @@ class CreateLigneVentesTable extends Migration
             $table->increments('id');
             $table->integer('idarticle')->unsigned()->index();
             $table->integer('idbrdliv')->unsigned()->index();
+            $table->integer('qte');
             $table->timestamps();
             $table->foreign('idarticle')->references('id')->on('articles')->onDelete('cascade');
             $table->foreign('idbrdliv')->references('id')->on('bordereau_livraisons')->onDelete('cascade');

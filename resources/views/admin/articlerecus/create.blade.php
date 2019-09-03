@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <!-- /.content-header -->
+    <script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
 <section class="content">
   <div class="container-fluid">
     <div class="card card-default">

@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+	<title>RASSOUL CERAMIQUE SYSTEME D'INFORMATION</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -32,9 +32,11 @@
   <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body>
-
+<?php
+    $segment = Request::segment(2);
+?>
 <div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="{{asset('img/sidebar-4.jpg')}}">
 
     <!--
 
@@ -51,58 +53,76 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li class=" @if(!$segment) active @endif">
                     <a href="{{ route('admin.home') }}">
-                        <i class="pe-7s-graph"></i>
+                        <i class="pe-7s-home"></i>
                         <p>ACCUEIL</p>
                     </a>
                 </li>
-                <li>
+                <li class=" @if($segment == 'fournisseurs') active @endif">
                     <a href="{{ route('admin.fournisseurs.index') }}">
-                        <i class="pe-7s-user"></i>
+                        <i class="pe-7s-id"></i>
                         <p>FOURNISSEURS</p>
                     </a>
                 </li>
-                <li>
+                <li class=" @if($segment == 'bordereaufournisseurs') active @endif">
                     <a href="{{ route('admin.bordereaufournisseurs.index') }}">
                         <i class="pe-7s-news-paper"></i>
                         <p>BORDEREAU FOURNISSEURS</p>
                     </a>
+                </li> 
+                <li class=" @if($segment == 'client') active @endif">
+                    <a href="{{ route('admin.client.index') }}">
+                        <i class="pe-7s-user"></i>
+                        <p>CLIENTS</p>
+                    </a>
                 </li>
-                <li>
+                <li class=" @if($segment == 'bordereaulivraison') active @endif">
+                    <a href="{{ route('admin.bordereaulivraison.index') }}">
+                        <i class="pe-7s-bookmarks"></i>
+                        <p>BORDEREAU DE LIVRAISON</p>
+                    </a>
+                </li>
+                <li class=" @if($segment == 'vente') active @endif">
+                    <a href="{{ route('admin.vente.index') }}">
+                        <i class="pe-7s-cart"></i>
+                        <p>VENTES</p>
+                    </a>
+                </li>
+                <li class=" @if($segment == 'articles') active @endif">
                     <a href="{{ route('admin.articles.index')}}">
-                        <i class="pe-7s-science"></i>
+                        <i class="pe-7s-ribbon"></i>
                         <p>NOUVEAU ARTICLE</p>
                     </a>
                 </li>
-                <li>
+                <li class=" @if($segment == 'articlerecus') active @endif">
                     <a href="{{ route('admin.articlerecus.index')}}">
-                        <i class="pe-7s-map-marker"></i>
+                        <i class="pe-7s-albums"></i>
                         <p>ARTICLES RECUS</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="pe-7s-bell"></i>
+                        <i class="pe-7s-box1"></i>
                         <p>GAMMES</p>
                     </a>
                 </li>
-				<li>
+				<li class=" @if($segment == 'categories') active @endif">
                     <a href="{{ route('admin.categories.index') }}">
-                        <i class="pe-7s-rocket"></i>
+                        <i class="pe-7s-file"></i>
                         <p>CATEGORIES</p>
                     </a>
                 </li>
-                <li>
+                <li class=" @if($segment == 'souscategories') active @endif">
                     <a href="{{ route('admin.souscategories.index') }}">
-                        <i class="pe-7s-rocket"></i>
+                        <i class="pe-7s-copy-file"></i>
                         <p>SOUS CATEGORIES</p>
                     </a>
                 </li>
                 @if(Auth::user()->niveau == 2)
-                <li>
+                <li class=" @if($segment == 'utilisateurs') active @endif">
                     <a href="{{ route('admin.utilisateurs.index') }}">
-                        <i class="pe-7s-rocket"></i>
+                        <i class="pe-7s-users"></i>
                         <p>UTILISATEURS</p>
                     </a>
                 </li> 
@@ -121,63 +141,24 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    <a class="navbar-brand" href="#">Rassoul Ceramique</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
-                            </a>
-                        </li>
-                    </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           <a href="{{ route('admin.profil.index') }}">
-                               <p>Mon profil</p>
-                            </a>
-                        </li>
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										Dropdown
+                                    <i class="pe-7s-user"></i>
+										Mon profil
 										<b class="caret"></b>
 									</p>
 
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
+                                <li><a href="{{ route('admin.profil.index') }}">Voir mon profil</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="{{ route('admin.profil.edit' , Auth::user()->id) }}">Modifier mon profil</a></li>
                               </ul>
                         </li>
                         <li>
@@ -202,6 +183,7 @@
 
         <footer class="footer">
             <div class="container-fluid">
+             <!--
                 <nav class="pull-left">
                     <ul>
                         <li>
@@ -225,9 +207,10 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </nav> 
+                -->
+                <p class="copyright text-center">
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">RASSOUL CERAMIQUE</a>
                 </p>
             </div>
         </footer>

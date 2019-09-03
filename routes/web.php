@@ -49,6 +49,14 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
   ]);
 
 	Route::resource('/fournisseurs', 'FournisseursController');
+  
+  Route::resource('/client', 'ClientController'); 
+
+
+
+  Route::resource('/bordereaulivraison', 'BordereauLivraisonController'); 
+  
+  Route::resource('/vente', 'LigneVenteController'); 
 
   Route::resource('/articlerecus', 'ArticleRecusController');
   Route::post('/{id}/articlerecus', [

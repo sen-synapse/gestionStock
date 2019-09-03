@@ -17,5 +17,10 @@ class Article extends Model
     public function ligneArticleRecus()
     {
       return $this->hasMany('App\Models\LigneArticleRecus', 'idarticle');
-    }
+    } 
+
+    public function ligneVente()
+    {
+      return $this->hasMany('App\Models\LigneVente', 'idarticle');
+    } 
 }

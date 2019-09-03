@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 @section('content')
+<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
   
     <div class="card card-default">
       <div class="card-header text-center">
-        <h2>VOTRE PROFIL </h2>
+      <h3 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">VOTRE PROFIL </h3>
       </div>
 
       <div class="card-body">
@@ -63,13 +64,11 @@
                 <input type="text" class="form-control" name="" value="niveau {{ Auth::user()->niveau }}" disabled>
               </div>
            </div>
-          </div>
-          <div class="form-group text-center">
-            <a href="{{ route('admin.profil.edit' , Auth::user()->id) }}" class="btn btn-primary">Modifier votre profil</a>
-      </div>
+          </div> 
+          <br>
     </div>
-
-  </div>
+  </div> 
+  
 </section>
        {{--$utilisateurs->links()--}}
     {{-- Modal Form Show POST --}}
@@ -110,12 +109,6 @@
             </div>
         </div>
     </div>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
     // Show function utilisateur
     $(document).on('click', '.show-modal', function() {

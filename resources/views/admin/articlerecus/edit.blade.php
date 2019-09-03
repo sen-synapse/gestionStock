@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-
+<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">

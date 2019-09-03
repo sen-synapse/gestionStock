@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laravel Project</title>
+	<title>AUTHENTIFICATION</title>
 </head>
 <body>
 	<div class="header">This is header</div>
