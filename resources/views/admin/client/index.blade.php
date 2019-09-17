@@ -14,52 +14,58 @@
         <a href="#" 
               class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU CLIENT</a>
         </div>
-  
+
+        <div class="col-md-7 col-sm-6">
+          <input id="myInput" type="search" placeholder="Recherche Client " class="form-control filtre" align="center"
+          style="border-top: none;border-left: none;border-right: none;"> 
+        </div>
   </div>
        <br> 
       <div class="card-body">
         <table class="table table-striped">
-      		<tr>
+      		<thead>
       			<th>Nom</th>
       			<th>Prenom</th>
       			<th>Adresse</th>
       			<th>Telephone</th>
       			<th>Action</th>
-      		</tr>
+      		</thead>
 
+          <tbody id="tbody">
           @if($clients->count() > 0)
-          @foreach($clients as $c)
-            <tr>
-              <td>{{ $c->nom}}</td>
-              <td>{{ $c->prenom }}</td>
-              <td>{{ $c->adresse }}</td>
-              <td>{{ $c->telephone }}</td>
-              <td>
-                  <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
-                     data-id="{{$c->id}}" data-nom="{{$c->nom}}" data-prenom="{{$c->prenom}}"
-                     data-adresse="{{$c->adresse}}" data-tel="{{$c->telephone}}">
-                      <i class="fa fa-eye"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a href="{{ route('admin.client.edit', $c->id) }}" class="show-modal-edit btn btn-warning btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;"> 
-                      <i class="fa fa-pencil"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
-               
-                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
-                      <i class="fa fa-trash"></i>
-                  </a>
-                  <form action="{{ route('admin.client.destroy',$c->id) }}" method="post">
-                    @method('DELETE')
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              </form>
-              </td>
-            </tr>
-          @endforeach
+            @foreach($clients as $c)
+              <tr>
+                <td>{{ $c->nom}}</td>
+                <td>{{ $c->prenom }}</td>
+                <td>{{ $c->adresse }}</td>
+                <td>{{ $c->telephone }}</td>
+                <td>
+                    <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
+                      data-id="{{$c->id}}" data-nom="{{$c->nom}}" data-prenom="{{$c->prenom}}"
+                      data-adresse="{{$c->adresse}}" data-tel="{{$c->telephone}}">
+                        <i class="fa fa-eye"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('admin.client.edit', $c->id) }}" class="show-modal-edit btn btn-warning btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;"> 
+                        <i class="fa fa-pencil"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                    <form action="{{ route('admin.client.destroy',$c->id) }}" method="post">
+                      @method('DELETE')
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
+                </td>
+              </tr>
+            @endforeach
           @else
           <tr>
             <th colspan="5" class="text-center"> Aucun Client Enregistré !</th>
           </tr>
           @endif
-
+          </tbody>
+        
       	</table>
       </div>
     </div>
@@ -209,5 +215,16 @@
         $('.modal-header').css('background', '#1D62F0');
     }); 
 
+</script> 
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+    });
 </script>
 @endsection

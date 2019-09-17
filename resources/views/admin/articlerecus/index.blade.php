@@ -9,14 +9,22 @@
         <h4 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">ARTICLES RECUS EN FONCTION ARTICLE ET QUANTITE</h4>
       </div>
       <div class="card-body">
+        <div class="row">
+          <div class="col-md-7 col-md-offset-3 col-sm-6">
+            <input id="myInput" type="search" placeholder="Recherche article recu " class="form-control filtre" align="center"
+          style="border-top: none;border-left: none;border-right: none;"> 
+          </div>
+        </div> 
+        <br>
         <table class="table table-striped">
-          <tr>
+          <thead>
             <th>Article</th>
             <th>Utilisateurs</th>
             <th>Somme des quantités</th>
             <th>Couleur</th>
             <th>Action</th>
-          </tr>
+          </thead>
+          <tbody id="tbody">
           @if(sizeof($articlerecus) > 0)
 
             @foreach($articlerecus as $atr)
@@ -37,13 +45,11 @@
                 <td> {{ $atr->qte}}</td>
                 <td> {{ $atr->couleur }}</td>
                 <td>
-
                   <a href="{{ route('admin.articlerecus.details', [ 'art' => $atr->idarticle, 'couleur' => $atr->couleur ] ) }}"
                   style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
                   class="btn btn-info btn-sm">
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
-
                 </td>
               </tr>
             @endforeach
@@ -52,7 +58,7 @@
               <th colspan="6" class="text-center"> Aucun article reçus !</th>
             </tr>
           @endif
-
+          </tbody>
         </table>
       </div>
     </div>
@@ -113,5 +119,16 @@ $(document).on('click', '.show-modal', function() {
     $('#couleur').val($(this).data('couleur'));
     $('.modal-title').text('Details Article reçus');
 });
-</script>
+</script> 
+
+<script>
+		 $(document).ready(function(){
+		    $("#myInput").on("keyup", function() {
+		         var value = $(this).val().toLowerCase();
+		          $("#tbody tr").filter(function() {
+		           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		           });
+		      });
+		  });
+	</script>
 @endsection

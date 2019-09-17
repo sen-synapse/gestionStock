@@ -12,35 +12,42 @@
       </div>
       <div class="row">
       <div class="col-md-4 col-sm-3">
-      <a href="#" 
+            <a href="#" 
             class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU BORDEREAU</a>
-      </div>
+      </div> 
+      <div class="col-md-7 col-sm-6">
+            <input id="myInput" type="search" placeholder="Recherche Bordereau Livraison" class="form-control filtre" align="center"
+            style="border-top: none;border-left: none;border-right: none;"> 
+        </div>
 
     </div> 
     <br>
 
       <div class="card-body">
         <table class="table table-striped">
-          <tr>
+          <thead>
 
             <th>Client </th>
             <th>Date Bordereau  </th>
                 <th>Nom Fichier </th>
             <th>Action</th>
-          </tr>
+          </thead>
+          <tbody id="tbody">
           @if(count($bdl))
             @foreach($bdl as $n)
               @foreach($cl as $c)
                 @if($c->id == $n->idclient)
                 <tr>
-                  <td> {{ $c->prenom}} - {{ $c->nom }} - {{ $c->telephone }} </td>
-                  <td>{{ $n->datebrd }}</td>
+                  <td> {{ $c->prenom}} {{ $c->nom }} - {{ $c->telephone }} </td>
+                  <td>{{ ($n->datebrd)}}</td>
                   <td>{{ $n->fichier }}</td>
 
                   <td>
-                        <a href="#" class="btn btn-success btn-sm"
+                      <form action="">
+                      </form>
+                        <a href="{{ route('admin.vente.ajouter', ['id' => $n->id])}}" class="btn btn-success btn-sm"
                         style="box-shadow: 0px 0px 15px #95A5A6; background: #87CB16; color: #fff;">
-                            <i class="fa fa-plus"></i>
+                            <i class="pe-7s-cart" style="font-size: 16px;"></i>
                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
@@ -64,6 +71,8 @@
           @else
           <tr><th colspan="4" class="text-center">Aucun Bordereau Enregistr&eacute; !</th></tr>
           @endif
+          </tbody>
+         
         </table>
       </div>
     </div>
@@ -175,5 +184,15 @@
         $('.modal-title').text('Ajouter Bordereau Fournisseur');
         $('.modal-header').css('background', '#1D62F0');
     }); 
+</script> 
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+    });
 </script>
 @endsection

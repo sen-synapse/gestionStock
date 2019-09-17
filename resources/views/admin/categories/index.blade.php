@@ -11,21 +11,26 @@
       </div>
       <div class="row">
           <div class="col-md-4 col-sm-3">
-          <a href="#" 
+              <a href="#" 
                 class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU CATEGORIE</a>
           </div>
 
+          <div class="col-md-7 col-sm-6">
+            <input id="myInput" type="search" placeholder="Recherche Categorie" class="form-control filtre" align="center"
+            style="border-top: none;border-left: none;border-right: none;"> 
+        </div>
       </div>
           <br>
       <div class="card-body">
         <table class="table table-striped">
-          <tr>
+          <thead>
             <th>Code</th>
             <th>Categorie</th>
             <th>Action</th>
-          </tr>
-
+          </thead>
+          
           @if($categories->count() > 0 )
+          <tbody id="tbody">
           @foreach($categories as $c)
             <tr>
               <td>{{ $c->codeCategorie }}</td>
@@ -53,6 +58,8 @@
               </td>
             </tr>
           @endforeach
+          </tbody>
+        
           @else
             <tr>
               <th colspan="3" class="text-center">Aucun Catégorie !</th>
@@ -174,5 +181,16 @@ $(document).on('click', '.show-modal-add', function() {
         $('.modal-header').css('background', '#1D62F0');
     }); 
 
+</script>
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+    });
 </script>
 @endsection

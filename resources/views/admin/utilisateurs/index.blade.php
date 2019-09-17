@@ -16,18 +16,25 @@
           <div class="col-md-4 col-sm-3">
           <a href="#" 
                 class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU UTILISATEUR</a>
-          </div>
+          </div> 
+        
+          <div class="col-md-7 col-sm-6">
+              <input id="myInput" type="search" placeholder="Rechercher utilisateur" class="form-control filtre" align="center"
+              style="border-top: none;border-left: none;border-right: none;"> 
+          </div> 
+      
     </div> 
     <br>
       <div class="card-body">
         <table class="table table-striped">
-          <tr>
+          <thead>
             <th>Nom</th>
             <th>Prenom</th>
             <th>Login</th>
             <th>Persmission</th>
             <th>Action</th>
-          </tr>
+          </thead> 
+          <tbody id="tbody">
           @if($utilisateurs->count() > 1)
             @foreach($utilisateurs as $c)
               @if($c->id != 1)
@@ -67,6 +74,8 @@
               <td colspan="5" class="text-center"> Aucun utilisateur !</td>
             </tr>
           @endif
+          </tbody>
+        
         </table>
       </div>
     </div>
@@ -237,5 +246,16 @@
         $('.modal-header').css('background', '#1D62F0');
     }); 
 
+</script> 
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+        });
+    });
 </script>
 @endsection

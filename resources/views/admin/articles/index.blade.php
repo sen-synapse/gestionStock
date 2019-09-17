@@ -17,70 +17,69 @@
       </div>
 
       <div class="col-md-7 col-sm-6">
-          <form  action="{{ route('admin.articles.recherche') }}" method="get">
-           <input type="text" name="recherche" class="form-control" placeholder="Recherche tout fournisseur"
-            style="border-top: none;border-left: none;border-right: none;">
-          <br>
-          <input type="submit" class="btn btn-danger" style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff; float: right;" value="Rechercher">
-        </form>
-      </div>
+        <input id="myInput" type="search" placeholder="Recherche article " class="form-control filtre" align="center"
+        style="border-top: none;border-left: none;border-right: none;"> 
+      </div> 
+
     </div> 
     <br>
 
       <div class="card-body">
         <table class="table table-striped">
-          <tr>
+          <thead>
             <th>Code</th>
             <th>Sous categorie</th>
             <th>Article</th>
             <th>Unité</th>
             <th>Dimension</th>
             <th>Action</th>
-          </tr>
-          @if($articles->count() > 0)
+          </thead> 
+          <tbody id="tbody">
+        
+            @if($articles->count() > 0)
 
-            @foreach($articles as $at)
+              @foreach($articles as $at)
+                <tr>
+                  <td>{{ $at->codearticle }}</td>
+
+                  @foreach($souscategories as $sc)
+                    @if($at->idsoucat == $sc->id)
+                      <td>{{ $sc->souscategorie }}</td>
+                    @endif
+                  @endforeach
+                  <td>{{ $at->article}}</td>
+                  <td>{{ $at->unitearticle}}</td>
+                  <td>{{ $at->dimension}}</td>
+                  <td>
+                    <a href="#" class="show-modal btn btn-info btn-sm"  style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;" data-id="{{$sc->id}}"
+                      data-code="{{$at->codearticle}}" data-sc="{{$sc->souscategorie}}"
+                      data-article="{{ $at->article }}" data-unite="{{ $at->unitearticle}}"
+                      data-dimension="{{$at->dimension}}">
+                        <i class="fa fa-eye"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="{{ route('admin.articles.edit', $at->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}"
+                    style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
+                        <i class="fa fa-pencil"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"
+                    style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                  <form action="{{ route('admin.articles.destroy',$at->id) }}" method="post">
+                    @method('DELETE')
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  </form>
+                  </td>
+                </tr>
+              @endforeach
+            @else
               <tr>
-                <td>{{ $at->codearticle }}</td>
-
-                @foreach($souscategories as $sc)
-                  @if($at->idsoucat == $sc->id)
-                    <td>{{ $sc->souscategorie }}</td>
-                  @endif
-                @endforeach
-                <td>{{ $at->article}}</td>
-                <td>{{ $at->unitearticle}}</td>
-                <td>{{ $at->dimension}}</td>
-                <td>
-                  <a href="#" class="show-modal btn btn-info btn-sm"  style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;" data-id="{{$sc->id}}"
-                     data-code="{{$at->codearticle}}" data-sc="{{$sc->souscategorie}}"
-                     data-article="{{ $at->article }}" data-unite="{{ $at->unitearticle}}"
-                     data-dimension="{{$at->dimension}}">
-                      <i class="fa fa-eye"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                  <a href="{{ route('admin.articles.edit', $at->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}"
-                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
-                      <i class="fa fa-pencil"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"
-                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
-                      <i class="fa fa-trash"></i>
-                  </a>
-                 <form action="{{ route('admin.articles.destroy',$at->id) }}" method="post">
-                  @method('DELETE')
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </form>
-                </td>
+                <th colspan="6" class="text-center"> Aucun article !</th>
               </tr>
-            @endforeach
-          @else
-            <tr>
-              <th colspan="6" class="text-center"> Aucun article !</th>
-            </tr>
-          @endif
-
+            @endif
+          </tbody>
         </table>
       </div>
     </div>
@@ -251,5 +250,16 @@ $(document).on('click', '.show-modal-add', function() {
         $('.modal-title').text('Ajouter Article');
         $('.modal-header').css('background', '#1D62F0');
     }); 
-</script>
+</script> 
+
+<script>
+		 $(document).ready(function(){
+		    $("#myInput").on("keyup", function() {
+		         var value = $(this).val().toLowerCase();
+		          $("#tbody tr").filter(function() {
+		           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		           });
+		      });
+		  });
+	</script>
 @endsection

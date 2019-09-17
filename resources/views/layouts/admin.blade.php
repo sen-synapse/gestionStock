@@ -48,7 +48,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="#" class="simple-text">
-                    {{Auth::user()->email}}
+                    Rassoul Ceramique
                 </a>
             </div>
 
@@ -141,7 +141,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Rassoul Ceramique</a>
+                    <a class="navbar-brand" href="#"></a>
                 </div>
                 <div class="collapse navbar-collapse">
 
@@ -150,28 +150,29 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
                                     <i class="pe-7s-user"></i>
-										Mon profil
+                                    {{  Auth::user()->prenom . ' ' .  Auth::user()->name }}
 										<b class="caret"></b>
 									</p>
 
                               </a>
                               <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.profil.index') }}">Voir mon profil</a></li>
-                                <li class="divider"></li>
                                 <li><a href="{{ route('admin.profil.edit' , Auth::user()->id) }}">Modifier mon profil</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                     <i class="pe-7s-power text-danger"></i>
-                                        {{ __('Se deconnecter ') }}
+                                <li class="divider"></li>
+                                <li>
+                                    <a class="nav-link" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Se deconnecter ') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                </li>
+                              </ul>
+                        </li>
+                        <li>
+                            
                         </li>
 						<li class="separator hidden-lg"></li>
                     </ul>

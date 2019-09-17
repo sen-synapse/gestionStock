@@ -52,11 +52,14 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
   
   Route::resource('/client', 'ClientController'); 
 
-
-
   Route::resource('/bordereaulivraison', 'BordereauLivraisonController'); 
   
   Route::resource('/vente', 'LigneVenteController'); 
+  Route::get('/{id}/vente', [
+    'uses' => 'LigneVenteController@ajouter',
+    'as' => 'vente.ajouter'
+  ]); 
+
 
   Route::resource('/articlerecus', 'ArticleRecusController');
   Route::post('/{id}/articlerecus', [

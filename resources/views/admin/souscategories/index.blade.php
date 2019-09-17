@@ -13,58 +13,63 @@
           <div class="col-md-4 col-sm-3">
           <a href="#" 
                 class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU SOUS CATEGORIE</a>
-          </div>
+          </div> 
+          <div class="col-md-7 ">
+              <input id="myInput" type="search" placeholder="Rechercher Utilisateur" class="form-control filtre" align="center"
+              style="border-top: none;border-left: none;border-right: none;"> 
+          </div> 
       </div> 
       <br>
       <div class="card-body">
         <table class="table table-striped">
-          <tr>
+          <thead>
             <th>Code</th>
             <th>Sous categorie</th>
             <th>Categorie</th>
             <th>Action</th>
-          </tr>
+          </thead> 
+         
           @if($souscategories->count() > 0)
+            <tbody id="tbody">
+              @foreach($souscategories as $sc)
+                <tr>
+                  <td>{{ $sc->codesouscat }}</td>
+                  <td>{{ $sc->souscategorie }}</td>
+                  @foreach($categories as $c)
+                    @if($sc->idcategorie == $c->id)
+                      <td>{{ $c->categorie }}</td>
+                    @endif
+                  @endforeach
+                  <td>
 
-            @foreach($souscategories as $sc)
-              <tr>
-                <td>{{ $sc->codesouscat }}</td>
-                <td>{{ $sc->souscategorie }}</td>
-                @foreach($categories as $c)
-                  @if($sc->idcategorie == $c->id)
-                    <td>{{ $c->categorie }}</td>
-                  @endif
-                @endforeach
-                <td>
+                    <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
+                      data-id="{{$sc->id}}" data-code="{{$sc->codesouscat}}" data-sc="{{$sc->souscategorie}}"
+                      data-categorie="{{$c->categorie}}">
+                        <i class="fa fa-eye"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;"
-                    data-id="{{$sc->id}}" data-code="{{$sc->codesouscat}}" data-sc="{{$sc->souscategorie}}"
-                    data-categorie="{{$c->categorie}}">
-                      <i class="fa fa-eye"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{{ route('admin.souscategories.edit', $sc->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}"
+                    style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
+                        <i class="fa fa-pencil"></i>
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="{{ route('admin.souscategories.edit', $sc->id) }}" class="btn btn-warning btn-sm" data-id="{{$sc->id}}"
-                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
-                      <i class="fa fa-pencil"></i>
-                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                  <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"
-                  style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
-                      <i class="fa fa-trash"></i>
-                  </a>
-                 <form action="{{ route('admin.souscategories.destroy',$sc->id) }}" method="post">
-                  @method('DELETE')
-                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </form>
-                </td>
-              </tr>
-            @endforeach
+                    <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger btn-sm"
+                    style="box-shadow: 0px 0px 15px #95A5A6; background: #FF4A55; color: #fff;">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                  <form action="{{ route('admin.souscategories.destroy',$sc->id) }}" method="post">
+                    @method('DELETE')
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  </form>
+                  </td>
+                </tr>
+              @endforeach
           @else
-            <tr>
-              <th colspan="4" class="text-center"> Aucun sous catégorie !</th>
-            </tr>
+              <tr>
+                <th colspan="4" class="text-center"> Aucun sous catégorie !</th>
+              </tr> 
+            </tbody>
           @endif
-
         </table>
       </div>
     </div>
@@ -193,5 +198,16 @@ $(document).on('click', '.show-modal-add', function() {
         $('.modal-title').text('Ajouter Fournisseur');
         $('.modal-header').css('background', '#1D62F0');
     }); 
+</script> 
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+        });
+    });
 </script>
 @endsection
