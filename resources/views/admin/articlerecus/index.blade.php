@@ -27,9 +27,8 @@
           <tbody id="tbody">
           @if(sizeof($articlerecus) > 0)
 
-            @foreach($articlerecus as $atr)
-                
-              <tr>
+            @foreach($articlerecus as $atr)  
+                <tr class=" <?php if($atr->qte < 10) { echo 'bg-danger'; }?>">
                 @foreach($articles as $at)
                   @if($atr->idarticle == $at->id)
                     <td>{{ $at->article }}</td>
@@ -51,7 +50,7 @@
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-              </tr>
+              </tr> 
             @endforeach
           @else
             <tr>

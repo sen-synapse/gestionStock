@@ -24,7 +24,7 @@
 
             @foreach($articlerecus as $atr)
                 
-              <tr>
+              <tr class=" <?php if($atr->qte < 10) { echo 'bg-danger'; }?>">
               @foreach($brd as $b)
                   @if($b->id == $atr->idbrdfourniss)
                     @foreach(App\Models\Fournisseur::all() as $f)

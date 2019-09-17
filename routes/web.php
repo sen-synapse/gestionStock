@@ -60,6 +60,7 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     'as' => 'vente.ajouter'
   ]); 
 
+  Route::resource('/historique', 'HistoriqueController'); 
 
   Route::resource('/articlerecus', 'ArticleRecusController');
   Route::post('/{id}/articlerecus', [

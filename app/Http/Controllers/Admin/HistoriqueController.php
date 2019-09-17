@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Historique; 
 
 class HistoriqueController extends Controller
 {
@@ -13,7 +15,10 @@ class HistoriqueController extends Controller
      */
     public function index()
     {
-        //
+        // 
+        $historiques = Historique::paginate(6); 
+
+        return view('admin.historique.index')->with('historiques', $historiques);
     }
 
     /**

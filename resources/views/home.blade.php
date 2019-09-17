@@ -7,9 +7,9 @@
         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
             <div class="card-default">
                 <div class="card-body" style="background: linear-gradient(150deg, #3498db, #8E44AD); border-radius: 5px; box-shadow: 0px 0px 15px #BDC3C7;">
-                    <div class="" style="font-size: 20px; padding: 30px; color:  rgb(215, 218, 219, 0.8);">
-                        {{App\Models\Article::count() }} Article(s)  
-                        <i class="pe-7s-ribbon" style="font-size: 80px;"></i>
+                    <div class="" style="font-size: 20px; padding: 16px; color:  rgb(215, 218, 219, 0.8);">
+                        {{App\Models\Fournisseur::count() }} Fournisseur(s)  
+                        <i class="pe-7s-id" style="font-size: 80px;"></i>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <th>Libelle</th>
                     </thead> 
                     <tbody> 
-                       @foreach(App\Models\Historique::all() as $h)
+                       @foreach(App\Models\Historique::paginate(3) as $h)
                             <tr>
                                 <td>{{ $h->user}}</td>
                                 <td>{{ $h->operation }}</td>
@@ -63,6 +63,12 @@
                             </tr>
                        @endforeach
                     </tbody> 
+                    @if(App\Models\Historique::count() > 3)
+                        <tr>
+                            <td colspan="4" class="text-center"><a href="{{ route('admin.historique.index')}}">Voir plus</a></td>
+                        </tr>
+                    @endif
+                   
                 </table>
                 </div> 
             </div>

@@ -24,7 +24,7 @@
           <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
-                  <input type="text" name="login" class="form-control" value="{{ Auth::user()->email }}">
+                  <input type="hidden" name="login" class="form-control" value="{{ Auth::user()->email }}">
                 </div>
             </div>
 
