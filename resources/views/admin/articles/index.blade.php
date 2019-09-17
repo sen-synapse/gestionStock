@@ -152,6 +152,8 @@
                       </div>
                     </div>
 
+                    <input type="hidden" name="login" value="{{ Auth::user()->email }}">
+
                     <div class="form-group">
                     <div class="row">
                         <label class="col-md-3">Code : </label>

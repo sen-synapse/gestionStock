@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\SousCategories;
 use App\Models\Article;
+use App\Models\Historique; 
 use Session;
 
 class ArticleController extends Controller
@@ -81,6 +82,12 @@ class ArticleController extends Controller
         $article->unitearticle = $request->unitearticle;
         $article->dimension = $request->dimension;
         $article->save();
+        
+        Historique::create([
+            'user' => $request->login, 
+            'operation' => 'ajouter', 
+            'libelle' => 'article'
+        ]); 
 
         Session::flash('success', 'Article ajouté avec succè !');
 

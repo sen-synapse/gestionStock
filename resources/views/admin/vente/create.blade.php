@@ -22,6 +22,14 @@
           </div> 
 
           <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                  <input type="text" name="login" class="form-control" value="{{ Auth::user()->email }}">
+                </div>
+            </div>
+
+          </div> 
+          <div class="form-group">
 
             <div class="row">
               <label class="col-md-3">Article : </label>

@@ -8,7 +8,9 @@ use App\Models\BordereauLivraison;
 use App\Models\Article; 
 use App\Models\LigneVente;
 use App\Models\LigneArticleRecus; 
+use App\Models\Historique; 
 
+use Auth;
 use Session; 
 use DB; 
 
@@ -72,6 +74,7 @@ class LigneVenteController extends Controller
     public function store(Request $request)
     {
         //
+        
         $this->validate($request,[
             'qte' => 'required|integer'
         ]);
@@ -122,7 +125,12 @@ class LigneVenteController extends Controller
                  ]);  
             }
            
-            
+            Historique::create([
+                'user' => $request->login, 
+                'operation' => 'effectué', 
+                'libelle' => 'vente'
+            ]); 
+
             Session::flash('success', 'Vente effectuée avec succée !');
             
             $articles = Article::all(); 

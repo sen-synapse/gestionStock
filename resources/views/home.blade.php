@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<section>
+<section class="content">
 <br>
     <div class="row">
         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
@@ -55,30 +55,16 @@
                         <th>Libelle</th>
                     </thead> 
                     <tbody> 
-                        <tr>
-                            <td>Admin</td>
-                            <td>ajouter</td>
-                            <td>article</td>
-                        </tr> 
-                        <tr>
-                            <td>Papi</td>
-                            <td>supprimer</td>
-                            <td>utilisateur</td>
-                        </tr> 
-                        <tr>
-                            <td>Papi</td>
-                            <td>supprimer</td>
-                            <td>utilisateur</td>
-                        </tr>  
-
-                        <tr>
-                            <td>Admin</td>
-                            <td>ajouter</td>
-                            <td>article</td>
-                        </tr>
-                    </tbody>
+                       @foreach(App\Models\Historique::all() as $h)
+                            <tr>
+                                <td>{{ $h->user}}</td>
+                                <td>{{ $h->operation }}</td>
+                                <td>{{ $h->libelle }}</td>
+                            </tr>
+                       @endforeach
+                    </tbody> 
                 </table>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
