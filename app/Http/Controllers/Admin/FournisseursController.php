@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Fournisseur;
 use Session;
+use Auth; 
+use App\Models\Historique; 
+
 class FournisseursController extends Controller
 {
 
@@ -65,6 +68,12 @@ class FournisseursController extends Controller
         $fournisseur->fax = $request->code;
         $fournisseur->numcomptebank = $request->numcomptebank;
         $fournisseur->save();
+
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'ajouter', 
+          'libelle' => 'Fourniseur'
+        ]);
 
         Session::flash('success', 'Fournisseur ajouté avec succé !');
         return redirect()->route('admin.fournisseurs.index');
@@ -126,7 +135,14 @@ class FournisseursController extends Controller
         $fournisseur->bureautel = $request->bureautel;
         $fournisseur->fax = $request->code;
         $fournisseur->numcomptebank = $request->numcomptebank;
-        $fournisseur->save();
+        $fournisseur->save(); 
+
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'modifier', 
+          'libelle' => 'Fourniseur'
+        ]);
+
         Session::flash('success', 'Fournisseur modifié avec succè !');
         return redirect()->route('admin.fournisseurs.index');
     }
@@ -139,7 +155,14 @@ class FournisseursController extends Controller
      */
     public function destroy($id)
     {
-        Fournisseur::destroy($id);
+        Fournisseur::destroy($id); 
+
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'supprimer', 
+          'libelle' => 'Fourniseur'
+        ]);
+
         Session::flash('success', 'Fournisseur supprimé avec succé !');
         return redirect()->route('admin.fournisseurs.index');
     }

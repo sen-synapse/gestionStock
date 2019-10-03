@@ -196,17 +196,18 @@
                     </div>
                     </div>
                     <div class="form-group">
-                    <div class="row">
-                        <label class="col-md-3">Perimission : </label>
-                        <div class="col-md-6">
-                          <select class="form-control {{ $errors->has('niveau') ? 'is-invalid' : '' }}" name="niveau">
-                            <option value="">Veuillez choisir le niveau de l'utilisateur</option>
-                            <option value="1" @if(old('niveau') == 1) selected @endif>Niveau 1</option>
-                            <option value="2" @if(old('niveau') == 2) selected @endif>Niveau 2</option>
-                          </select>
-                        </div>
-                    </div>
-                    </div>
+                      <div class="row">
+                          <label class="col-md-3">Perimission : </label>
+                          <div class="col-md-6">
+                            <select class="form-control {{ $errors->has('niveau') ? 'is-invalid' : '' }}" name="niveau">
+                              <option value="">Veuillez choisir le niveau de l'utilisateur</option>
+                              <option value="1" @if(old('niveau') == 1) selected @endif>Niveau 1</option>
+                              <option value="2" @if(old('niveau') == 2) selected @endif>Niveau 2</option>
+                            </select>
+                          </div>
+                      </div>
+                    </div> 
+                    
                     <div class="form-group  text-center">
                       <input type="submit" class="btn btn-primary" value="AJOUTER" style="background: #1D62F0; color: #fff; box-shadow: 0px 0px 15px #95A5A6;">
                     </div>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 use App\Models\Client; 
 use Session; 
+use App\Models\Historique; 
+use Auth; 
 
 class ClientController extends Controller
 {
@@ -57,7 +59,13 @@ class ClientController extends Controller
             'prenom' => $request->prenom,
             'adresse' => $request->adresse,
             'telephone' => $request->tel,
-        ]);
+        ]); 
+
+        Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'ajouter', 
+            'libelle' => 'Client'
+          ]);
     
         Session::flash('success', 'Client ajouté avec succé !');
         return redirect()->route('admin.client.index'); 
@@ -110,6 +118,12 @@ class ClientController extends Controller
         $cl->adresse = $request->adresse;
         $cl->telephone = $request->tel;
         $cl->save();
+        
+        Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'modifier', 
+            'libelle' => 'Client'
+          ]);
 
         Session::flash('success', 'Client modifié avec succè !');
         
@@ -125,7 +139,14 @@ class ClientController extends Controller
     public function destroy($id)
     {
         // 
-        Client::destroy($id);
+        Client::destroy($id); 
+
+        Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'supprimer', 
+            'libelle' => 'Client'
+          ]);
+
         Session::flash('success', 'Client supprimé avec succé !');
         return redirect()->route('admin.client.index');
     } 

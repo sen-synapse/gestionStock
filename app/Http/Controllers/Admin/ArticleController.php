@@ -8,6 +8,7 @@ use App\Models\SousCategories;
 use App\Models\Article;
 use App\Models\Historique; 
 use Session;
+use Auth; 
 
 class ArticleController extends Controller
 {
@@ -83,8 +84,9 @@ class ArticleController extends Controller
         $article->dimension = $request->dimension;
         $article->save();
         
+   
         Historique::create([
-            'user' => $request->login, 
+            'user' => Auth::user()->id, 
             'operation' => 'ajouter', 
             'libelle' => 'article'
         ]); 
@@ -163,9 +165,12 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->delete();
 
+        Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'supprimer', 
+            'libelle' => 'article'
+          ]);  
         Session::flash('success', 'Article supprimé avec succè !');
         return redirect()->back();
     }
-
-
 }

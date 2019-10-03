@@ -101,6 +101,12 @@
                         <p>ARTICLES RECUS</p>
                     </a>
                 </li>
+                <li class=" @if($segment == 'articlesabimes') active @endif">
+                    <a href="{{ route('admin.articlesabimes.index')}}">
+                        <i class="pe-7s-shield"></i>
+                        <p>ARTICLES ABIMES</p>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="pe-7s-box1"></i>

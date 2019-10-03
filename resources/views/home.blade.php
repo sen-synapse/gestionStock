@@ -55,18 +55,24 @@
                         <th>Libelle</th>
                     </thead> 
                     <tbody> 
-                       @foreach(App\Models\Historique::paginate(3) as $h)
-                            <tr>
-                                <td>{{ $h->user}}</td>
-                                <td>{{ $h->operation }}</td>
-                                <td>{{ $h->libelle }}</td>
-                            </tr>
+                       @foreach(App\Models\Historique::paginate(3) as $h)   
+                            @foreach(App\User::all() as $u)
+                                @if($u->id == $h->user)
+                                    <tr>
+                                    <td>{{ $u->email }}</td>
+                                    <td>{{ $h->operation }}</td>
+                                    <td>{{ $h->libelle }}</td>
+                                    </tr> 
+                                @endif 
+                            @endforeach     
                        @endforeach
                     </tbody> 
                     @if(App\Models\Historique::count() > 3)
-                        <tr>
-                            <td colspan="4" class="text-center"><a href="{{ route('admin.historique.index')}}">Voir plus</a></td>
-                        </tr>
+                        @if(Auth::user()->niveau == 2)
+                            <tr>
+                                <td colspan="4" class="text-center"><a href="{{ route('admin.historique.index')}}">Voir plus</a></td>
+                            </tr>
+                        @endif
                     @endif
                    
                 </table>

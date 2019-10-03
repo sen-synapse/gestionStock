@@ -62,6 +62,8 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
 
   Route::resource('/historique', 'HistoriqueController'); 
 
+  Route::resource('/articlesabimes', 'ArticlesAbimesController');
+
   Route::resource('/articlerecus', 'ArticleRecusController');
   Route::post('/{id}/articlerecus', [
     'uses' => 'ArticleRecusController@update',

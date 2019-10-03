@@ -16,7 +16,7 @@ class Historique extends Migration
         // 
         Schema::create('historiques', function(Blueprint $table) {
             $table->increments('id'); 
-            $table->string('user'); 
+            $table->integer('user'); 
             $table->string('operation');
             $table->string('libelle');
             $table->string('created_at');

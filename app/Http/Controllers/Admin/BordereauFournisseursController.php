@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
 use DB;
-
+use Auth;
+use App\Models\Historique; 
 
 class BordereauFournisseursController extends Controller
 {
@@ -91,6 +92,13 @@ class BordereauFournisseursController extends Controller
       $bordereaufournisseurs->fichier = $fichier_new;
       $bordereaufournisseurs->datebrd = $request->date;
       $bordereaufournisseurs->save();
+
+      Historique::create([
+        'user' => Auth::user()->id, 
+        'operation' => 'ajouter', 
+        'libelle' => 'Bordereau Fournisseur'
+      ]);  
+
       Session::flash('success', 'Bordereau ajouté avec succé !');
       return redirect()->route('admin.bordereaufournisseurs.index');
     }
@@ -110,6 +118,12 @@ class BordereauFournisseursController extends Controller
 
         $bordereaufournisseur->delete();
 
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'supprimer', 
+          'libelle' => 'Bordereau Fournisseur'
+        ]);  
+        
         Session::flash('success', 'Bordereau supprimé avec succé !');
 
         return redirect()->route('admin.bordereaufournisseurs.index');

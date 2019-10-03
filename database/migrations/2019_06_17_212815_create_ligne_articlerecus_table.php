@@ -20,6 +20,7 @@ class CreateLigneArticlerecusTable extends Migration
             $table->integer('iduser')->unsigned()->index();
             $table->bigInteger('qte');
             $table->string('couleur');
+            $table->bigInteger('qteabimee');
             $table->timestamps();
             $table->foreign('idbrdfourniss')->references('id')->on('bordereau_fournisseurs')->onDelete('cascade');
             $table->foreign('idarticle')->references('id')->on('articles')->onDelete('cascade');

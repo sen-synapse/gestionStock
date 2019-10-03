@@ -10,6 +10,8 @@ use App\Models\LigneArticleRecus;
 use App\User;
 use Session;
 use DB; 
+use App\Models\Historique; 
+use Auth; 
 
 class ArticleRecusController extends Controller
 {
@@ -177,10 +179,17 @@ class ArticleRecusController extends Controller
         $atrecu->iduser = $request->iduser;
         $atrecu->qte = $request->qte;
         $atrecu->couleur = $request->couleur;
+        $atrecu->qteabimee = 0;
 
         $atrecu->save();
-
+        
         Session::flash('success', 'Article Reçu ajouté avec succè !');
+
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'ajouter', 
+          'libelle' => 'article reçu'
+        ]); 
 
         $brd =  BordereauFournisseur::find($request->idbrd);
         $articlerecus = LigneArticleRecus::all();
@@ -246,6 +255,11 @@ class ArticleRecusController extends Controller
 
         $atrecu->save();
 
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'modifier', 
+          'libelle' => 'article reçu'
+        ]);  
         Session::flash('success', 'Article Reçu modifié avec succè !');
 
         return redirect()->route('admin.articlerecus.index');
@@ -262,6 +276,12 @@ class ArticleRecusController extends Controller
         //
         $atr = LigneArticleRecus::find($id);
         $atr->delete();
+
+        Historique::create([
+          'user' => Auth::user()->id, 
+          'operation' => 'supprimer', 
+          'libelle' => 'article reçu'
+        ]);  
 
         Session::flash('success', 'Artcie reçus supprimé avec succè !');
 

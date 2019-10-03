@@ -100,6 +100,14 @@
                 </select>
               </div>
            </div>
+          </div> 
+          <div class="form-group">
+           <div class="row">
+              <label class="col-md-3">Ajouter une photo si necessaire :  </label>
+                <div class="col-md-6"><input type="file" class="form-control" name="photo">
+                </div>
+              <div class="clearfix"></div>
+           </div>
           </div>
           <div class="form-group text-center">
             <input type="submit" class="btn btn-info" value="AJOUTER">

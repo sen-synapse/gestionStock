@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Session;
 use Auth;
+use App\Models\Historique; 
+
 class UtilisateursController extends Controller
 {
     //
@@ -46,15 +48,23 @@ class UtilisateursController extends Controller
             'prenom' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|confirmed',
-            'niveau' => 'required'
+            'niveau' => 'required', 
           ]);
-
+          
           $utilisateur->name = $request->name;
           $utilisateur->prenom = $request->prenom;
           $utilisateur->email = $request->email;
           $utilisateur->password = bcrypt($request->password);
-          $utilisateur->niveau = $request->niveau;
+          $utilisateur->niveau = $request->niveau; 
+        
           $utilisateur->save();
+
+          Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'ajouter', 
+            'libelle' => 'utilisateur'
+          ]);  
+
           Session::flash('success', 'Utilisateur ajouté avec succé !');
           return redirect()->route('admin.utilisateurs.index');
         }
@@ -130,7 +140,14 @@ class UtilisateursController extends Controller
           }
 
           $utilisateur->niveau = $request->niveau;
-          $utilisateur->save();
+          $utilisateur->save(); 
+
+          Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'modifier', 
+            'libelle' => 'utilisateur'
+          ]);  
+
           Session::flash('success', 'Utilisateur modifié avec succé !');
           return redirect()->route('admin.utilisateurs.index');
         }
@@ -144,6 +161,13 @@ class UtilisateursController extends Controller
         public function destroy($id)
         {
             User::destroy($id);
+
+            Historique::create([
+              'user' => Auth::user()->id, 
+              'operation' => 'supprimer', 
+              'libelle' => 'utilisateur'
+            ]);  
+
             Session::flash('success', 'Utilisateur supprimé avec succé !');
 
             return redirect()->route('admin.utilisateurs.index');

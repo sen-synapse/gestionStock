@@ -22,5 +22,10 @@ class Article extends Model
     public function ligneVente()
     {
       return $this->hasMany('App\Models\LigneVente', 'idarticle');
-    } 
+    }  
+
+    public function articlesabimes()
+    {
+      return $this->hasMany('App\Models\Article', 'idarticle');
+    }
 }

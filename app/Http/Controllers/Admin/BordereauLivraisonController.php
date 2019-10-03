@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\BordereauLivraison; 
 use App\Models\Client; 
 use Session; 
+use Auth; 
+use App\Models\Historique; 
 
 class BordereauLivraisonController extends Controller
 { 
@@ -78,6 +80,12 @@ class BordereauLivraisonController extends Controller
             'datebrd' => $request->date, 
             'fichier' => $fichier_new
           ]); 
+            
+          Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'ajouter', 
+            'libelle' => 'Bordereau Livraison'
+          ]);  
 
           Session::flash('success', 'Bordereau ajouté avec succé !');
           return redirect()->route('admin.bordereaulivraison.index');
@@ -128,6 +136,12 @@ class BordereauLivraisonController extends Controller
         // 
         $bd = BordereauLivraison::find($id); 
         $bd->delete();  
+
+        Historique::create([
+            'user' => Auth::user()->id, 
+            'operation' => 'supprimer', 
+            'libelle' => 'Bordereau Livraison'
+          ]);  
 
         Session::flash('success', 'Bordereau supprimé avec succé !'); 
 

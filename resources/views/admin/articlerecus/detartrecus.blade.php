@@ -8,8 +8,9 @@
 
     <div class="card card-default">
       <div class="card-header text-center">
-      <h4 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">ARTICLES RECUS EN FONCTION DE L'ARTICLE ET LA COULEUR</h4>
+        <h4 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">ARTICLES RECUS EN FONCTION DE L'ARTICLE ET LA COULEUR</h4>
       </div>
+
       <div class="card-body">
         <table class="table table-striped">
           <tr>
@@ -52,6 +53,12 @@
                 <td> {{ $atr->qte}}</td>
                 <td> {{ $atr->couleur }}</td>
                 <td>
+
+                <a href="#" class="show-modal-add btn btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #2196f3; color: #fff;" data-ida="{{$atr->id}}"
+                     data-fourniss = "{{ $f->id }}" data-articlea="{{$at->id}}" data-usera="{{$u->id}}"
+                     data-qtea="{{ $atr->qte }}" data-couleura="{{ $atr->couleur}}">
+                      <i class="pe-7s-shield" style="font-size: 20px;"></i>
+                  </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
                   <a href="#" class="show-modal btn btn-info btn-sm" style="box-shadow: 0px 0px 15px #95A5A6; background: #1DC7EA; color: #fff;" data-id="{{$atr->id}}"
                      data-article="{{$at->article}}" data-user="{{$u->email}}"
@@ -127,6 +134,58 @@
     </div>
 </div>
 
+<div id="showmodalAdd" class="modal fade" role="dialog" tabindex="-1" >
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header" style="background: #1D62F0;">
+                  <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
+                  <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
+                </div>
+                <div class="modal-body"> 
+                <form method="post" action="{{ route('admin.articlesabimes.store') }}">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                  <div class="form-group">
+                    <div class="row">
+                        <label class="col-md-3">Quantites abimes  : </label>
+                        <div class="col-md-6">
+                          <input type="text" name="qteabime" class="form-control {{ $errors->has('qteabime') ? 'is-invalid' : ''}}" value="{{ old('qteabime')}}">
+                        @if($errors->has('qteabime'))
+                          <div class="text-center text-danger">
+                            {{ $errors->first('qteabime') }}
+                          </div>
+                        @endif 
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                  </div> 
+
+                  <input type="hidden" class="form-control" id="ida" name="id">
+                  <input type="hidden" class="form-control" id="fourniss" name="fourniss">
+                  <input type="hidden" class="form-control" id="articlea" name="article">
+                  <input type="hidden" class="form-control" id="usera" name="user">
+                  <input type="hidden" class="form-control" id="qtea" name="qte">
+                  <input type="hidden" class="form-control" id="couleura" name="couleur">
+
+                   <div class="form-group  text-center">
+                      <input type="submit" class="btn btn-primary" value="AJOUTER" style="background: #1D62F0; color: #fff; box-shadow: 0px 0px 15px #95A5A6;">
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+@if($errors->count())
+    <script>
+      $(document).ready(function() {
+        $('#showmodalAdd').modal('show');
+        $('.modal-title').text('Echec de l\'operation !');
+        $('.modal-header').css('background', '#FF4A55');
+      });
+    
+    </script> 
+@endif
 
 <script>
 // Show function Fournisseur
@@ -140,6 +199,21 @@ $(document).on('click', '.show-modal', function() {
     $('#couleur').val($(this).data('couleur'));
     $('.modal-title').text('Details Article reçus');
     $('.modal-header').css('background', '#1DC7EA');
-});
+}); 
+</script> 
+
+<script>
+
+$(document).on('click', '.show-modal-add', function() {
+        $('#showmodalAdd').modal('show');
+        $('#ida').val($(this).data('ida'));
+        $('#fourniss').val($(this).data('fourniss'));
+        $('#articlea').val($(this).data('articlea'));
+        $('#usera').val($(this).data('usera'));
+        $('#qtea').val($(this).data('qtea'));
+        $('#couleura').val($(this).data('couleura'));
+        $('.modal-title').text('Ajouter quantite abimee');
+        $('.modal-header').css('background', '#1D62F0');
+    }); 
 </script>
 @endsection

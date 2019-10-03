@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="col-md-7 col-sm-6" style="margin-left: 5%;">
-          <input id="myInput" type="search" placeholder="Recherche Fournisseur " class="form-control filtre" align="center"
+          <input id="myInput" type="search" placeholder="Recherche historique " class="form-control filtre" align="center"
           style="border-top: none;border-left: none;border-right: none;"> 
         </div>
       </div>
@@ -22,15 +22,21 @@
       			<th>Utilisateur</th>
       			<th>OPERATION</th>
       			<th>LIBELLE</th>
+            <th>Date</th>
       		</thead>
           <tbody id="tbody">
         
           @foreach($historiques as $h)
-            <tr>
-              <td>{{ $h->user }}</td>
-              <td>{{ $h->operation }}</td>
-              <td>{{ $h->libelle }}</td>
-            </tr>
+            @foreach(App\User::all() as $u)
+              @if($u->id == $h->user)
+                <tr>
+                  <td>{{ $u->email }}</td>
+                  <td>{{ $h->operation }}</td>
+                  <td>{{ $h->libelle }}</td>
+                  <td>{{ $h->created_at }}</td>
+                </tr> 
+              @endif 
+            @endforeach
           @endforeach
           </tbody> 
 
