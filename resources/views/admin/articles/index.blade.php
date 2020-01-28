@@ -1,7 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-
 <section class="content">
   <div class="container-fluid">
 
@@ -12,20 +10,13 @@
       <br>
     <div class="row">
       <div class="col-md-4 col-sm-3">
-      <a href="#" 
+      <a href="#"
             class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU ARTICLE</a>
       </div>
-
-      <div class="col-md-7 col-sm-6">
-        <input id="myInput" type="search" placeholder="Recherche article " class="form-control filtre" align="center"
-        style="border-top: none;border-left: none;border-right: none;"> 
-      </div> 
-
-    </div> 
+    </div>
     <br>
-
       <div class="card-body">
-        <table class="table table-striped">
+        <table class="table table-striped" id="datatable">
           <thead>
             <th>Code</th>
             <th>Sous categorie</th>
@@ -33,9 +24,9 @@
             <th>Unité</th>
             <th>Dimension</th>
             <th>Action</th>
-          </thead> 
+          </thead>
           <tbody id="tbody">
-        
+
             @if($articles->count() > 0)
 
               @foreach($articles as $at)
@@ -133,7 +124,7 @@
                   <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
                   <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                   <form method="post" action="{{ route('admin.articles.store') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -220,7 +211,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     @if($errors->count())
         <script>
@@ -229,8 +220,8 @@
             $('.modal-title').text('Echec de l\'ajout Fournisseur !');
             $('.modal-header').css('background', '#FF4A55');
           });
-        
-        </script> 
+
+        </script>
       @endif
 
 <script>
@@ -245,23 +236,13 @@ $(document).on('click', '.show-modal', function() {
     $('#dimension').val($(this).data('dimension'));
     $('.modal-title').text('Details Article');
     $('.modal-header').css('background', '#1DC7EA');
-}); 
+});
 
 $(document).on('click', '.show-modal-add', function() {
         $('#showmodalAdd').modal('show');
         $('.modal-title').text('Ajouter Article');
         $('.modal-header').css('background', '#1D62F0');
-    }); 
-</script> 
-
-<script>
-		 $(document).ready(function(){
-		    $("#myInput").on("keyup", function() {
-		         var value = $(this).val().toLowerCase();
-		          $("#tbody tr").filter(function() {
-		           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		           });
-		      });
-		  });
-	</script>
+    });
+    $('#datatable').dataTable();
+</script>
 @endsection

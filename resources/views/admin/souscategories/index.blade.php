@@ -1,34 +1,30 @@
 @extends('layouts.admin')
 @section('content')
-<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
- 
+
     <div class="card card-default">
       <div class="card-header text-center">
       <h3 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">SOUS CATEGORIES </h3>
       </div>
       <div class="row">
           <div class="col-md-4 col-sm-3">
-          <a href="#" 
+          <a href="#"
                 class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU SOUS CATEGORIE</a>
-          </div> 
-          <div class="col-md-7 ">
-              <input id="myInput" type="search" placeholder="Rechercher Utilisateur" class="form-control filtre" align="center"
-              style="border-top: none;border-left: none;border-right: none;"> 
-          </div> 
-      </div> 
+          </div>
+      </div>
       <br>
       <div class="card-body">
-        <table class="table table-striped">
+        <table class="table table-striped" id="datatable">
           <thead>
             <th>Code</th>
             <th>Sous categorie</th>
             <th>Categorie</th>
             <th>Action</th>
-          </thead> 
-         
+          </thead>
+
           @if($souscategories->count() > 0)
             <tbody id="tbody">
               @foreach($souscategories as $sc)
@@ -67,7 +63,7 @@
           @else
               <tr>
                 <th colspan="4" class="text-center"> Aucun sous catégorie !</th>
-              </tr> 
+              </tr>
             </tbody>
           @endif
         </table>
@@ -114,7 +110,7 @@
                   <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
                   <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                 <form method="post" action="{{ route('admin.souscategories.store') }}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -178,8 +174,8 @@
             $('.modal-title').text('Echec de l\'ajout Fournisseur !');
             $('.modal-header').css('background', '#FF4A55');
           });
-        
-        </script> 
+
+        </script>
       @endif
 <script>
 // Show function Fournisseur
@@ -191,23 +187,14 @@ $(document).on('click', '.show-modal', function() {
     $('#categorie').val($(this).data('categorie'));
     $('.modal-title').text('Details Sous Catégorie');
     $('.modal-header').css('background', '#1DC7EA');
-}); 
+});
 
 $(document).on('click', '.show-modal-add', function() {
         $('#showmodalAdd').modal('show');
         $('.modal-title').text('Ajouter Fournisseur');
         $('.modal-header').css('background', '#1D62F0');
-    }); 
-</script> 
-
-<script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#tbody tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-        });
     });
+    $('#datatable').dataTable();
 </script>
+
 @endsection

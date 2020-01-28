@@ -4,7 +4,8 @@
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	
 	<title>RASSOUL CERAMIQUE SYSTEME D'INFORMATION</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -29,7 +30,13 @@
     <link href="{{asset('css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}">
 
-  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+	  <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
+
+		<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+		<script src="{{asset('js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
+		<script src="{{asset('js/dataTables.bootstrap.min.js')}}" type="text/javascript"></script>
+
 </head>
 <body>
 <?php
@@ -70,7 +77,7 @@
                         <i class="pe-7s-news-paper"></i>
                         <p>BORDEREAU FOURNISSEURS</p>
                     </a>
-                </li> 
+                </li>
                 <li class=" @if($segment == 'client') active @endif">
                     <a href="{{ route('admin.client.index') }}">
                         <i class="pe-7s-user"></i>
@@ -131,7 +138,7 @@
                         <i class="pe-7s-users"></i>
                         <p>UTILISATEURS</p>
                     </a>
-                </li> 
+                </li>
                 @endif
             </ul>
     	</div>
@@ -178,14 +185,14 @@
                               </ul>
                         </li>
                         <li>
-                            
+
                         </li>
 						<li class="separator hidden-lg"></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
           @yield('content')
 
         <footer class="footer">
@@ -214,7 +221,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav> 
+                </nav>
                 -->
                 <p class="copyright text-center">
                     &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">RASSOUL CERAMIQUE</a>
@@ -229,7 +236,6 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="{{asset('js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 	<!--  Charts Plugin -->
@@ -244,10 +250,10 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="{{asset('js/demo.js')}}"></script>
 
-    
+
     <script src="{{ asset('js/toastr.min.js') }}"></script>
 
-    <script type="text/javascript"> 
+    <script type="text/javascript">
          @if(Session::has('success'))
             $(document).ready(function(){
 
@@ -262,8 +268,8 @@
                     timer: 4000
                 });
 
-            }); 
-        @endif 
+            });
+        @endif
 
         @if(Session::has('info'))
             $(document).ready(function(){
@@ -279,7 +285,7 @@
                     timer: 4000
                 });
 
-            }); 
+            });
         @endif
 
 	</script>

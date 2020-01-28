@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
-  
+
 
     <div class="card card-default">
       <div class="card-header text-center">
@@ -12,18 +12,14 @@
       </div>
       <div class="row">
         <div class="col-md-4 col-sm-3">
-        <a href="#" 
+        <a href="#"
               class="show-modal-add btn btn-sm btn-primary" style="margin-left: 5%; box-shadow: 0px 0px 15px #95A5A6; background: #1D62F0; color: #fff;"><i class="fa fa-plus"></i>NOUVEAU BORDEREAU</a>
         </div>
-        <div class="col-md-7 col-sm-6">
-              <input id="myInput" type="search" placeholder="Recherche Bordereau Fournisseur" class="form-control filtre" align="center"
-              style="border-top: none;border-left: none;border-right: none;"> 
-        </div>
-    </div> 
+    </div>
     <br>
 
       <div class="card-body">
-        <table class="table table-striped">
+        <table class="table table-striped" id="datatable">
           <thead>
 
             <th>Fournisseur  </th>
@@ -69,7 +65,7 @@
           <tr><th colspan="4" class="text-center">Aucun Bordereau Enregistr&eacute; !</th></tr>
           @endif
           </tbody>
-         
+
         </table>
       </div>
     </div>
@@ -80,14 +76,14 @@
             <div class="modal-content" style="width: 100%;">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" style="color: #fff; font-size: 30px;">&times;</button>
-                  <h4 class="modal-title text-center" style="color: #fff;">Bordereau Fournisseur</h4>  
+                  <h4 class="modal-title text-center" style="color: #fff;">Bordereau Fournisseur</h4>
                 </div>
                 <div class="modal-body" style=" height: 80vh;">
 
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div id="showmodalAdd" class="modal fade" role="dialog" tabindex="-1" >
         <div class="modal-dialog" >
@@ -96,7 +92,7 @@
                   <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
                   <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                 <form  method="post" action="{{ route('admin.bordereaufournisseurs.store') }}" enctype="multipart/form-data">
                   {{ csrf_field() }}
                     <div class="form-group">
@@ -108,7 +104,7 @@
                               <option value="{{$f->id}}">{{ $f->email }}</option>
                             @endforeach
                             </select>
-                      
+
                         </div>
                         <div id="list"></div>
                         <div class="clearfix"></div>
@@ -149,7 +145,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     @if($errors->count())
         <script>
           $(document).ready(function() {
@@ -157,8 +153,8 @@
             $('.modal-title').text('Echec de l\'ajout Fournisseur !');
             $('.modal-header').css('background', '#FF4A55');
           });
-        
-        </script> 
+
+        </script>
       @endif
 </section>
 
@@ -177,23 +173,14 @@
 
         PDFObject.embed(fichier, '.modal-body');
         $('.modal-header').css('background', '#1DC7EA');
-    }); 
+    });
 
     $(document).on('click', '.show-modal-add', function() {
         $('#showmodalAdd').modal('show');
         $('.modal-title').text('Ajouter Bordereau Fournisseur');
         $('.modal-header').css('background', '#1D62F0');
-    }); 
+    });
+    $('#datatable').dataTable();
 </script>
 
-<script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-          var value = $(this).val().toLowerCase();
-          $("#tbody tr").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        });
-    });
-</script>
 @endsection

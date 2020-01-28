@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <!-- /.content-header -->
-    <script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <section class="content">
   <div class="container-fluid">
     <div class="card card-default">
@@ -25,12 +25,15 @@
             <div class="row">
               <label class="col-md-3">Article : </label>
               <div class="col-md-6">
-
-                <select class="form-control" name="idarticle">
-                  @foreach($articles as $article)
-                    <option value="{{ $article->id}}">{{ $article->article }}</option>
-                  @endforeach
-                </select>
+                <div class="form-input">
+                  <input type="text" name="articles" id="articles" class="form-control" placeholder="Entrez un article" />
+                  <div id="articleListe"></div>
+                  @if($errors->has('articles'))
+                    <div class="text-center text-danger">
+                      {{ $errors->first('articles')}}
+                    </div>
+                  @endif
+                </div>
 
               </div>
               <div class="clearfix"></div>
@@ -85,5 +88,45 @@
   </div>
 </section>
 
+<script type="text/javascript">
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  $(document).ready(function(){
+    $('#articles').keyup(function(){
+      var query = $(this).val();
+      if(query != '')
+      {
+        var _token = $('input[name="_token"]').val();
+        $.ajax({
+          type: 'POST',
+          dataType: 'json',
+          data: {query:query, _token:_token},
+          url: '/autocomplete-articles',
+          success:function(data)
+          {
+            rows = '<ul class="nav nav-bar" style="display:block;position:relative;">';
+            $.each(data, function(key, value){
+              rows += '<li class="nav-item" ><a class="nav-link" style="color: #000;" href="#">'+ value.article + '</a></li>';
+            });
+            rows += '</ul>';
+
+            $('#articleListe').fadeIn();
+            $('#articleListe').html(rows);
+          }
+        })
+      }
+    });
+
+    $(document).on('click', 'li', function(){
+      $('#articles').val($(this).text());
+      $('#articleListe').fadeOut();
+    });
+  });
+
+</script>
 
 @endsection

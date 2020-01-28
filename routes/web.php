@@ -49,18 +49,20 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
   ]);
 
 	Route::resource('/fournisseurs', 'FournisseursController');
-  
-  Route::resource('/client', 'ClientController'); 
 
-  Route::resource('/bordereaulivraison', 'BordereauLivraisonController'); 
-  
-  Route::resource('/vente', 'LigneVenteController'); 
+  Route::resource('/client', 'ClientController');
+
+  Route::resource('/bordereaulivraison', 'BordereauLivraisonController');
+
+  Route::resource('/vente', 'LigneVenteController');
   Route::get('/{id}/vente', [
     'uses' => 'LigneVenteController@ajouter',
     'as' => 'vente.ajouter'
-  ]); 
+  ]);
 
-  Route::resource('/historique', 'HistoriqueController'); 
+
+
+  Route::resource('/historique', 'HistoriqueController');
 
   Route::resource('/articlesabimes', 'ArticlesAbimesController');
 
@@ -79,16 +81,8 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     'uses' => 'ArticleRecusController@details',
     'as' => 'articlerecus.details'
   ]);
-   
+
 	Route::resource('/bordereaufournisseurs', 'BordereauFournisseursController');
-
-
-  Route::get('/autocomplete',[
-   'uses' => 'BordereauFournisseurController@autocomplete',
-   'as' => 'bordereaufournisseurs.autocomplete'
-  ]);
-
-
 
   Route::resource('/utilisateurs', 'UtilisateursController');
   Route::post('/{id}/utilisateurs', [
@@ -102,8 +96,11 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     'as' => 'profil.update'
   ]);
 
-});
 
+});
+    Route::post('/autocomplete-articles', [
+      'uses' => 'Admin\LigneVenteController@fetch'
+    ]);
 /*Route de la gestion de la facturation RC-GF*/
 Route::namespace('AdminGF')->prefix('admingf')->as('admingf.')->middleware('auth')->group(function(){
 

@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
- 
+
     <!-- /.content-header -->
 <section class="content">
   <div class="container-fluid">
@@ -12,27 +11,28 @@
       </div>
 
       <div class="card-body">
-        <table class="table table-striped">
-          <tr>
+        <table id="datatable" class="table table-striped">
+          <thead>
             <th>Bordereau Fournisseur</th>
             <th>Article</th>
             <th>Utilisateurs</th>
             <th>Quantité</th>
             <th>Couleur</th>
             <th>Action</th>
-          </tr>
+          </thead>
           @if($articlerecus->count() > 0)
 
             @foreach($articlerecus as $atr)
-                
+
               <tr class=" <?php if($atr->qte < 10) { echo 'bg-danger'; }?>">
               @foreach($brd as $b)
                   @if($b->id == $atr->idbrdfourniss)
                     @foreach(App\Models\Fournisseur::all() as $f)
                       @if($b->idfourniss == $f->id)
                         <td>{{ $f->email }} -
-                        {{ $b->datebrd }}</td> 
-                      @endif 
+                        {{ $b->datebrd }}</td>
+                          <?php break; ?>
+                      @endif
                       @endforeach
                   @endif
                 @endforeach
@@ -40,6 +40,7 @@
                 @foreach($articles as $at)
                   @if($atr->idarticle == $at->id)
                     <td>{{ $at->article }}</td>
+                      <?php break; ?>
                   @endif
                 @endforeach
 
@@ -66,7 +67,7 @@
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-                  <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}" 
+                  <a href="{{ route('admin.articlerecus.edit', $atr->id) }}" class="btn btn-warning btn-sm" data-id="{{$atr->id}}"
                   style="box-shadow: 0px 0px 15px #95A5A6; background: #FF9500; color: #fff;">
                       <i class="fa fa-pencil"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -101,7 +102,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title text-center" style=" color: #fff;"></h4>
-               
+
             </div>
             <div class="modal-body">
 
@@ -141,7 +142,7 @@
                   <button type="button" data-dismiss="modal" class="close" style="color: #fff; font-size: 30px;">&times;</button>
                   <h4 class="modal-title" style="text-align: center; color: #fff;"></h4>
                 </div>
-                <div class="modal-body"> 
+                <div class="modal-body">
                 <form method="post" action="{{ route('admin.articlesabimes.store') }}">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -154,11 +155,11 @@
                           <div class="text-center text-danger">
                             {{ $errors->first('qteabime') }}
                           </div>
-                        @endif 
+                        @endif
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                  </div> 
+                  </div>
 
                   <input type="hidden" class="form-control" id="ida" name="id">
                   <input type="hidden" class="form-control" id="fourniss" name="fourniss">
@@ -174,7 +175,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
 @if($errors->count())
     <script>
@@ -183,8 +184,8 @@
         $('.modal-title').text('Echec de l\'operation !');
         $('.modal-header').css('background', '#FF4A55');
       });
-    
-    </script> 
+
+    </script>
 @endif
 
 <script>
@@ -199,8 +200,8 @@ $(document).on('click', '.show-modal', function() {
     $('#couleur').val($(this).data('couleur'));
     $('.modal-title').text('Details Article reçus');
     $('.modal-header').css('background', '#1DC7EA');
-}); 
-</script> 
+});
+</script>
 
 <script>
 
@@ -214,6 +215,7 @@ $(document).on('click', '.show-modal-add', function() {
         $('#couleura').val($(this).data('couleura'));
         $('.modal-title').text('Ajouter quantite abimee');
         $('.modal-header').css('background', '#1D62F0');
-    }); 
+    });
+    $('#datatable').dataTable();
 </script>
 @endsection

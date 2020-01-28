@@ -9,9 +9,9 @@ use App\Models\Article;
 use App\Models\LigneArticleRecus;
 use App\User;
 use Session;
-use DB; 
-use App\Models\Historique; 
-use Auth; 
+use DB;
+use App\Models\Historique;
+use Auth;
 
 class ArticleRecusController extends Controller
 {
@@ -30,17 +30,17 @@ class ArticleRecusController extends Controller
         $i = 0;
         $j = 0;
         $k = 0;
-        $somme = 0; 
+        $somme = 0;
 
         $tab1 = LigneArticleRecus::all();
-        $tab2 = $tab1; 
-        $tab3 = array(); 
+        $tab2 = $tab1;
+        $tab3 = array();
         $result = true;
 
         while($i < $tab1->count())
         {
-          $somme = $tab1[$i]->qte; 
-          $j = $i + 1; 
+          $somme = $tab1[$i]->qte;
+          $j = $i + 1;
           while($j < $tab2->count())
           {
             if($tab1[$i]->idarticle == $tab2[$j]->idarticle && $tab1[$i]->couleur == $tab2[$j]->couleur)
@@ -49,7 +49,7 @@ class ArticleRecusController extends Controller
             }
             $j++;
           }
-          
+
           foreach($tab3 as $t)
           {
             if($t->idarticle == $tab1[$i]->idarticle && $t->couleur == $tab1[$i]->couleur)
@@ -59,16 +59,16 @@ class ArticleRecusController extends Controller
             }
           }
 
-          if($result) 
+          if($result)
           {
-            $tab3[$k] = $tab1[$i]; 
+            $tab3[$k] = $tab1[$i];
             $tab3[$k]->qte = $somme;
             $k++;
             $i++;
-          } 
-          
-          $result = true; 
-          
+          }
+
+          $result = true;
+
           $k = sizeof($tab3);
         }
  */
@@ -128,9 +128,9 @@ class ArticleRecusController extends Controller
           Session::flash('info', 'Veuillez ajouter d\'abord des articles !');
           return redirect()->back();
         }
-        
+
         return view('admin.articlerecus.create')->with('brd', $brd)->with('articles', $articles);
-    } 
+    }
 
     public function details($art, $couleur)
     {
@@ -145,7 +145,7 @@ class ArticleRecusController extends Controller
             ->with('brd', $brd)
             ->with('users', $users)
             ->with('articles', $articles);
-      
+
     }
 
     /**
@@ -157,11 +157,19 @@ class ArticleRecusController extends Controller
     public function store(Request $request)
     {
         //
+        $article = DB::table('articles')->where('article', '=', $request->articles)->get();
+
+        if($article->count() == 0)
+        {
+          Session:: flash('info', 'Cet article n\'existe pas ');
+          return redirect()->back();
+        }
+
         $artrecus = LigneArticleRecus::all();
 
         foreach($artrecus as $n)
         {
-          if($n->idbrdfourniss == $request->idbrd && $n->idarticle == $request->idarticle)
+          if($n->idbrdfourniss == $request->idbrd && $n->idarticle == $article[0]->id)
           {
             Session::flash('info', 'Cet article est deja ajouté. Veuillez choisir un autre !');
             return redirect()->back();
@@ -182,18 +190,18 @@ class ArticleRecusController extends Controller
         $atrecu->qteabimee = 0;
 
         $atrecu->save();
-        
+
         Session::flash('success', 'Article Reçu ajouté avec succè !');
 
         Historique::create([
-          'user' => Auth::user()->id, 
-          'operation' => 'ajouter', 
+          'user' => Auth::user()->id,
+          'operation' => 'ajouter',
           'libelle' => 'article reçu'
-        ]); 
+        ]);
 
         $brd =  BordereauFournisseur::find($request->idbrd);
         $articlerecus = LigneArticleRecus::all();
-      
+
         $fourniss = BordereauFournisseur::find($brd->idfourniss);
         $articles = Article::all();
         $users = User::all();
@@ -256,10 +264,10 @@ class ArticleRecusController extends Controller
         $atrecu->save();
 
         Historique::create([
-          'user' => Auth::user()->id, 
-          'operation' => 'modifier', 
+          'user' => Auth::user()->id,
+          'operation' => 'modifier',
           'libelle' => 'article reçu'
-        ]);  
+        ]);
         Session::flash('success', 'Article Reçu modifié avec succè !');
 
         return redirect()->route('admin.articlerecus.index');
@@ -278,10 +286,10 @@ class ArticleRecusController extends Controller
         $atr->delete();
 
         Historique::create([
-          'user' => Auth::user()->id, 
-          'operation' => 'supprimer', 
+          'user' => Auth::user()->id,
+          'operation' => 'supprimer',
           'libelle' => 'article reçu'
-        ]);  
+        ]);
 
         Session::flash('success', 'Artcie reçus supprimé avec succè !');
 

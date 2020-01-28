@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<script src="{{ asset('js/jquery.3.2.1.min.js') }}"></script>
+
 <section class="content">
   <div class="container-fluid">
 
@@ -9,14 +9,8 @@
         <h4 class="text-center" style="background: #2196f3; color: #fff; padding: 20px;">ARTICLES RECUS EN FONCTION ARTICLE ET QUANTITE</h4>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-md-7 col-md-offset-3 col-sm-6">
-            <input id="myInput" type="search" placeholder="Recherche article recu " class="form-control filtre" align="center"
-          style="border-top: none;border-left: none;border-right: none;"> 
-          </div>
-        </div> 
         <br>
-        <table class="table table-striped">
+        <table  id="datatable" class="table table-striped">
           <thead>
             <th>Article</th>
             <th>Utilisateurs</th>
@@ -27,7 +21,7 @@
           <tbody id="tbody">
           @if(sizeof($articlerecus) > 0)
 
-            @foreach($articlerecus as $atr)  
+            @foreach($articlerecus as $atr)
                 <tr class=" <?php if($atr->qte < 10) { echo 'bg-danger'; }?>">
                 @foreach($articles as $at)
                   @if($atr->idarticle == $at->id)
@@ -50,7 +44,7 @@
                       <i class="fa fa-eye"></i>
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
-              </tr> 
+              </tr>
             @endforeach
           @else
             <tr>
@@ -104,7 +98,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
 // Show function Fournisseur
@@ -118,16 +111,7 @@ $(document).on('click', '.show-modal', function() {
     $('#couleur').val($(this).data('couleur'));
     $('.modal-title').text('Details Article reçus');
 });
-</script> 
+$('#datatable').dataTable();
+</script>
 
-<script>
-		 $(document).ready(function(){
-		    $("#myInput").on("keyup", function() {
-		         var value = $(this).val().toLowerCase();
-		          $("#tbody tr").filter(function() {
-		           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-		           });
-		      });
-		  });
-	</script>
 @endsection
